@@ -1,0 +1,13 @@
+{
+  "name": "orbit-ranger",
+  "version": "1.0.0",
+  "description": "A step-by-step 3D game about designing a wildfire-watching satellite mission. Built for the 2026 NASA Space Apps Challenge.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "test": "node tests/run-tests.js",
+    "balance": "node tools/balance.js engineer",
+    "textures": "node tools/embed-textures.js"
+  }
+}
