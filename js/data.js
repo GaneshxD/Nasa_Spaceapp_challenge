@@ -323,7 +323,7 @@
       groups: [
         { key: 'sensor', label: 'Fire sensor', pick: 'one', from: 'SENSORS' },
         { key: 'extras', label: 'Bonus science tools', pick: 'any', from: 'EXTRAS',
-          help: 'Optional. Each adds science points, and adds mass, power, cost and data.' }
+          help: 'Optional. More science, more weight.' }
       ]
     },
     {

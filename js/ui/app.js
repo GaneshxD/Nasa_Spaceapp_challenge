@@ -235,21 +235,30 @@
   }
 
   /* ----- a design step ----- */
+  var LEVEL_WORD = { ok: 'Good.', warn: 'Careful.', bad: 'Problem.' };
+  /** A tile: picture, name, a few numbers and a face. The words wait in detailHtml until it is picked. */
   function cardHtml(g, key) {
     var item = D[g.from][key], d = state.design;
     var on = g.pick === 'any' ? d.extras.indexOf(key) >= 0 : d[g.key] === key;
-    var liveLine = W.liveLine(g.key, key, d, state.diff), liveHtml = '';
-    if (liveLine.text) {
-      var word = { ok: 'Good.', warn: 'Careful.', bad: 'Problem.' }[liveLine.level] || '';
-      liveHtml = '<span class="card-live" data-level="' + liveLine.level + '">' + (word ? '<b>' + word + '</b>' : '') + esc(liveLine.text) + '</span>';
-    }
+    var lv = W.liveLine(g.key, key, d, state.diff).level;
     return '<button type="button" class="card" data-act="pick" data-group="' + g.key + '" data-key="' + key + '" aria-pressed="' + on + '">' +
       '<span class="card-icon">' + W.icon(item.icon || key) + '</span>' +
-      '<span><span class="card-name">' + item.name + '</span>' +
-      '<span class="card-blurb">' + item.blurb + '</span>' +
-      W.chips(g.key, item) + liveHtml +
-      (item.real ? '<span class="card-real">In real life: ' + item.real + '</span>' : '') + '</span>' +
-      '<span class="card-mark">Picked</span></button>';
+      '<span class="card-name">' + item.name + '</span>' +
+      '<span class="card-chips">' + W.chips(g.key, item) + '</span>' +
+      (lv ? '<span class="card-face" data-level="' + lv + '">' + W.icon(lv) + '<span class="sr">' + LEVEL_WORD[lv] + '</span></span>' : '') +
+      '<span class="card-mark" aria-hidden="true">✓</span></button>';
+  }
+
+  /** The speech bubble under a group: one short sentence about each picked tile. */
+  function detailHtml(g) {
+    var d = state.design;
+    var keys = g.pick === 'any' ? d.extras : d[g.key] ? [d[g.key]] : [];
+    return keys.map(function (key) {
+      var item = D[g.from][key], live = W.liveLine(g.key, key, d, state.diff);
+      return '<div class="card-detail" data-level="' + live.level + '"><p><b>' + item.name + '.</b> ' + esc(item.blurb.split('. ')[0].replace(/\.$/, '')) + '.</p>' +
+        (live.text ? '<p class="card-live">' + (LEVEL_WORD[live.level] ? '<b>' + LEVEL_WORD[live.level] + '</b> ' : '') + esc(live.text) + '</p>' : '') +
+        (item.real ? '<details><summary>In real life</summary><p>' + item.real + '</p></details>' : '') + '</div>';
+    }).join('');
   }
 
   function hintsHtml(ev) {
@@ -306,10 +315,11 @@
     var groups = st.groups.map(function (g) {
       return '<fieldset class="group"><legend>' + g.label + '</legend>' +
         (g.help ? '<p class="group-help">' + g.help + '</p>' : '') +
-        '<div class="cards">' + Object.keys(D[g.from]).map(function (k) { return cardHtml(g, k); }).join('') + '</div></fieldset>';
+        '<div class="cards tiles">' + Object.keys(D[g.from]).map(function (k) { return cardHtml(g, k); }).join('') + '</div>' +
+        '<div aria-live="polite">' + detailHtml(g) + '</div></fieldset>';
     }).join('');
     var showSight = st.id === 'sensor' || st.id === 'orbit' || st.id === 'brain';
-    var next = last ? 'Go to the launch check' : 'Next: ' + D.STEPS[state.step + 1].title.toLowerCase();
+    var next = last ? 'Launch check' : 'Next: ' + D.STEPS[state.step + 1].nav;
     panel.innerHTML =
       '<div class="sheet" style="--role:' + role.color + '"><div class="sheet-scroll">' +
       '<div class="step-meta"><span>Step ' + (state.step + 1) + ' of ' + D.STEPS.length + '</span>' +
@@ -321,7 +331,7 @@
       (showSight ? sightHtml(ev) : '') + labHtml(st.id, ready) +
       '<details class="why"><summary>Why does this matter?</summary><p>' + W.terms(st.why) + '</p></details>' +
       '</div><div class="sheet-foot">' +
-      '<button type="button" class="btn" data-act="back">Back</button><span class="grow foot-note">' + (ready ? '' : 'Pick one in each group to go on.') + '</span>' +
+      '<button type="button" class="btn" data-act="back">Back</button><span class="grow foot-note">' + (ready ? '' : 'Tap one of each') + '</span>' +
       '<button type="button" class="btn primary" data-act="next"' + (ready ? '' : ' disabled') + '>' + next + '</button></div></div>';
     var cv = $('sight');
     if (cv) W.drawSight(cv, ev.pixel != null ? ev.pixel : RG.Physics.pixelMeters(700, D.SENSORS[d.sensor].ifov, ev.blur));
@@ -335,7 +345,7 @@
     if (sc) sc.scrollTop = top;
     if (group) {
       var el = panel.querySelector('.card[data-group="' + group + '"][data-key="' + key + '"]');
-      if (el) el.focus({ preventScroll: true });
+      if (el) { el.focus({ preventScroll: true }); el.classList.add('just'); }
     }
   }
 

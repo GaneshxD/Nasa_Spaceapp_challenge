@@ -35,6 +35,14 @@
     laser: '<circle cx="6" cy="18" r="3"/><path d="M8.5 15.5L20 4"/><path d="M14.5 4H20v5.5"/>',
     pin: '<path d="M12 21s-6-5.6-6-10a6 6 0 0 1 12 0c0 4.4-6 10-6 10z"/><circle cx="12" cy="11" r="2"/>',
     rocket: '<path d="M12 2c3 2.5 4.5 6 4.5 10v5h-9v-5C7.5 8 9 4.5 12 2z"/><circle cx="12" cy="10" r="1.8"/><path d="M7.5 14L4 18h3.5M16.5 14l3.5 4h-3.5M10 20l2 2 2-2"/>',
+    kg: '<path d="M6 9h12l2.5 11h-17z"/><circle cx="12" cy="6" r="3"/>',
+    coin: '<circle cx="12" cy="12" r="9"/><path d="M14.8 9.2c-.5-1-1.5-1.5-2.8-1.5-1.6 0-2.8.8-2.8 2.1 0 3 5.8 1.4 5.8 4.4 0 1.3-1.3 2.1-3 2.1-1.4 0-2.5-.6-3-1.7M12 5.8v12.4"/>',
+    disk: '<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+    up: '<path d="M12 21V4M6 10l6-6 6 6M5 21h14"/>',
+    moon: '<path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/>',
+    ok: '<circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><g stroke="#fff" stroke-width="2"><path d="M8 9.5v.5M16 9.5v.5M7.5 13.5a5 5 0 0 0 9 0"/></g>',
+    warn: '<circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><g stroke="#fff" stroke-width="2"><path d="M8 9.5v.5M16 9.5v.5M8 15h8"/></g>',
+    bad: '<circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><g stroke="#fff" stroke-width="2"><path d="M8 9.5v.5M16 9.5v.5M7.5 16.5a5 5 0 0 1 9 0"/></g>',
     coach: '<circle cx="12" cy="11" r="8"/><path d="M6.5 10.5a5.5 4 0 0 1 11 0v2a5.5 4 0 0 1-11 0z" fill="currentColor" stroke="none" opacity=".85"/><path d="M12 19v2.5M8 22h8"/>'
   };
   W.icon = function (name) {
@@ -53,21 +61,23 @@
 
   /* ---------- the numbers printed on an option card ---------- */
   W.chips = function (group, item) {
-    var out = [];
+    var out = []; // [icon, hidden word for screen readers, value]
     if (group === 'orbit') {
       var g = P.dayGeometry(Object.keys(D.ORBITS).filter(function (k) { return D.ORBITS[k] === item; })[0]);
-      out.push(W.num(item.alt) + ' km up');
-      out.push(g.shadowFrac < 0.005 ? 'almost no shadow' : Math.round(g.shadowFrac * 100) + '% of each lap in shadow');
+      out.push(['up', 'height', W.num(item.alt) + ' km']);
+      out.push(['moon', 'in shadow', g.shadowFrac < 0.005 ? 'no shadow' : Math.round(g.shadowFrac * 100) + '% dark']);
     } else {
-      if (item.mass != null) out.push(item.mass + ' kg');
-      if (item.watts != null) out.push('makes ' + W.num(item.watts) + ' W');
-      if (item.wh != null) out.push('holds ' + W.num(item.wh) + ' Wh');
-      if (item.power != null) out.push('uses ' + item.power + ' W');
-      if (item.mbps != null) out.push(W.num(item.mbps) + ' Mbps');
-      if (item.data != null) out.push('makes ' + item.data + ' GB a day');
-      if (item.cost != null) out.push(M.fmtMoney(item.cost));
+      if (item.mass != null) out.push(['kg', 'weighs', item.mass + ' kg']);
+      if (item.watts != null) out.push(['sun', 'makes', W.num(item.watts) + ' W']);
+      if (item.wh != null) out.push(['batt', 'holds', W.num(item.wh) + ' Wh']);
+      if (item.power != null) out.push(['bolt', 'uses', item.power + ' W']);
+      if (item.mbps != null) out.push(['radio', 'sends', W.num(item.mbps) + ' Mbps']);
+      if (item.data != null) out.push(['disk', 'makes', item.data + ' GB/day']);
+      if (item.cost != null) out.push(['coin', 'costs', M.fmtMoney(item.cost)]);
     }
-    return out.map(function (t) { return '<span class="chip">' + W.esc(t) + '</span>'; }).join('');
+    return out.map(function (t) {
+      return '<span class="chip" data-kind="' + t[0] + '" title="' + t[1] + '">' + W.icon(t[0]) + '<span class="sr">' + t[1] + ' </span>' + W.esc(t[2]) + '</span>';
+    }).join('');
   };
 
   function withPick(design, group, key) {
@@ -151,11 +161,12 @@
   };
 
   /* ---------- resource gauges ---------- */
+  var METER_ICON = { Money: 'coin', Mass: 'kg', Power: 'bolt', Data: 'disk', Sharpness: 'eye' };
   function meter(name, big, small, frac, level) {
     var pct = frac == null ? 0 : Math.max(3, Math.min(100, frac * 100));
     var word = { ok: 'OK', tight: 'Tight', over: 'Too much', idle: '' }[level];
     return '<div class="meter" data-level="' + level + '">' +
-      '<div class="meter-top"><span class="meter-name">' + name + '</span><span class="meter-state">' + word + '</span></div>' +
+      '<div class="meter-top"><span class="meter-ico">' + W.icon(METER_ICON[name]) + '</span><span class="meter-name">' + name + '</span><span class="meter-state">' + word + '</span></div>' +
       '<div class="meter-num">' + big + '</div>' +
       '<div class="meter-bar"><i style="width:' + pct.toFixed(0) + '%"></i></div>' +
       '<div class="meter-sub">' + small + '</div></div>';

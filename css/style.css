@@ -182,6 +182,54 @@ body[data-screen='step'] #gauges { display: flex; }
 .bar i { width: 0; }
 .widget-row { display: flex; justify-content: space-between; gap: 10px; font-size: 14.5px; }
 .widget-row b { color: #fff; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---------- designer tiles: picture first, words only for what you picked ---------- */
+.tiles { grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); }
+.tiles .card { grid-template-columns: 1fr; justify-items: center; align-content: start; gap: 6px; padding: 14px 6px 10px; text-align: center; border-radius: 22px; transition: transform 0.15s; }
+.tiles .card:hover { transform: translateY(-3px); }
+.tiles .card-icon { width: 60px; height: 60px; border-radius: 50%; background: var(--blue-soft); color: var(--blue-d); }
+.tiles .card:nth-child(3n + 2) .card-icon { background: var(--yellow-soft); color: #b97700; }
+.tiles .card:nth-child(3n) .card-icon { background: #f3e2ff; color: #8a3fc4; }
+.tiles .card-icon .ico { width: 34px; height: 34px; stroke-width: 1.9; }
+.tiles .card-name { padding: 0; font-size: 15.5px; line-height: 1.15; }
+.card-chips { display: grid; gap: 3px; justify-items: center; }
+.tiles .chip { display: inline-flex; align-items: center; gap: 4px; margin: 0; padding: 1px 8px 1px 5px; font-size: 12.5px; }
+.chip .ico { width: 14px; height: 14px; stroke-width: 2.2; }
+.chip[data-kind='coin'] { background: var(--yellow-soft); border-color: #ffe08a; color: var(--yellow-ink); }
+.card-face { position: absolute; top: -9px; left: -7px; color: var(--green); }
+.card-face .ico { width: 28px; height: 28px; filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.15)); }
+.card-face[data-level='warn'] { color: var(--yellow-d); }
+.card-face[data-level='bad'] { color: var(--red); }
+.tiles .card-mark { top: -9px; right: -7px; width: 28px; height: 28px; padding: 0; place-items: center; border-radius: 50%; background: var(--green); color: #fff; font-size: 16px; box-shadow: 0 2px 0 var(--green-d); }
+.tiles .card[aria-pressed='true'] { border-color: var(--blue); background: var(--blue-soft); }
+.tiles .card[aria-pressed='true'] .card-icon { background: var(--blue); color: #fff; }
+.tiles .card[aria-pressed='true'] .card-mark { display: grid; }
+.tiles .card.just .card-icon { animation: boing 0.5s cubic-bezier(0.2, 1.6, 0.4, 1); }
+@keyframes boing { 40% { transform: scale(1.3) rotate(-10deg); } }
+.card-detail { margin-top: 10px; padding: 10px 12px; border-radius: 6px 18px 18px 18px; background: var(--paper); border: 2px solid var(--line); font-size: 15px; }
+.card-detail .card-live { margin-top: 6px; font-size: 14.5px; }
+.card-detail[data-level='ok'] .card-live { background: var(--green-soft); color: var(--green-ink); }
+.card-detail[data-level='warn'] .card-live { background: var(--yellow-soft); color: var(--yellow-ink); }
+.card-detail[data-level='bad'] .card-live { background: var(--red-soft); color: var(--red-ink); }
+.card-detail details { margin-top: 6px; font-size: 14px; }
+.card-detail summary { color: var(--blue-d); font-weight: 800; cursor: pointer; }
+.card-detail details p { margin-top: 4px; font-weight: 400; font-style: italic; color: var(--ink-soft); }
+
+/* gauges: an icon badge that changes colour with the level */
+.meter-top { align-items: center; gap: 6px; }
+.meter-name { flex: 1; }
+.meter-state { white-space: nowrap; font-size: 12px; }
+.meter-ico { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--green-soft); color: var(--green-d); }
+.meter-ico .ico { width: 16px; height: 16px; stroke-width: 2.2; }
+.meter[data-level='tight'] .meter-ico { background: var(--yellow-soft); color: #b97700; }
+.meter[data-level='over'] .meter-ico { background: var(--red-soft); color: var(--red-d); }
+.meter[data-level='idle'] { opacity: 0.8; }
+.meter[data-level='idle'] .meter-ico { background: var(--paper); color: var(--ink-soft); }
+.meter[data-level='idle'] :is(.meter-bar, .meter-sub) { display: none; }
+.meter[data-level='idle'] .meter-num { margin-bottom: 0; }
+.sheet-foot .btn { white-space: nowrap; }
+
 details.why { margin-top: 18px; padding: 10px 12px; border: 2px solid var(--line); border-radius: 16px; }
 details.why summary { font-weight: 800; cursor: pointer; }
 details.why p { margin-top: 8px; font-size: 15.5px; font-weight: 400; }
