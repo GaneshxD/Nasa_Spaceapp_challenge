@@ -9,7 +9,7 @@
   var V = RG.Views, Stage = RG.Stage, A = RG.Audio, Sim = RG.Sim, Score = RG.Score;
   var esc = W.esc;
   var $ = function (id) { return document.getElementById(id); };
-  var panel, gauges, rail, hud, caption, viewtabs, dialog, dialogBody, live, fade, count;
+  var panel, gauges, rail, hud, caption, viewtabs, dialog, dialogBody, live, fade, count, dock;
   var small = window.matchMedia('(max-width: 860px)');
 
   var state = {
@@ -147,6 +147,15 @@
     document.body.classList.toggle('has-tabs', !!tabs);
     caption.textContent = cap;
     gauges.innerHTML = s === 'step' ? W.gauges(evalNow(), state.design) : '';
+    dock.innerHTML = s === 'step' ? W.dock(step().groups.map(function (g) {
+      var d = state.design, keys = g.pick === 'any' ? d.extras : d[g.key] ? [d[g.key]] : [], all = Object.keys(D[g.from]);
+      return {
+        key: g.key, label: g.label, multi: g.pick === 'any', icon: D[g.from][all[0]].icon || all[0],
+        items: keys.map(function (k) {
+          return { icon: D[g.from][k].icon || k, name: D[g.from][k].name, attrs: 'data-act="pick" data-group="' + g.key + '" data-key="' + k + '"' };
+        })
+      };
+    })) : '';
   }
 
   function renderRail() {
@@ -241,7 +250,7 @@
     var item = D[g.from][key], d = state.design;
     var on = g.pick === 'any' ? d.extras.indexOf(key) >= 0 : d[g.key] === key;
     var lv = W.liveLine(g.key, key, d, state.diff).level;
-    return '<button type="button" class="card" data-act="pick" data-group="' + g.key + '" data-key="' + key + '" aria-pressed="' + on + '">' +
+    return '<button type="button" class="card" data-act="pick" data-drag="' + g.key + '" data-group="' + g.key + '" data-key="' + key + '" aria-pressed="' + on + '">' +
       '<span class="card-icon">' + W.icon(item.icon || key) + '</span>' +
       '<span class="card-name">' + item.name + '</span>' +
       '<span class="card-chips">' + W.chips(g.key, item) + '</span>' +
@@ -315,10 +324,12 @@
     var groups = st.groups.map(function (g) {
       return '<fieldset class="group"><legend>' + g.label + '</legend>' +
         (g.help ? '<p class="group-help">' + g.help + '</p>' : '') +
-        '<div class="cards tiles">' + Object.keys(D[g.from]).map(function (k) { return cardHtml(g, k); }).join('') + '</div>' +
+        '<div class="cards picks">' + Object.keys(D[g.from]).map(function (k) { return cardHtml(g, k); }).join('') + '</div>' +
         '<div aria-live="polite">' + detailHtml(g) + '</div></fieldset>';
     }).join('');
     var showSight = st.id === 'sensor' || st.id === 'orbit' || st.id === 'brain';
+    var trouble = ev.checks.filter(function (c) { return c.level !== 'go' && (c.step === st.id || c.id === 'budget'); });
+    var mood = trouble.some(function (c) { return c.level === 'nogo'; }) ? 'sad' : trouble.length ? 'worry' : ready ? 'cheer' : 'happy';
     var next = last ? 'Launch check' : 'Next: ' + D.STEPS[state.step + 1].nav;
     panel.innerHTML =
       '<div class="sheet" style="--role:' + role.color + '"><div class="sheet-scroll">' +
@@ -326,12 +337,12 @@
       '<span class="role-tag">' + role.name + '</span>' +
       (team() ? '<span class="turn-tag">' + esc(possessive(owner(st.role))) + ' turn</span>' : '') + '</div>' +
       '<h1 tabindex="-1">' + st.title + '</h1>' +
-      '<div class="coach"><span class="coach-face">' + W.icon('coach') + '</span><p>' + W.terms(st.coach) + '</p></div>' +
+      '<div class="coach"><span class="coach-face">' + W.pip(mood) + '</span><p>' + W.terms(st.coach) + '</p></div>' +
       hintsHtml(ev) + groups +
       (showSight ? sightHtml(ev) : '') + labHtml(st.id, ready) +
       '<details class="why"><summary>Why does this matter?</summary><p>' + W.terms(st.why) + '</p></details>' +
       '</div><div class="sheet-foot">' +
-      '<button type="button" class="btn" data-act="back">Back</button><span class="grow foot-note">' + (ready ? '' : 'Tap one of each') + '</span>' +
+      '<button type="button" class="btn" data-act="back">Back</button><span class="grow foot-note">' + (ready ? '' : 'Drag one of each') + '</span>' +
       '<button type="button" class="btn primary" data-act="next"' + (ready ? '' : ' disabled') + '>' + next + '</button></div></div>';
     var cv = $('sight');
     if (cv) W.drawSight(cv, ev.pixel != null ? ev.pixel : RG.Physics.pixelMeters(700, D.SENSORS[d.sensor].ifov, ev.blur));
@@ -403,6 +414,7 @@
   }
 
   /* ----- report ----- */
+  var REPLAY = { power: 'battery', radio: 'data', sensor: 'blur', orbit: 'blur', brain: 'blur', bus: 'heavy', rocket: 'heavy' }; // the cartoon for each step's usual trouble
   function starSvg(on) {
     return '<svg viewBox="0 0 24 24" class="' + (on ? 'is-on' : '') + '" aria-hidden="true"><path d="M12 2.6l2.9 6 6.5.9-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.1 1.1-6.5L2.6 9.5l6.5-.9z"/></svg>';
   }
@@ -422,13 +434,15 @@
     }).join('');
     var good = db.good.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
     var fix = db.fix.map(function (f) {
-      return '<li><b>' + esc(f.title) + '</b>' + esc(f.text) + (f.step ? ' <button type="button" class="link" data-act="goto" data-step="' + f.step + '">Change this step</button>' : '') + '</li>';
+      return '<li>' + (f.step ? W.replay(REPLAY[f.step]) : '') + '<b>' + esc(f.title) + '</b>' + esc(f.text) +
+        (f.step ? ' <button type="button" class="btn primary" style="margin-top:8px" data-act="goto" data-step="' + f.step + '">Try this: change the ' + D.STEPS.filter(function (x) { return x.id === f.step; })[0].nav.toLowerCase() + '</button>' : '') + '</li>';
     }).join('');
     panel.innerHTML =
       '<div class="sheet is-wide" style="--role:var(--ink)"><div class="sheet-scroll">' +
       '<div class="verdict"><div class="stars" role="img" aria-label="' + sc.stars + ' of 3 stars">' + starSvg(sc.stars >= 1) + starSvg(sc.stars >= 2) + starSvg(sc.stars >= 3) + '</div>' +
       '<h1 tabindex="-1">' + sc.verdict + '</h1>' +
       '<p class="score"><b>' + sc.total + '</b> points out of 100. Mission number ' + res.seed + '.</p></div>' +
+      RG.Levels.rewardsHtml(state.rewards) +
       '<h2>How the points add up</h2><div class="parts">' + parts + '</div>' +
       '<h2>The ' + c.total + ' fires</h2>' +
       '<div class="strip">' + strip + '</div>' +
@@ -457,7 +471,7 @@
   function showHelp() {
     openDialog('<h2 id="dialog-title">How to play</h2><ol class="howto">' +
       '<li>Read the mission, then make seven choices, one step at a time.</li>' +
-      '<li>Each card shows what a part costs in mass, power, money and data. The coloured line on a card tells you how it fits your own design.</li>' +
+      '<li>Drag a part onto its glowing slot. The little numbers show its mass, power, data and price, and the face tells you how it fits your design.</li>' +
       '<li>Watch the gauges at the bottom. Red means something does not add up.</li>' +
       '<li>Drag the 3D view to look around. Scroll or pinch to zoom.</li>' +
       '<li>Launch, watch three years of fires, then read the report and try to do better.</li></ol>' +
@@ -686,6 +700,7 @@
     state.score = Score.compute(state.design, state.diff, res);
     state.debrief = Score.debrief(state.design, state.diff, res, state.score);
     RG.Levels.award(5, Math.max(1, state.score.stars)); // finishing the mission always completes level 5
+    state.rewards = RG.Levels.reward5(state.design, state.score, res, evalNow().cost);
     saveLog({
       crew: state.players.join(', '), diff: D.DIFFICULTY[state.diff].name,
       score: state.score.total, stars: state.score.stars, code: M.encode(state.design)
@@ -779,7 +794,12 @@
       render();
     },
     diff: function (el) { state.diff = el.dataset.key; A.play('pick'); render(); },
-    pick: function (el) { pick(el.dataset.group, el.dataset.key); },
+    pick: function (el, e) {
+      var g = el.dataset.group, k = el.dataset.key, inDock = !!el.closest('.dock');
+      if (W.isTap(e) && !inDock) { W.hintDrag(el); say('Drag it to the glowing slot.'); return; }
+      if (g === 'extras' && !inDock && state.design.extras.indexOf(k) >= 0) return; // already on board; the × in its slot takes it off
+      pick(g, k);
+    },
     ask: function () { state.asked[step().id] = true; rerenderStep(); },
     view: function (el) { state.view = el.dataset.view; applyStepView(); setTimeout(function () { rerenderStep(); }, 260); },
     goto: function (el) { A.play('tap'); gotoStep(el.dataset.step); },
@@ -845,6 +865,11 @@
     viewtabs = $('viewtabs'); dialog = $('dialog'); dialogBody = $('dialog-body'); live = $('live');
     fade = $('fade'); count = $('count');
 
+    dock = document.createElement('div');
+    dock.id = 'dock';
+    document.body.appendChild(dock);
+    W.initDrag();
+
     var skip = document.createElement('button');
     skip.type = 'button'; skip.id = 'skip-launch'; skip.className = 'btn ghost';
     skip.dataset.act = 'skip-launch'; skip.textContent = 'Skip the launch';
@@ -876,7 +901,7 @@
       var el = e.target.closest('[data-act]');
       if (!el || el.disabled) return;
       var fn = actions[el.dataset.act];
-      if (fn) fn(el);
+      if (fn) fn(el, e);
     });
     document.addEventListener('input', function (e) {
       var i = e.target.dataset && e.target.dataset.name;

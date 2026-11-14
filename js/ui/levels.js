@@ -15,7 +15,8 @@
   var root, countEl, App;
   var L = { cur: null };
   var KEY = 'orbit-ranger.progress';
-  var prog = { stars: {}, build: null, meco: null, all: false };
+  var prog = blank();
+  function blank() { return { stars: {}, build: null, meco: null, all: false, badges: {}, cards: {} }; }
   var DEFAULT_BUILD = { tank: 'M', engines: 'E3', boosters: 'none' };
   var SHORT = { S: 'Small', M: 'Medium', L: 'Large', E2: '2', E3: '3', E4: '4', none: 'None', two: 'Two' }; // labels on the level 2 tiles
   var DEFAULT_SAT = M.decode('OR-11111121100');
@@ -33,7 +34,7 @@
 
   /* ---------- saved progress ---------- */
   function load() {
-    try { var p = JSON.parse(localStorage.getItem(KEY) || 'null'); if (p && p.stars) prog = p; } catch (e) { /* storage may be off */ }
+    try { var p = JSON.parse(localStorage.getItem(KEY) || 'null'); if (p && p.stars) { prog = p; prog.badges = p.badges || {}; prog.cards = p.cards || {}; } } catch (e) { /* storage may be off */ }
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(prog)); } catch (e) { /* storage may be off */ } }
   function open(id) { return id === 1 || prog.all || (prog.stars[id - 1] || 0) >= 1; }
@@ -52,16 +53,80 @@
     for (var i = 1; i <= 3; i++) out += '<svg viewBox="0 0 24 24" class="star' + (i <= n ? ' is-on' : '') + '" aria-hidden="true"><path d="M12 2.6l2.9 6 6.5.9-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.1 1.1-6.5L2.6 9.5l6.5-.9z"/></svg>';
     return '<span class="stars ' + (cls || '') + '" role="img" aria-label="' + n + ' of 3 stars">' + out + '</span>';
   }
-  // Pip, the guide: a small round satellite with solar-wing ears.
-  var MASCOT = '<svg class="pip" viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="24" width="14" height="16" rx="3" fill="#1cb0f6"/><rect x="48" y="24" width="14" height="16" rx="3" fill="#1cb0f6"/>' +
-    '<path d="M32 6v8" stroke="#ffc800" stroke-width="4" stroke-linecap="round"/><circle cx="32" cy="5" r="4" fill="#ff4b4b"/>' +
-    '<circle cx="32" cy="34" r="20" fill="#ffc800"/><circle cx="32" cy="34" r="20" fill="none" stroke="#e6a800" stroke-width="3"/>' +
-    '<circle cx="25" cy="31" r="5.5" fill="#fff"/><circle cx="39" cy="31" r="5.5" fill="#fff"/><circle cx="26" cy="32" r="2.6" fill="#3c3c3c"/><circle cx="40" cy="32" r="2.6" fill="#3c3c3c"/>' +
-    '<path d="M25 43q7 6 14 0" fill="none" stroke="#3c3c3c" stroke-width="3" stroke-linecap="round"/></svg>';
-
-  function say(text) {
-    var el = document.getElementById('lv-say');
+  /** Pip says a line and pulls a face: happy, cheer, wow, worry or sad. */
+  function say(text, mood) {
+    var el = document.getElementById('lv-say'), pip = document.getElementById('lv-pip');
+    if (pip && pip.dataset.mood !== (mood || 'happy')) { pip.dataset.mood = mood || 'happy'; pip.innerHTML = W.pip(mood); }
     if (el && el.textContent !== text) { el.textContent = text; App.say(text); }
+  }
+
+  /* ---------- rewards: badges for different ways of winning, and cards of real NASA missions ---------- */
+  var BADGES = {
+    expert: ['Rocket expert', 'Get every quiz question right', 1],
+    thrifty: ['Cheapest rocket', 'Reach orbit for 90 coins', 2],
+    pure: ['Engines only', 'Reach orbit without boosters', 2],
+    mini: ['Tiny but mighty', 'Reach orbit on small tanks', 2],
+    big: ['Big lifter', 'Reach orbit with large tanks', 2],
+    steady: ['Steady hands', 'Stay on course 90% of the climb', 3],
+    saver: ['Fuel saver', 'Reach orbit with a third of the fuel left', 4],
+    circle: ['Perfect circle', 'Make an almost round orbit', 4],
+    cheap: ['Cheapest mission', 'A 2-star mission for $70M or less', 5],
+    sharp: ['Sharpest eyes', 'Miss no fire at all', 5],
+    fast: ['Fastest warning', 'Warn 6 fires in 10 in under 6 hours', 5],
+    science: ['Bonus scientist', 'Fly all three bonus tools', 5]
+  };
+  var CARDS = {
+    sls: ['Space Launch System', 'rocket', '98 m tall', 'First flight 2022', 'NASA’s Moon rocket: a hydrogen core stage with four RS-25 engines and two solid boosters.'],
+    rs25: ['RS-25 engine', 'engine', 'Burns hydrogen + oxygen', 'Exhaust is steam', 'It flew on every Space Shuttle mission and now powers the Space Launch System.'],
+    artemis1: ['Artemis I', 'moon', 'Launched 16 Nov 2022', 'Kennedy Space Center', 'The first Space Launch System flight sent the Orion capsule around the Moon and back.'],
+    terra: ['Terra', 'sso', 'Launched 1999', '705 km up', 'Its MODIS instrument has watched Earth’s fires for over 25 years, and found fires in this game.'],
+    aqua: ['Aqua', 'sso', 'Launched 2002', '705 km up', 'Terra’s partner. It crosses in the early afternoon, when fires burn hottest.'],
+    snpp: ['Suomi NPP', 'scan', 'Launched 2011', '375 m fire pixels', 'Its VIIRS scanner paints a strip of Earth 3,000 km wide on every pass.'],
+    landsat: ['Landsat 9', 'eye', 'Launched 2021', '30 m pixels', 'NASA and USGS Landsat satellites have taken pictures of Earth’s land since 1972.'],
+    goes: ['GOES-East', 'geo', '35,786 km up', 'Parked over the Americas', 'It turns with the Earth, so it stares at the same side all day and night.'],
+    hyti: ['HyTI', 'cam', 'Launched 2024', 'Shoebox-sized', 'A NASA-funded CubeSat with a heat camera, small enough to carry in two hands.'],
+    iss: ['Space Station', 'leo', 'About 400 km up', 'A lap every 93 minutes', 'NASA’s Lightning Imaging Sensor counted lightning from here from 2017 to 2023.']
+  };
+  var LEVEL_CARD = { 1: 'sls', 2: 'rs25', 3: 'artemis1', 4: 'terra' };
+
+  /** Record badges and a card; returns only the ones that are new. */
+  function earn(badges, card) {
+    var out = { badges: badges.filter(function (b) { return b && !prog.badges[b]; }), card: card && !prog.cards[card] ? card : null };
+    out.badges.forEach(function (b) { prog.badges[b] = true; });
+    if (out.card) prog.cards[out.card] = true;
+    save();
+    return out;
+  }
+  function badgeHtml(id, locked) {
+    var b = BADGES[id];
+    return '<div class="badge' + (locked ? ' is-locked' : '') + '">' + W.icon(locked ? 'lock' : 'medal') + '<b>' + b[0] + '</b><span>' + (locked ? 'Level ' + b[2] + ': ' : '') + b[1] + '</span></div>';
+  }
+  function nasaCard(id, locked) {
+    var c = CARDS[id];
+    if (locked) return '<div class="nasa-card is-locked">' + W.icon('lock') + '<b>?</b></div>';
+    return '<div class="nasa-card"><small>Real NASA mission</small><span class="nc-art">' + W.icon(c[1]) + '</span><b>' + c[0] + '</b>' +
+      '<span class="nc-stats"><i>' + c[2] + '</i><i>' + c[3] + '</i></span><p>' + c[4] + '</p></div>';
+  }
+  function rewardsHtml(r) {
+    if (!r || (!r.badges.length && !r.card)) return '';
+    return '<div class="rewards"><h3>New!</h3>' + r.badges.map(function (b) { return badgeHtml(b); }).join('') + (r.card ? nasaCard(r.card) : '') + '</div>';
+  }
+  L.rewardsHtml = rewardsHtml;
+  /** Level 5: badges for the kind of mission flown, and the real satellite most like the design. */
+  L.reward5 = function (d, score, res, cost) {
+    var c = res.counts, okay = score.stars >= 1;
+    var card = d.orbit === 'geo' ? 'goes' : d.orbit === 'leo' ? (d.sensor === 'mini' ? 'hyti' : 'iss')
+      : d.sensor === 'wide' ? 'snpp' : d.sensor === 'giant' || d.extras.indexOf('color') >= 0 ? 'landsat' : 'aqua';
+    return earn([score.stars >= 2 && cost <= 70 && 'cheap', c.missed === 0 && 'sharp', c.fast >= c.total * 0.6 && 'fast', okay && d.extras.length === 3 && 'science'], card);
+  };
+  function album() {
+    var nb = Object.keys(prog.badges).length, nc = Object.keys(prog.cards).length;
+    App.openDialog('<h2 id="dialog-title">My collection</h2>' +
+      '<h3 class="album-h">Badges <span>' + nb + ' of ' + Object.keys(BADGES).length + '</span></h3><div class="album">' +
+      Object.keys(BADGES).map(function (b) { return badgeHtml(b, !prog.badges[b]); }).join('') + '</div>' +
+      '<h3 class="album-h">NASA mission cards <span>' + nc + ' of ' + Object.keys(CARDS).length + '</span></h3><div class="album cards-album">' +
+      Object.keys(CARDS).map(function (c) { return nasaCard(c, !prog.cards[c]); }).join('') + '</div>' +
+      '<div class="actions"><button type="button" class="btn primary" data-act="close" autofocus>Close</button></div>');
   }
   function bar(frac) {
     var el = document.getElementById('lv-bar');
@@ -116,7 +181,7 @@
       var st = prog.stars[l.id] || 0, isOpen = open(l.id), cls = st ? 'is-done' : isOpen ? 'is-open' : 'is-locked';
       var here = next && next.id === l.id;
       return '<div class="w-stop' + (l.x > 50 ? ' is-right' : '') + '" style="left:' + l.x + '%;bottom:' + l.y + '%">' +
-        (here ? '<span class="w-pip">' + MASCOT + '</span>' : '') +
+        (here ? '<span class="w-pip">' + W.pip() + '</span>' : '') +
         '<button type="button" class="node ' + cls + '" style="--c:' + l.color + '" data-lv="go" data-id="' + l.id + '"' + (isOpen ? '' : ' disabled') +
         ' aria-label="Level ' + l.id + ', ' + l.title + (isOpen ? ', ' + st + ' of 3 stars' : ', locked') + '">' +
         (isOpen ? icon(l.icon) : icon('<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>')) + '</button>' +
@@ -131,6 +196,7 @@
       '<div class="w-board"><svg class="w-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">' +
       '<path d="' + d + '" class="w-road"/><path d="' + d + '" class="w-dash"/></svg>' + nodes + '</div>' +
       '<span class="star-pill">' + starRow(1) + '<b>' + totalStars() + '</b> / 15</span>' +
+      '<button type="button" class="album-btn" data-lv="album">' + W.icon('medal') + '<b>' + (Object.keys(prog.badges).length + Object.keys(prog.cards).length) + '</b><span class="sr"> badges and cards. Open my collection</span></button>' +
       '<p class="map-foot"><button type="button" class="link" data-lv="unlock">' + (prog.all ? 'Lock levels' : 'Unlock all') + '</button>' +
       '<button type="button" class="link" data-lv="reset">Start over</button></p></div>';
   };
@@ -141,7 +207,7 @@
     root.innerHTML = '<div class="lv">' +
       '<div class="lv-top"><button type="button" class="lv-x" data-lv="quit" aria-label="Leave the level">×</button>' +
       '<div class="lv-progress" role="progressbar" aria-label="Level progress"><i id="lv-bar"></i></div><span class="lv-tag">Level ' + id + '</span></div>' +
-      '<div class="lv-coach">' + MASCOT + '<p id="lv-say"></p></div>' +
+      '<div class="lv-coach"><span id="lv-pip" data-mood="happy">' + W.pip() + '</span><p id="lv-say"></p></div>' +
       '<div class="lv-hud" id="lv-hud"></div><div class="lv-side" id="lv-side" hidden></div>' +
       '<div class="lv-controls" id="lv-controls"></div><div class="lv-sheet" id="lv-sheet" hidden></div></div>';
     bar(0);
@@ -164,22 +230,27 @@
     L.cur.id = id;
   }
 
-  function complete(id, stars, title, line) {
+  function complete(id, stars, title, line, badges) {
     L.award(id, stars);
+    var won = earn(badges || [], LEVEL_CARD[id]);
+    say('You did it!', 'cheer');
     A.play('star');
     var next = id < 5 ? id + 1 : 0, conf = '';
     for (var i = 0; i < 18; i++) conf += '<i style="--x:' + (Math.random() * 100).toFixed(0) + '%;--d:' + (Math.random() * 0.6).toFixed(2) + 's;--h:' + Math.floor(Math.random() * 360) + '"></i>';
     document.getElementById('lv-controls').innerHTML = '';
     sheet('done', '<div class="confetti" aria-hidden="true">' + conf + '</div>' + starRow(stars, 'is-big') + '<h2>' + title + '</h2>' +
-      (line ? '<p class="done-line">' + line + '</p>' : '') +
+      (line ? '<p class="done-line">' + line + '</p>' : '') + rewardsHtml(won) +
       '<div class="actions">' + (next ? '<button type="button" class="btn primary big" data-lv="go" data-id="' + next + '">Next level</button>' : '') +
       '<button type="button" class="btn" data-lv="go" data-id="' + id + '">Again</button><button type="button" class="btn" data-lv="map">Map</button></div>');
     App.say(title + '. ' + stars + ' of 3 stars.');
   }
-  function failed(id, title, text) {
+  /** A level did not work out: show a little cartoon of what went wrong and one clear thing to try. */
+  function failed(id, title, text, replay, tryBtn) {
     A.play('bad');
     A.stopRumble();
-    sheet('bad', '<h2>' + title + '</h2><p>' + text + '</p><div class="actions"><button type="button" class="btn danger big" data-lv="go" data-id="' + id + '">Try again</button>' +
+    say('Oops. Look what happened.', 'sad');
+    sheet('bad', '<div class="oops">' + W.replay(replay) + '<div><h2>' + title + '</h2><p>' + text + '</p></div></div>' +
+      '<div class="actions">' + (tryBtn || '<button type="button" class="btn danger big" data-lv="go" data-id="' + id + '">Try again</button>') +
       '<button type="button" class="btn" data-lv="map">Map</button></div>');
   }
 
@@ -187,13 +258,45 @@
    * Level 1: meet the rocket
    * ==================================================================== */
   var PARTS = [
-    { key: 'satellite', name: 'Satellite', text: 'The passenger. It rides in the nose cone, and the rocket exists to carry it up.', fact: 'NASA calls it the payload.' },
-    { key: 'lox', name: 'Oxygen tank', text: 'Liquid oxygen at −183 °C. Fire needs oxygen, and space has no air.', fact: '6 kg of oxygen burns with each 1 kg of hydrogen.' },
-    { key: 'gyro', name: 'Gyro', text: 'Feels which way the rocket is tipping, so the computer can steer.', fact: 'Pitch is up and down, yaw is left and right, roll is spin.' },
-    { key: 'lh2', name: 'Hydrogen tank', text: 'Liquid hydrogen fuel at −253 °C. It is so light it needs the biggest tank.', fact: 'The orange foam keeps it cold, as on NASA’s SLS.' },
-    { key: 'engines', name: 'Engines', text: 'They burn hydrogen with oxygen. What comes out is steam!', fact: 'NASA’s RS-25 engine first flew on the Space Shuttle.' },
-    { key: 'boosters', name: 'Boosters', text: 'A giant extra push for two minutes. Then they drop away.', fact: 'They give most of the push at lift-off.' }
+    // vb: the part of the x-ray drawing to zoom in on. marks: [point x, y, badge x, y, what it is]
+    { key: 'satellite', name: 'Satellite', text: 'The passenger. It rides in the nose cone, and the rocket exists to carry it up.', fact: 'NASA calls it the payload.',
+      vb: [60, 0, 240, 140], marks: [[180, 63, 252, 40, 'The satellite, folded up small.'], [163, 63, 104, 52, 'Solar wings stay folded for the ride.'], [205, 84, 256, 104, 'In space the nose cone splits open.']] },
+    { key: 'lox', name: 'Oxygen tank', text: 'Liquid oxygen at −183 °C. Fire needs oxygen, and space has no air.', fact: '6 kg of oxygen burns with each 1 kg of hydrogen.',
+      vb: [60, 132, 240, 100], marks: [[180, 186, 256, 172, 'Liquid oxygen, colder than any freezer.'], [168, 168, 100, 160, 'The level sinks as the engines drink.'], [200, 222, 256, 216, 'A pipe carries it down to the engines.']] },
+    { key: 'gyro', name: 'Gyro', text: 'Feels which way the rocket is tipping, so the computer can steer.', fact: 'Pitch is up and down, yaw is left and right, roll is spin.',
+      vb: [110, 100, 140, 76], marks: [[180, 137, 226, 116, 'A spinning wheel always points the same way.'], [160, 137, 132, 160, 'Sensors feel the rocket tilt around it.'], [200, 137, 232, 162, 'The computer swivels the engines to steer back.']] },
+    { key: 'lh2', name: 'Hydrogen tank', text: 'Liquid hydrogen fuel at −253 °C. It is so light it needs the biggest tank.', fact: 'The orange foam keeps it cold, as on NASA’s SLS.',
+      vb: [60, 202, 240, 160], marks: [[180, 290, 256, 270, 'Liquid hydrogen: the fuel.'], [153, 305, 100, 305, 'Foam on the outside keeps it cold.'], [180, 348, 256, 344, 'Fuel flows out of the bottom.']] },
+    { key: 'engines', name: 'Engines', text: 'They burn hydrogen with oxygen. What comes out is steam!', fact: 'NASA’s RS-25 engine first flew on the Space Shuttle.',
+      vb: [90, 335, 180, 105], marks: [[180, 358, 246, 348, 'Pumps squirt hydrogen and oxygen together.'], [162, 378, 112, 372, 'The bell shape aims the fire straight down.'], [198, 408, 246, 418, 'The exhaust is steam: just water!']] },
+    { key: 'boosters', name: 'Boosters', text: 'A giant extra push for two minutes. Then they drop away.', fact: 'They give most of the push at lift-off.',
+      vb: [60, 138, 240, 280], marks: [[130, 162, 84, 162, 'A pointed nose cuts through the air.'], [230, 270, 276, 270, 'Solid fuel burns from the middle out.'], [130, 380, 84, 392, 'Once lit, it cannot be switched off.']] }
   ];
+
+  /** The whole rocket as an x-ray. Every part is drawn; the chosen one glows and the view zooms in on it. */
+  function xray(p) {
+    function g(key, body) { return '<g class="xr' + (key === p.key ? ' on' : '') + '" data-p="' + key + '">' + body + '</g>'; }
+    function bell(x) { return '<circle cx="' + x + '" cy="358" r="4"/><path d="M' + (x - 5) + ' 366h10l4 22h-18z"/><path class="xr-flame" d="M' + (x - 8) + ' 389h16l-8 34z"/>'; }
+    function booster(x) {
+      return '<path d="M' + (x - 12) + ' 172L' + x + ' 148l12 24v200h-24z"/><rect class="xr-fill" x="' + (x - 8) + '" y="178" width="16" height="190" rx="3"/><path class="xr-flow" d="M' + x + ' 182v184"/>' +
+        '<path d="M' + (x - 8) + ' 372h16l4 14h-24z"/><path class="xr-flame" d="M' + (x - 10) + ' 387h20l-10 30z"/>';
+    }
+    var r = p.vb[2] / 26, marks = p.marks.map(function (m, i) {
+      return '<path class="xr-lead" d="M' + m[2] + ' ' + m[3] + 'L' + m[0] + ' ' + m[1] + '"/><circle class="xr-dot" cx="' + m[0] + '" cy="' + m[1] + '" r="' + (r / 3.5).toFixed(1) + '"/>' +
+        '<circle class="xr-num" cx="' + m[2] + '" cy="' + m[3] + '" r="' + r.toFixed(1) + '"/><text x="' + m[2] + '" y="' + (m[3] + r * 0.38).toFixed(1) + '" font-size="' + (r * 1.15).toFixed(1) + '" text-anchor="middle">' + (i + 1) + '</text>';
+    }).join('');
+    return '<svg class="xray" viewBox="' + p.vb.join(' ') + '" role="img" aria-label="X-ray drawing of the ' + p.name.toLowerCase() + '">' +
+      '<defs><pattern id="xr-grid" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M12 0H0V12" fill="none" stroke="#5fdcff" stroke-width=".3" opacity=".35"/></pattern></defs>' +
+      '<rect x="0" y="-20" width="360" height="500" fill="#06203f"/><rect x="0" y="-20" width="360" height="500" fill="url(#xr-grid)"/>' +
+      g('boosters', booster(130) + booster(230) + '<path d="M142 200h10M142 330h10M208 200h10M208 330h10"/>') +
+      '<g class="xr"><rect x="152" y="92" width="56" height="258"/><ellipse cx="180" cy="106" rx="18" ry="9"/><path d="M174 116h12l5 14h-22zM152 206l56 10M208 206l-56 10"/></g>' +
+      g('satellite', '<path d="M152 92C152 50 168 22 180 12c12 10 28 38 28 80z"/><g class="xr-pulse"><rect class="xr-fill" x="170" y="52" width="20" height="22" rx="2"/><path d="M158 58h10v10h-10zM192 58h10v10h-10zM180 52v-7"/><circle cx="180" cy="43" r="2.5"/></g>') +
+      g('gyro', '<rect x="152" y="130" width="56" height="14"/><circle cx="180" cy="137" r="5"/><ellipse class="xr-spin" cx="180" cy="137" rx="10" ry="3"/><path d="M160 133v8M200 133v8"/>') +
+      g('lox', '<path class="xr-fill ox" d="M156 160a24 12 0 0 1 48 0v34a24 12 0 0 1-48 0z"/><path class="xr-wave" d="M157 168q6-4 12 0t12 0 12 0 10 0"/><path class="xr-flow" d="M200 204V352"/>') +
+      g('lh2', '<path class="xr-fill h2" d="M156 230a24 12 0 0 1 48 0v102a24 12 0 0 1-48 0z"/><path class="xr-wave" d="M157 240q6-4 12 0t12 0 12 0 10 0"/><path class="xr-flow" d="M180 344v10"/>') +
+      g('engines', '<path d="M152 350h56v14h-56z"/>' + bell(162) + bell(180) + bell(198)) + marks + '</svg>' +
+      '<ol class="xr-key">' + p.marks.map(function (m) { return '<li>' + m[4] + '</li>'; }).join('') + '</ol>';
+  }
   var QUIZ = [
     { q: 'Which tank is the biggest?', a: ['Hydrogen', 'Oxygen', 'Same size'], ok: 0, why: 'Hydrogen is light and fluffy, so it needs lots of room.' },
     { q: 'Why carry oxygen?', a: ['To cool the satellite', 'Space has no air for the fire', 'To be lighter'], ok: 1, why: 'Fire needs oxygen, and space has none.' },
@@ -207,7 +310,7 @@
     PARTS.forEach(function (p) {
       pins[p.key] = Stage.addLabel(p.name, 'pin-part', { group: 'part', at: function () { return R.partPos(p.key); }, onClick: function () { select(p.key); } });
     });
-    say('Tap the labels on the rocket.');
+    say('Tap a name to x-ray that part.');
     Stage.look({ radius: R.height * 1.45 + 30, az: -Math.PI / 2 + 0.25, el: 0.12 });
 
     function count() { return Object.keys(seen).length; }
@@ -220,16 +323,16 @@
       pins[key].el.classList.add('is-seen');
       var pos = R.partPos(key);
       Stage.look({ target: new THREE.Vector3(0, pos.y, 0), radius: key === 'satellite' ? 44 : 62 });
-      side('<div class="info"><h3>' + p.name + dots() + '</h3><p>' + p.text + '</p><p class="nasa-fact">' + p.fact + '</p></div>' +
+      side('<div class="info"><h3>' + p.name + dots() + '</h3><p>' + p.text + '</p>' + xray(p) + '<p class="nasa-fact">' + p.fact + '</p></div>' +
         (count() === PARTS.length ? '<button type="button" class="btn primary big wide" data-lv="quiz">Quiz time</button>' : ''));
       bar(count() / PARTS.length * 0.5);
-      say(count() === PARTS.length ? 'You found them all!' : (PARTS.length - count()) + ' more to find.');
+      say(count() === PARTS.length ? 'You found them all!' : (PARTS.length - count()) + ' more to find.', count() === PARTS.length ? 'cheer' : 'wow');
     }
     function ask() {
       qi++; answered = false;
       if (qi >= QUIZ.length) {
-        if (right) complete(1, right, 'You know your rocket!', right + ' of ' + QUIZ.length + ' right');
-        else failed(1, 'Have another look', 'Tap the parts again, then retry the quiz.');
+        if (right) complete(1, right, 'You know your rocket!', right + ' of ' + QUIZ.length + ' right', [right === QUIZ.length && 'expert']);
+        else failed(1, 'Have another look', 'X-ray the parts again, then retry the quiz.');
         return;
       }
       var q = QUIZ[qi];
@@ -250,7 +353,7 @@
         el.classList.add(good ? 'is-right' : 'is-wrong');
         all[q.ok].classList.add('is-right');
         Array.prototype.forEach.call(all, function (b) { b.disabled = true; });
-        say((good ? 'Yes! ' : 'Not quite. ') + q.why);
+        say((good ? 'Yes! ' : 'Not quite. ') + q.why, good ? 'cheer' : 'worry');
         timer = setTimeout(ask, good ? 1300 : 2600); // moves on by itself
       },
       cleanup: function () { clearTimeout(timer); R.setPeek(false); }
@@ -265,8 +368,42 @@
     var GROUPS = [['tank', 'Fuel tanks', F.TANKS, 'lh2'], ['engines', 'Engines', F.ENGINES, 'engines'], ['boosters', 'Boosters', F.BOOSTERS, 'boosters']];
     R.setBuild({ satellite: DEFAULT_SAT });
     App.view('rk-build');
-    say('Pick fuel tanks to start.');
+    say('Drag fuel tanks to the glowing slot.');
     draw();
+
+    function art(g, k) { // a picture of the option: tank size, number of engines, boosters or none
+      if (g === 'tank') return '<span class="t-art t-' + k + '">' + W.icon('tank') + '</span>';
+      if (g === 'engines') return '<span class="t-art t-n">' + new Array(F.ENGINES[k].n + 1).join(W.icon('engine')) + '</span>';
+      return '<span class="t-art">' + (k === 'two' ? W.icon('booster') + W.icon('booster') : W.icon('none')) + '</span>';
+    }
+    /** The nearest rocket that reaches orbit: fewest parts changed, then cheapest. */
+    function suggest() {
+      var best = null;
+      Object.keys(F.TANKS).forEach(function (t) { Object.keys(F.ENGINES).forEach(function (e) { Object.keys(F.BOOSTERS).forEach(function (bo) {
+        var c = { tank: t, engines: e, boosters: bo }, ev = F.evaluate(c);
+        var changed = GROUPS.filter(function (g) { return c[g[0]] !== b[g[0]]; });
+        var rank = changed.length * 1000 + ev.cost;
+        if (ev.tw >= 1 && (!best || rank < best.rank) && F.testFlight(c).ok) {
+          best = { rank: rank, build: c, label: changed.map(function (g) { return g[2][c[g[0]]].name.toLowerCase(); }).join(' + ') };
+        }
+      }); }); });
+      return best;
+    }
+    function place(g, k) {
+      var top = document.getElementById('lv-side').scrollTop;
+      b[g] = k;
+      A.play('pick');
+      R.setBuild({ tank: b.tank, engines: b.engines, boosters: b.boosters, top: !!full(), satellite: DEFAULT_SAT },
+        g === 'tank' ? 'lh2' : g === 'engines' ? 'engines' : b.boosters === 'two' ? 'boosters' : 'nose');
+      Stage.look({ target: new THREE.Vector3(0, R.height * 0.5, 0), radius: R.height * 2.1 + 44 });
+      var weak = b.tank && b.engines && F.evaluate(b).tw < 1;
+      say(!b.engines ? 'Now drag on some engines. Heavy rockets need more push.' : weak ? 'Too heavy to lift off! More push, or smaller tanks.' : !b.boosters ? 'Boosters or not? Watch the power meter.' : 'Ready. Try a test flight!',
+        weak ? 'worry' : full() ? 'cheer' : 'happy');
+      draw();
+      document.getElementById('lv-side').scrollTop = top;
+      var again = document.querySelector('.tile[data-group="' + g + '"][data-key="' + k + '"]');
+      if (again) again.focus({ preventScroll: true });
+    }
 
     function full() { return b.tank && b.engines && b.boosters; }
     function draw() {
@@ -275,8 +412,8 @@
         var locked = gi > 0 && !b[GROUPS[gi - 1][0]];
         html += '<fieldset class="tiles"' + (locked ? ' disabled' : '') + '><legend>' + g[1] + '</legend>' +
           Object.keys(g[2]).map(function (k) {
-            return '<button type="button" class="tile" data-lv="pick" data-group="' + g[0] + '" data-key="' + k + '" aria-pressed="' + (b[g[0]] === k) + '">' +
-              '<b>' + SHORT[k] + '</b><span class="coin">' + g[2][k].cost + '</span></button>';
+            return '<button type="button" class="tile" data-lv="pick" data-drag="' + g[0] + '" data-group="' + g[0] + '" data-key="' + k + '" aria-pressed="' + (b[g[0]] === k) + '">' +
+              art(g[0], k) + '<b>' + SHORT[k] + '</b><span class="coin">' + g[2][k].cost + '</span></button>';
           }).join('') + '</fieldset>';
       });
       var cost = (b.tank ? F.TANKS[b.tank].cost : 0) + (b.engines ? F.ENGINES[b.engines].cost : 0) + (b.boosters ? F.BOOSTERS[b.boosters].cost : 0) + F.UPPER.cost;
@@ -290,20 +427,21 @@
         '<div class="bm-bar"><i style="width:' + Math.min(100, cost / F.BUDGET * 100).toFixed(0) + '%"></i></div><small>Includes ' + F.UPPER.cost + ' for the upper stage and nose cone</small></div></div>';
       side(meters + html + '<button type="button" class="btn primary big wide" data-lv="test"' + (full() ? '' : ' disabled') + '>Test flight</button>');
       bar((b.tank ? 0.25 : 0) + (b.engines ? 0.25 : 0) + (b.boosters ? 0.25 : 0));
+      hud(W.dock(GROUPS.map(function (g) {
+        var k = b[g[0]];
+        return { key: g[0], label: g[1], icon: g[0] === 'tank' ? 'tank' : g[0] === 'engines' ? 'engine' : 'booster',
+          items: k ? [{ icon: g[0] === 'tank' ? 'tank' : g[0] === 'engines' ? 'engine' : k === 'two' ? 'booster' : 'none', name: g[2][k].name }] : [] };
+      })));
     }
     return {
-      pick: function (el) {
-        var g = el.dataset.group, top = document.getElementById('lv-side').scrollTop;
-        b[g] = el.dataset.key;
-        A.play('pick');
-        R.setBuild({ tank: b.tank, engines: b.engines, boosters: b.boosters, top: !!full(), satellite: DEFAULT_SAT },
-          g === 'tank' ? 'lh2' : g === 'engines' ? 'engines' : b.boosters === 'two' ? 'boosters' : 'nose');
-        Stage.look({ target: new THREE.Vector3(0, R.height * 0.5, 0), radius: R.height * 2.1 + 44 });
-        say(!b.engines ? 'Now add engines. Heavy rockets need more push.' : !b.boosters ? 'Boosters or not? Watch the power meter.' : 'Ready. Try a test flight!');
-        draw();
-        document.getElementById('lv-side').scrollTop = top;
-        var again = document.querySelector('.tile[data-group="' + g + '"][data-key="' + b[g] + '"]');
-        if (again) again.focus({ preventScroll: true });
+      pick: function (el, e) {
+        if (W.isTap(e)) { W.hintDrag(el); say('Drag it onto the glowing slot.', 'wow'); return; }
+        place(el.dataset.group, el.dataset.key);
+      },
+      tryfix: function () { // swap in the suggested parts, one at a time so each one pops onto the rocket
+        var fix = suggest();
+        hideSheet();
+        GROUPS.forEach(function (g) { if (fix.build[g[0]] !== b[g[0]]) place(g[0], fix.build[g[0]]); });
       },
       test: function () {
         var ev = F.evaluate(b), res = F.testFlight(b), inBudget = ev.cost <= F.BUDGET, why = '';
@@ -311,11 +449,20 @@
         else if (!res.ok) why = 'Too slow to stay up: it ran out of fuel. Try bigger tanks or boosters.';
         function row(ok, text) { return '<li class="' + (ok ? 'ok' : 'no') + '">' + (ok ? '✓' : '✕') + ' ' + text + '</li>'; }
         var rows = '<ul class="test-rows">' + row(ev.tw >= 1, 'Lifts off') + row(res.ok, 'Reaches orbit') + row(inBudget, ev.cost + ' of ' + F.BUDGET + ' coins') + '</ul>';
-        if (!res.ok) { A.play('bad'); sheet('bad', rows + '<p>' + why + '</p><div class="actions"><button type="button" class="btn danger big" data-lv="closesheet">Change it</button></div>'); return; }
+        if (!res.ok) {
+          var fix = suggest();
+          A.play('bad');
+          say('Watch what happened.', 'sad');
+          sheet('bad', '<div class="oops">' + W.replay(ev.tw < 1 ? 'heavy' : 'fall') + '<div>' + rows + '<p>' + why + '</p></div></div><div class="actions">' +
+            (fix ? '<button type="button" class="btn primary big" data-lv="tryfix">Try this: ' + fix.label + '</button>' : '') +
+            '<button type="button" class="btn" data-lv="closesheet">I will fix it</button></div>');
+          return;
+        }
         var stars = !inBudget ? 1 : F.BUDGET - ev.cost >= 20 ? 3 : 2;
         prog.build = { tank: b.tank, engines: b.engines, boosters: b.boosters }; prog.meco = null; save();
         bar(1);
-        complete(2, stars, 'It flies!', inBudget ? (stars < 3 ? 'Spend 100 coins or less for 3 stars' : ev.cost + ' coins. Nice and cheap!') : 'It works, but it went over budget');
+        complete(2, stars, 'It flies!', inBudget ? (stars < 3 ? 'Spend 100 coins or less for 3 stars' : ev.cost + ' coins. Nice and cheap!') : 'It works, but it went over budget',
+          [ev.cost <= 90 && 'thrifty', b.boosters === 'none' && 'pure', b.tank === 'S' && 'mini', b.tank === 'L' && 'big']);
       },
       closesheet: hideSheet,
       cleanup: function () {}
@@ -378,6 +525,7 @@
       gyro(sim.pitch / D2R, sim.target / D2R, noisy * 1.5 * Math.sin(wobble * 1.7), noisy * 2 * Math.sin(wobble * 0.9 + 1));
       var g = document.querySelector('.gyro');
       if (g) g.dataset.off = Math.abs(sim.err) > 12 ? 'far' : Math.abs(sim.err) > 6 ? 'near' : '';
+      if (sim.status === 'flying' && Math.abs(sim.err) > 12) say('Tipping too far! Steer back to the green.', 'worry');
       set('da-v', num(sim.speed() * 3.6) + ' km/h'); set('da-g', sim.g.toFixed(1) + ' g');
       if (sim.status !== 'pad') set('da-t', clock(sim.t));
       bar(Math.min(1, Math.max(alt, 0) / 200));
@@ -390,10 +538,10 @@
       if (res.ok) {
         var stars = res.accuracy >= 0.85 && !res.dropLate ? 3 : res.accuracy >= 0.65 ? 2 : 1;
         prog.meco = { state: res.state, build: build }; save();
-        complete(3, stars, 'You reached space!', 'On course ' + Math.round(res.accuracy * 100) + '% of the way' + (res.dropLate ? ', boosters dropped late' : ''));
-      } else if (res.failWhy === 'tipped') failed(3, 'It tipped over', 'Use small, early taps to stay in the green.');
-      else if (res.failWhy === 'fell') failed(3, 'It fell back', 'Build a stronger rocket in level 2.');
-      else failed(3, 'Too slow', 'Stay closer to the green to waste less fuel.');
+        complete(3, stars, 'You reached space!', 'On course ' + Math.round(res.accuracy * 100) + '% of the way' + (res.dropLate ? ', boosters dropped late' : ''), [res.accuracy >= 0.9 && 'steady']);
+      } else if (res.failWhy === 'tipped') failed(3, 'It tipped over', 'Use small, early taps to stay in the green.', 'tip');
+      else if (res.failWhy === 'fell') failed(3, 'It fell back', 'This rocket is too weak. Build a stronger one.', 'heavy', '<button type="button" class="btn primary big" data-lv="go" data-id="2">Try this: rebuild it</button>');
+      else failed(3, 'Too slow', 'Stay closer to the green to waste less fuel.', 'fall');
     }
     return {
       launch: function () {
@@ -417,10 +565,10 @@
         while (seenEvents < sim.events.length) {
           var e = sim.events[seenEvents++];
           if (e === 'liftoff') say('Lift-off!');
-          else if (e === 'maxq') say('Max Q: the air pushes hardest now. Hold steady!');
-          else if (e === 'boosters-empty') { drawControls('drop'); say('Boosters empty. Drop them!'); A.play('warn'); }
-          else if (e === 'boosters-dropped') { drawControls('fly'); say(sim.dropLate ? 'Boosters dropped (a bit late).' : 'Boosters away!'); A.play('go'); }
-          else if (e === 'space') { say('100 km. This is space!'); A.play('star'); }
+          else if (e === 'maxq') say('Max Q: the air pushes hardest now. Hold steady!', 'worry');
+          else if (e === 'boosters-empty') { drawControls('drop'); say('Boosters empty. Drop them!', 'wow'); A.play('warn'); }
+          else if (e === 'boosters-dropped') { drawControls('fly'); say(sim.dropLate ? 'Boosters dropped (a bit late).' : 'Boosters away!', sim.dropLate ? 'worry' : 'cheer'); A.play('go'); }
+          else if (e === 'space') { say('100 km. This is space!', 'cheer'); A.play('star'); }
         }
         var alt = Math.max(0, sim.altKm()), sky = Stage.smooth((alt - 8) / 75);
         R.flightUpdate({ alt: alt * 1000, pitch: sim.pitch, burn: sim.status === 'flying' && sim.coreProp > 0 ? sim.throttle : 0,
@@ -482,7 +630,7 @@
       E.setRibbon('ahead', pts, 0.014, sim.inOrbit ? 0x58cc02 : 0xffc800);
       if (trail.length >= 6) E.setRibbon('trail', trail, 0.008, 0xffffff);
     }
-    function tell(key, text) { if (told !== key) { told = key; say(text); } }
+    function tell(key, text, mood) { if (told !== key) { told = key; say(text, mood); } }
     function fires(altKm) {
       // count the real fires (NASA FIRMS, this week) that pass under the satellite in three laps
       var rec = RG.NASA_FIRES.recent.points, n = rec.length / 2, seen = new Uint8Array(n), vec = [], i;
@@ -498,8 +646,8 @@
       if (ended) return;
       ended = true;
       controls('');
-      if (why === 'fuel') failed(4, 'Out of fuel', 'Burn nearer the top of the arc.');
-      else failed(4, 'It fell back', 'Burn sooner, and hold until the path is green.');
+      if (why === 'fuel') failed(4, 'Out of fuel', 'Burn nearer the top of the arc.', 'fuel');
+      else failed(4, 'It fell back', 'Burn sooner, and hold until the path is green.', 'fuel');
     }
     return {
       deploy: function () {
@@ -513,7 +661,8 @@
         bar(1);
         setTimeout(function () {
           if (!L.cur || L.cur.id !== 4) return;
-          complete(4, stars, 'You are in orbit!', 'One lap takes ' + r.periodMin.toFixed(0) + ' minutes. Ranger-1 already flew over <b>' + num(seenFires) + '</b> real fires NASA saw this week.');
+          complete(4, stars, 'You are in orbit!', 'One lap takes ' + r.periodMin.toFixed(0) + ' minutes. Ranger-1 already flew over <b>' + num(seenFires) + '</b> real fires NASA saw this week.',
+            [r.fuelLeft >= 0.33 && 'saver', r.round <= 60 && 'circle']);
         }, 1400);
       },
       frame: function (dt) {
@@ -528,11 +677,11 @@
           if (sim.inOrbit && orbitAt < 0) { orbitAt = 0; A.play('star'); }
           if (sim.inOrbit && !burning) {
             if (!canDeploy) { canDeploy = true; controls('<button type="button" class="btn primary big pulse" data-lv="deploy">Release the satellite</button>'); }
-            tell('orbit', 'Orbit! Release the satellite.');
-          } else if (sim.inOrbit) tell('letgo', 'Green path. Let go!');
+            tell('orbit', 'Orbit! Release the satellite.', 'cheer');
+          } else if (sim.inOrbit) tell('letgo', 'Green path. Let go!', 'cheer');
           else if (burning) tell('burn', 'Keep holding until the path turns green.');
-          else if (sim.prop <= 0) tell('dry', 'The tanks are empty…');
-          else if (sim.s.vr < 80) tell('now', 'Now! Hold the button.');
+          else if (sim.prop <= 0) tell('dry', 'The tanks are empty…', 'sad');
+          else if (sim.s.vr < 80) tell('now', 'Now! Hold the button.', 'wow');
         }
         var p = pos(sim.s.u, sim.s.r);
         trailClock += dt;
@@ -563,7 +712,8 @@
     map: function () { L.showMap(); },
     quit: function () { L.showMap(); },
     unlock: function () { prog.all = !prog.all; save(); L.showMap(); },
-    reset: function () { prog = { stars: {}, build: null, meco: null, all: false }; save(); L.showMap(); }
+    reset: function () { prog = blank(); save(); L.showMap(); },
+    album: function () { album(); }
   };
 
   L.init = function (app) {
@@ -575,7 +725,7 @@
       var el = e.target.closest('[data-lv]');
       if (!el || el.disabled) return;
       var name = el.dataset.lv, fn = actions[name] || (L.cur && L.cur[name]);
-      if (typeof fn === 'function') fn(el);
+      if (typeof fn === 'function') fn(el, e);
     });
     function hold(e, on) {
       var el = e.target.closest && e.target.closest('[data-hold]');

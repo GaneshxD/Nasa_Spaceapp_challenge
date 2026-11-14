@@ -36,8 +36,8 @@ what to do in a few words.
 
 | Level | What you do | What you learn |
 | --- | --- | --- |
-| 1. Meet the rocket | Tap the labels on a 3D rocket to open each of 6 parts, then answer 3 quick questions | What the tanks, engines, boosters, upper stage, nose cone and gyros are for |
-| 2. Build it | Tap tiles to pick fuel tanks, engines and boosters, then run a test flight | Push must beat weight to lift off; fuel decides how fast you end up; everything costs coins |
+| 1. Meet the rocket | Tap the labels on a 3D rocket to x-ray each of 6 parts, with numbered call-outs, then answer 3 quick questions | What the tanks, engines, boosters, upper stage, nose cone and gyros are for |
+| 2. Build it | Drag fuel tanks, engines and boosters onto their glowing slots, then run a test flight | Push must beat weight to lift off; fuel decides how fast you end up; everything costs coins |
 | 3. Lift-off | Launch, steer with the arrows to keep the gyro needle in the green, drop the empty boosters | Why rockets tip over sideways as they climb, Max Q, staging, where space begins |
 | 4. Reach orbit | Coast to the top of the arc, hold the button to burn sideways until the path closes, release the satellite | An orbit is about speed, not height: about 28,000 km/h sideways |
 | 5. Fire watch | Seven design choices, a Go/No-go check, launch, three years of real fires, and a report | Trading mass, power, data, money and sharpness against each other |
@@ -49,6 +49,13 @@ what to do in a few words.
 ![Level 5: the mission designer](docs/designer.jpg)
 ![Level 5: the mission](docs/mission.jpg)
 ![Level 5: the report](docs/report.jpg)
+
+### Drag, fail, collect
+
+- **Drag and drop.** In levels 2 and 5 every part is dragged onto a labelled slot that glows while you carry it. A tap shows a hand making the move; on touch screens press and hold to lift a part; Enter or Space picks from the keyboard.
+- **Pip reacts.** The guide cheers, worries or gasps as the design and the flight change.
+- **What went wrong.** A failed flight plays a short cartoon of the cause, with one "Try this" button.
+- **Badges and NASA mission cards.** Twelve badges reward different ways of winning, and ten cards of real NASA missions unlock as you play. The map's medal button opens the collection.
 
 ### Gauges in the flying levels
 
