@@ -6,7 +6,12 @@
   <title>Orbit Ranger: design a satellite that spots wildfires</title>
   <meta name="description" content="A 3D space mission game with levels: meet the rocket, build it, fly it to space, reach orbit, then design your own wildfire-watching satellite with real NASA fire data.">
   <meta name="theme-color" content="#58cc02">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/designer.css">
+  <link rel="stylesheet" href="css/levels.css">
+  <link rel="stylesheet" href="css/play.css">
+  <link rel="stylesheet" href="css/team.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body data-screen="title">
   <canvas id="stage" tabindex="0" aria-label="3D view. Drag to look around, scroll to zoom. Arrow keys also turn the view."></canvas>
@@ -45,19 +50,42 @@
   <script src="vendor/three.min.js"></script>
   <script src="assets/textures.js"></script>
   <script src="assets/nasa-fires.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/physics.js"></script>
-  <script src="js/model.js"></script>
-  <script src="js/sim.js"></script>
-  <script src="js/flight.js"></script>
-  <script src="js/audio.js"></script>
+  <!-- core: the simulation. No browser code, so it also runs in Node (tests, tools, server). -->
+  <script src="js/core/data.js"></script>
+  <script src="js/core/physics.js"></script>
+  <script src="js/core/model.js"></script>
+  <script src="js/core/sim.js"></script>
+  <script src="js/core/flight.js"></script>
+  <!-- scene: everything drawn in 3D -->
   <script src="js/scene/engine.js"></script>
   <script src="js/scene/earth.js"></script>
   <script src="js/scene/satellite.js"></script>
   <script src="js/scene/rocket.js"></script>
   <script src="js/scene/views.js"></script>
+  <!-- ui: shared pieces, then the levels, then the mission designer -->
+  <script src="js/ui/audio.js"></script>
+  <script src="js/ui/icons.js"></script>
+  <script src="js/ui/drag.js"></script>
+  <script src="js/ui/replay.js"></script>
   <script src="js/ui/widgets.js"></script>
-  <script src="js/ui/levels.js"></script>
+  <script src="js/ui/progress.js"></script>
+  <!-- net: optional team play on separate devices; idle when there is no server -->
+  <script src="js/net/room.js"></script>
+  <script src="js/ui/rewards.js"></script>
+  <script src="js/ui/levels/kit.js"></script>
+  <script src="js/ui/levels/map.js"></script>
+  <script src="js/ui/levels/level1.js"></script>
+  <script src="js/ui/levels/level2.js"></script>
+  <script src="js/ui/levels/level3.js"></script>
+  <script src="js/ui/levels/level4.js"></script>
+  <script src="js/ui/levels/index.js"></script>
+  <script src="js/ui/designer/context.js"></script>
+  <script src="js/ui/designer/screens.js"></script>
+  <script src="js/ui/designer/step.js"></script>
+  <script src="js/ui/designer/review.js"></script>
+  <script src="js/ui/designer/report.js"></script>
+  <script src="js/ui/designer/dialogs.js"></script>
+  <script src="js/ui/designer/mission.js"></script>
   <script src="js/ui/app.js"></script>
 </body>
 </html>

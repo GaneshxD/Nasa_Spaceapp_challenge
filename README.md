@@ -92,7 +92,7 @@ artwork, the guide character and the code are original to this project.
 
 ## What is really simulated
 
-**Rocket flight (levels 2 to 4), in `js/flight.js`.** The rocket is a small
+**Rocket flight (levels 2 to 4), in `js/core/flight.js`.** The rocket is a small
 cousin of NASA's Space Launch System: a core stage burning liquid hydrogen
 with liquid oxygen, optional solid boosters, and a small upper stage. Motion
 is worked out around a round Earth with gravity, thrust that grows as the air
@@ -100,7 +100,7 @@ thins, air drag, the mass lost as fuel burns, and the free sideways speed from
 Earth's spin at Kennedy Space Center. A rocket that is too heavy really does
 sit on the pad, and one with too little fuel really does fall back.
 
-**The satellite mission (level 5), in `js/sim.js`.** The satellite flies its
+**The satellite mission (level 5), in `js/core/sim.js`.** The satellite flies its
 real orbit in half-minute steps while the Earth turns underneath:
 
 - **Fires.** Each fire sits where NASA's MODIS really saw a fire in 2023, and
@@ -127,10 +127,10 @@ button shows the same list.
 | The specks on the globe, and the fires counted at the end of level 4 | **NASA FIRMS**, MODIS global 7-day file (7 to 14 November 2026) | Every confident detection, thinned to about 1,600 points |
 | Earth by day | **NASA GIBS**, layer `BlueMarble_NextGeneration` (August 2004) | Worldview snapshot service, 4096 × 2048 |
 | Earth by night | **NASA GIBS**, layer `VIIRS_Black_Marble` (2016, Suomi NPP) | Worldview snapshot service, resized to 2048 × 1024 |
-| Rocket engines | NASA's RS-25 (452 s, 2,279 kN in vacuum, six parts oxygen to one part hydrogen) and RL10 upper-stage engine; the stage layout follows the Space Launch System | Constants at the top of `js/flight.js` |
-| Launch site | Kennedy Space Center | Latitude, longitude and spin speed in `js/flight.js` |
-| Ground stations | NASA's Near Space Network: Wallops, McMurdo, Fairbanks, White Sands | Coordinates in `js/data.js` |
-| Sensors and orbits | VIIRS on Suomi NPP, the imager on GOES-R, the Space Station's orbit, GOES-East | Numbers in `js/data.js`, checked by the tests |
+| Rocket engines | NASA's RS-25 (452 s, 2,279 kN in vacuum, six parts oxygen to one part hydrogen) and RL10 upper-stage engine; the stage layout follows the Space Launch System | Constants at the top of `js/core/flight.js` |
+| Launch site | Kennedy Space Center | Latitude, longitude and spin speed in `js/core/flight.js` |
+| Ground stations | NASA's Near Space Network: Wallops, McMurdo, Fairbanks, White Sands | Coordinates in `js/core/data.js` |
+| Sensors and orbits | VIIRS on Suomi NPP, the imager on GOES-R, the Space Station's orbit, GOES-East | Numbers in `js/core/data.js`, checked by the tests |
 
 Sources:
 
@@ -142,10 +142,11 @@ coins, the prices and masses of satellite parts, which pixel size catches
 which fire, the hour each fire starts, the surprises and the scoring. The only
 non-NASA files are tools rather than data: three.js and two open-licence fonts.
 
-**The challenge's Resources tab.** The Space Apps website blocks automated
-readers, so the Resources tab for this challenge could not be read while
-building the game. The sources above were chosen independently. If the tab
-lists specific resources, check them against this table and add any that are
+**The challenge's Details and Resources tabs.** The Space Apps website could
+not be opened from the build environment, so neither tab was read while
+building the game. The requirement table above is written against public
+summaries of the challenge, and the sources were chosen independently. Check
+both tabs by hand before submitting, and add any listed resource that is
 missing.
 
 To refresh the fire data, download the files named at the top of
@@ -174,34 +175,40 @@ lead, flight navigator, spacecraft engineer, data officer) are shared out,
 each step shows whose turn it is, everyone spends from the same budget, and
 every console has to press its own go button before launch.
 
+**On separate devices.** With the room server running, each player can use
+their own phone. One player creates a room and shares its four-letter code;
+the others join with it. Each player chooses the parts for their own consoles,
+everyone sees the design change live, and the host launches once every console
+is go. All devices then fly the same mission.
+
+```sh
+cd server
+npm install
+npm start        # then open http://localhost:8080 on each device
+```
+
+The game itself never needs the server: opened from a double-click, team play
+stays on one screen.
+
 ## Project layout
 
 ```
-index.html              the page; plain scripts so it runs from a double-click
-css/style.css           all styling
-js/flight.js            rocket physics for levels 2 to 4
-js/data.js              level 5: every part, orbit, rocket, fire zone and line of teaching text
-js/physics.js           level 5: orbit geometry (period, shadow, coverage, station contact)
-js/model.js             level 5: design checker, Go/No-go checks, mission codes
-js/sim.js               level 5: the mission simulation, scoring and debrief
-js/audio.js             sound effects made with the Web Audio API
-js/scene/engine.js      renderer, camera, stars, labels, quality step-down
-js/scene/earth.js       the globe, coverage paint, orbit rings, flight paths, fires, stations
-js/scene/satellite.js   the detailed satellite model
-js/scene/rocket.js      launch pad, the build-it-yourself rocket, flames and smoke
-js/scene/views.js       which scene shows when
-js/ui/levels.js         the level map and levels 1 to 4
-js/ui/app.js            level 5 screens and game flow
-js/ui/widgets.js        icons, gauges, card lines
-assets/nasa-fires.js    real NASA FIRMS fire detections
-assets/                 NASA GIBS Earth images, fonts
-vendor/three.min.js     three.js r149
-tests/run-tests.js      40 tests, no framework
-tools/                  balance tool, fire-data builder, texture packer
+index.html        the page; plain scripts so it runs from a double-click
+css/              six stylesheets: base, designer, levels, play, team, responsive
+js/core/          the rules: parts, physics, design checker, mission simulation, rocket flight
+js/scene/         everything drawn in 3D
+js/ui/            screens, the five levels, drag and drop, icons, sound, saved progress
+js/net/           client for team play on separate devices
+assets/           NASA fire data, NASA GIBS Earth images, fonts
+vendor/           three.js r149
+server/           optional room server for team play on separate devices
+tests/            40 simulation tests, no framework
+tools/            balance tool, fire-data builder, texture packer
 ```
 
-`flight.js`, `data.js`, `physics.js`, `model.js` and `sim.js` have no browser
-code in them, so they also run in Node.
+`js/core/` has no browser code in it, so it also runs in Node. The full
+description of the code, the data and the server is in
+[ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Tests and tools
 
@@ -212,12 +219,13 @@ node tests/run-tests.js          # rocket flight, orbit physics, NASA data, desi
 node tools/balance.js engineer   # level 5 scores for a set of reference designs
 ```
 
-To change level 5, edit `js/data.js`. To change the rocket parts or the level 2
-budget, edit the tables at the top of `js/flight.js`; the tests check that at
+To change level 5, edit `js/core/data.js`. To change the rocket parts or the level 2
+budget, edit the tables at the top of `js/core/flight.js`; the tests check that at
 least three different rockets still pass.
 
 ## Accessibility
 
+- It fits phones, upright or sideways, as well as desktops.
 - Everything works from the keyboard: arrow keys steer in level 3, the space
   bar burns in level 4, and on the 3D view arrow keys turn it and + and − zoom.
 - Status is never colour alone: answers, meters and checks carry words or symbols.

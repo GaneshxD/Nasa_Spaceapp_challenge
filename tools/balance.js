@@ -2,7 +2,7 @@
  * Run with:  node tools/balance.js            (reference designs)
  *            node tools/balance.js sample 400 (random sample of launchable designs)
  */
-require('../assets/nasa-fires.js'); require('../js/data.js'); require('../js/physics.js'); require('../js/model.js'); require('../js/sim.js');
+require('../assets/nasa-fires.js'); require('../js/core/data.js'); require('../js/core/physics.js'); require('../js/core/model.js'); require('../js/core/sim.js');
 const { DATA: D, Model: M, Sim, Score } = RG;
 
 const base = { sensor: 'wide', extras: [], orbit: 'sso', bus: 'midi', panels: 'M', battery: 'M', computer: 'rad', pointing: 'wheels3', radio: 'xband', network: 'two', rocket: 'medium' };
