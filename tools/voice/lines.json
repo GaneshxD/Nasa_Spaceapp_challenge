@@ -1,0 +1,1696 @@
+[
+ {
+  "id": "g1pwpfn5",
+  "file": "g1pwpfn5.mp3",
+  "text": "Tap a name on the rocket to x-ray that part. Words with a dotted line can be tapped too.",
+  "say": "Tap a name on the rocket to x-ray that part. Words with a dotted line can be tapped too.",
+  "from": "js/ui/levels/level1.js"
+ },
+ {
+  "id": "g0ndvrkf",
+  "file": "g0ndvrkf.mp3",
+  "text": "Pick your propellant tanks. Tap one, or drag it onto the rocket.",
+  "say": "Pick your propellant tanks. Tap one, or drag it onto the rocket.",
+  "from": "js/ui/levels/level2.js"
+ },
+ {
+  "id": "g1hdr41f",
+  "file": "g1hdr41f.mp3",
+  "text": "Tanks on. Now the engines: their thrust has to beat the rocket’s weight.",
+  "say": "Tanks on. Now the engines: their thrust has to beat the rocket’s weight.",
+  "from": "js/ui/levels/level2.js"
+ },
+ {
+  "id": "g1c9v902",
+  "file": "g1c9v902.mp3",
+  "text": "Too heavy to lift off! The thrust-to-weight ratio must be more than 1. Add thrust, or carry less.",
+  "say": "Too heavy to lift off! The thrust-to-weight ratio must be more than 1. Add thrust, or carry less.",
+  "from": "js/ui/levels/level2.js"
+ },
+ {
+  "id": "g18hrtd5",
+  "file": "g18hrtd5.mp3",
+  "text": "Thrust beats weight. Now, boosters or not? They add thrust, mass and cost.",
+  "say": "Thrust beats weight. Now, boosters or not? They add thrust, mass and cost.",
+  "from": "js/ui/levels/level2.js"
+ },
+ {
+  "id": "g014tg55",
+  "file": "g014tg55.mp3",
+  "text": "Ready. Run a test flight to see if it reaches orbital velocity.",
+  "say": "Ready. Run a test flight to see if it reaches orbital velocity.",
+  "from": "js/ui/levels/level2.js"
+ },
+ {
+  "id": "g1aeebmj",
+  "file": "g1aeebmj.mp3",
+  "text": "Watch what happened.",
+  "say": "Watch what happened.",
+  "from": "js/ui/levels/level2.js"
+ },
+ {
+  "id": "g0c5bsx9",
+  "file": "g0c5bsx9.mp3",
+  "text": "Again! Keep the needle in the green. This time Launch lifts off at once.",
+  "say": "Again! Keep the needle in the green. This time Launch lifts off at once.",
+  "from": "js/ui/levels/level3.js"
+ },
+ {
+  "id": "g1rz6sv6",
+  "file": "g1rz6sv6.mp3",
+  "text": "Keep the needle in the green: that is the pitch the flight computer wants. Tap any gauge to see what it measures. Ready?",
+  "say": "Keep the needle in the green: that is the pitch the flight computer wants. Tap any gauge to see what it measures. Ready?",
+  "from": "js/ui/levels/level3.js"
+ },
+ {
+  "id": "g0norwq6",
+  "file": "g0norwq6.mp3",
+  "text": "Now the rocket tips over, slowly. This is the gravity turn: an orbit needs sideways speed, not just height.",
+  "say": "Now the rocket tips over, slowly. This is the gravity turn: an orbit needs sideways speed, not just height.",
+  "from": "js/ui/levels/level3.js"
+ },
+ {
+  "id": "g1gkaw2w",
+  "file": "g1gkaw2w.mp3",
+  "text": "Nearly there. When the tanks run dry the engines stop: that is main engine cut-off.",
+  "say": "Nearly there. When the tanks run dry the engines stop: that is main engine cut-off.",
+  "from": "js/ui/levels/level3.js"
+ },
+ {
+  "id": "g18m8zsj",
+  "file": "g18m8zsj.mp3",
+  "text": "Lift-off! The thrust is bigger than the weight, so the rocket rises.",
+  "say": "Lift-off! The thrust is bigger than the weight, so the rocket rises.",
+  "from": "js/ui/levels/level3.js"
+ },
+ {
+  "id": "g0p0vehx",
+  "file": "g0p0vehx.mp3",
+  "text": "That was Max Q: the hardest push of the air on the rocket. It gets smoother from here.",
+  "say": "That was Max Q: the hardest push of the air on the rocket. It gets smoother from here.",
+  "from": "js/ui/levels/level3.js"
+ },
+ {
+  "id": "g0a2hmns",
+  "file": "g0a2hmns.mp3",
+  "text": "The boosters are empty. Drop them! Dead weight costs speed. This is staging.",
+  "say": "The boosters are empty. Drop them! Dead weight costs speed. This is staging.",
+  "from": "js/ui/levels/level3.js"
+ },
+ {
+  "id": "g1ehfoid",
+  "file": "g1ehfoid.mp3",
+  "text": "The computer dropped the boosters for you, a few seconds late.",
+  "say": "The computer dropped the boosters for you, a few seconds late.",
+  "from": "js/ui/levels/level3.js"
+ },
+ {
+  "id": "g0bkp3sm",
+  "file": "g0bkp3sm.mp3",
+  "text": "Booster separation! The rocket is lighter.",
+  "say": "Booster separation! The rocket is lighter.",
+  "from": "js/ui/levels/level3.js"
+ },
+ {
+  "id": "g1vjar9g",
+  "file": "g1vjar9g.mp3",
+  "text": "100 km: the Kármán line. You are in space!",
+  "say": "100 kilometres: the Kármán line. You are in space!",
+  "from": "js/ui/levels/level3.js"
+ },
+ {
+  "id": "g14dc3sp",
+  "file": "g14dc3sp.mp3",
+  "text": "The main engines are off. You are coasting up to the highest point of the arc, like a thrown ball. Get ready to burn.",
+  "say": "The main engines are off. You are coasting up to the highest point of the arc, like a thrown ball. Get ready to burn.",
+  "from": "js/ui/levels/level4.js"
+ },
+ {
+  "id": "g0t1yb3r",
+  "file": "g0t1yb3r.mp3",
+  "text": "You are in orbit! The path no longer touches the air. Release the satellite.",
+  "say": "You are in orbit! The path no longer touches the air. Release the satellite.",
+  "from": "js/ui/levels/level4.js"
+ },
+ {
+  "id": "g10xcqws",
+  "file": "g10xcqws.mp3",
+  "text": "Green path: the low point is above the air. Let go!",
+  "say": "Green path: the low point is above the air. Let go!",
+  "from": "js/ui/levels/level4.js"
+ },
+ {
+  "id": "g1awh1ar",
+  "file": "g1awh1ar.mp3",
+  "text": "Keep holding. This is circularizing: the low point of your path is rising.",
+  "say": "Keep holding. This is circularizing: the low point of your path is rising.",
+  "from": "js/ui/levels/level4.js"
+ },
+ {
+  "id": "g1hsmy5k",
+  "file": "g1hsmy5k.mp3",
+  "text": "The tanks are empty…",
+  "say": "The tanks are empty...",
+  "from": "js/ui/levels/level4.js"
+ },
+ {
+  "id": "g1nxq62u",
+  "file": "g1nxq62u.mp3",
+  "text": "Now! Hold the button. A prograde burn at the top adds the sideways speed an orbit needs.",
+  "say": "Now! Hold the button. A prograde burn at the top adds the sideways speed an orbit needs.",
+  "from": "js/ui/levels/level4.js"
+ },
+ {
+  "id": "g15ijlwb",
+  "file": "g15ijlwb.mp3",
+  "text": "Plan your Moon landing! Pick a landing site, pack your science kit, then press go. Every choice changes the others: that is a trade-off.",
+  "say": "Plan your Moon landing! Pick a landing site, pack your science kit, then press go. Every choice changes the others: that is a trade-off.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1ymd12g",
+  "file": "g1ymd12g.mp3",
+  "text": "You are in a parking orbit, 110 km above the Moon. Earth is in view, so Mission Control can talk to you, read your telemetry, track you and send commands. Tap any of the four.",
+  "say": "You are in a parking orbit, 110 kilometres above the Moon. Earth is in view, so Mission Control can talk to you, read your telemetry, track you and send commands. Tap any of the four.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0vewncc",
+  "file": "g0vewncc.mp3",
+  "text": "Off you go, at 5,865 km/h. One lap takes 119 minutes, so the quiet parts are run fast. Watch the green radio line.",
+  "say": "Off you go, at 5,865 kilometres per hour. One lap takes 119 minutes, so the quiet parts are run fast. Watch the green radio line.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0h34i99",
+  "file": "g0h34i99.mp3",
+  "text": "Mission Control has worked out your deorbit burn from its tracking, and sent the numbers up by uplink. You will need them: the burn happens behind the Moon, where nobody can remind you.",
+  "say": "Mission Control has worked out your deorbit burn from its tracking, and sent the numbers up by uplink. You will need them: the burn happens behind the Moon, where nobody can remind you.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0u41os9",
+  "file": "g0u41os9.mp3",
+  "text": "Loss of signal. The Moon is now between you and Earth: 3,474 km of rock. Radio cannot bend around it. No voice, no telemetry, no tracking, no commands. You are on your own.",
+  "say": "Loss of signal. The Moon is now between you and Earth: 3,474 kilometres of rock. Radio cannot bend around it. No voice, no telemetry, no tracking, no commands. You are on your own.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0qygefx",
+  "file": "g0qygefx.mp3",
+  "text": "Ten seconds. Fire the engine when the clock reaches zero: press the button or the space bar.",
+  "say": "Ten seconds. Fire the engine when the clock reaches zero: press the button or the space bar.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g19k7nqg",
+  "file": "g19k7nqg.mp3",
+  "text": "You missed it, so the computer fired the engine itself.",
+  "say": "You missed it, so the computer fired the engine itself.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0pe8ke5",
+  "file": "g0pe8ke5.mp3",
+  "text": "Ignition, right on time! The engine pushes against your motion: a retrograde burn.",
+  "say": "Ignition, right on time! The engine pushes against your motion: a retrograde burn.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1bu5vys",
+  "file": "g1bu5vys.mp3",
+  "text": "Ignition, late. The engine pushes against your motion: a retrograde burn.",
+  "say": "Ignition, late. The engine pushes against your motion: a retrograde burn.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0vdv0e9",
+  "file": "g0vdv0e9.mp3",
+  "text": "Ignition, early. The engine pushes against your motion: a retrograde burn.",
+  "say": "Ignition, early. The engine pushes against your motion: a retrograde burn.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1fxd01y",
+  "file": "g1fxd01y.mp3",
+  "text": "Engine off. You slowed by only 22 m/s, and the far side of your orbit dropped from 110 km to 15 km: the periapsis. A small change in velocity moves an orbit a long way.",
+  "say": "Engine off. You slowed by only 22 metres per second, and the far side of your orbit dropped from 110 kilometres to 15 kilometres: the periapsis. A small change in velocity moves an orbit a long way.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1ahq73t",
+  "file": "g1ahq73t.mp3",
+  "text": "Acquisition of signal! Earth is back in view. Fresh telemetry is flowing, and Mission Control is checking your new orbit. Every message takes 1.3 seconds to cross.",
+  "say": "Acquisition of signal! Earth is back in view. Fresh telemetry is flowing, and Mission Control is checking your new orbit. Every message takes 1.3 seconds to cross.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1i9x95w",
+  "file": "g1i9x95w.mp3",
+  "text": "Mission Control: your orbit is 110 by 15 km, right on target. You are go for powered descent.",
+  "say": "Mission Control: your orbit is 110 by 15 kilometres, right on target. You are go for powered descent.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1rs70wh",
+  "file": "g1rs70wh.mp3",
+  "text": "Mission Control: your burn was late, so your low point has moved. Only tracking from Earth could tell us. The fix costs landing propellant. You are go.",
+  "say": "Mission Control: your burn was late, so your low point has moved. Only tracking from Earth could tell us. The fix costs landing propellant. You are go.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0d9oyns",
+  "file": "g0d9oyns.mp3",
+  "text": "Mission Control: your burn was early, so your low point has moved. Only tracking from Earth could tell us. The fix costs landing propellant. You are go.",
+  "say": "Mission Control: your burn was early, so your low point has moved. Only tracking from Earth could tell us. The fix costs landing propellant. You are go.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0zv3sbw",
+  "file": "g0zv3sbw.mp3",
+  "text": "Coming up on the edge of the Moon. Radio travels in straight lines: it needs a clear line of sight. Watch the green line.",
+  "say": "Coming up on the edge of the Moon. Radio travels in straight lines: it needs a clear line of sight. Watch the green line.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0s1vdxu",
+  "file": "g0s1vdxu.mp3",
+  "text": "Powered descent. The autopilot has it. The lander is pitched back, so the engine pushes against its motion and the horizontal velocity falls.",
+  "say": "Powered descent. The autopilot has it. The lander is pitched back, so the engine pushes against its motion and the horizontal velocity falls.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1t332eb",
+  "file": "g1t332eb.mp3",
+  "text": "Powered descent! Follow the arrows: pitch back to slow down.",
+  "say": "Powered descent! Follow the arrows: pitch back to slow down.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0zvzz4l",
+  "file": "g0zvzz4l.mp3",
+  "text": "Powered descent! Watch the descent rate, and follow the arrows.",
+  "say": "Powered descent! Watch the descent rate, and follow the arrows.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0rhp93d",
+  "file": "g0rhp93d.mp3",
+  "text": "Program alarm 1202! Asking Earth…",
+  "say": "Program alarm twelve oh two! Asking Earth...",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1wfo74s",
+  "file": "g1wfo74s.mp3",
+  "text": "Mission Control: “We are go on that alarm.” The answer took 2.6 s to arrive: 1.3 s for the question to reach Earth, and 1.3 s for the reply.",
+  "say": "Mission Control: We are go on that alarm. The answer took 2.6 seconds to arrive: 1.3 seconds for the question to reach Earth, and 1.3 seconds for the reply.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g135l0yu",
+  "file": "g135l0yu.mp3",
+  "text": "Boulders on the target! Fly on to the new ring, 110 m ahead. Moving the target on the way down is a redesignation. Neil Armstrong had to do it too.",
+  "say": "Boulders on the target! Fly on to the new ring, 110 metres ahead. Moving the target on the way down is a redesignation. Neil Armstrong had to do it too.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g04fo3a0",
+  "file": "g04fo3a0.mp3",
+  "text": "Mission Control: “30 seconds!” That is all the hover time left. Land now.",
+  "say": "Mission Control: 30 seconds! That is all the hover time left. Land now.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1xbgnym",
+  "file": "g1xbgnym.mp3",
+  "text": "Mission Control: “60 seconds.” They read your propellant from telemetry, as they did for Apollo 11.",
+  "say": "Mission Control: 60 seconds. They read your propellant from telemetry, as they did for Apollo 11.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1ksfrwq",
+  "file": "g1ksfrwq.mp3",
+  "text": "Picking up some dust. In a vacuum it flies out in flat sheets, with no air to make clouds.",
+  "say": "Picking up some dust. In a vacuum it flies out in flat sheets, with no air to make clouds.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0eob4o3",
+  "file": "g0eob4o3.mp3",
+  "text": "Watch the horizontal velocity fall. Pitched back, the engine pushes against your motion: that is braking.",
+  "say": "Watch the horizontal velocity fall. Pitched back, the engine pushes against your motion: that is braking.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1b9o25o",
+  "file": "g1b9o25o.mp3",
+  "text": "This slanted way down is the glide path: about 16°, as on Apollo, so the target stays in the window.",
+  "say": "This slanted way down is the glide path: about 16 degrees, as on Apollo, so the target stays in the window.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g09tpjo2",
+  "file": "g09tpjo2.mp3",
+  "text": "Nearly over the ring. Lose the last horizontal velocity, then come straight down: the legs take 3 m/s down but only 1.2 m/s sideways.",
+  "say": "Nearly over the ring. Lose the last horizontal velocity, then come straight down: the legs take 3 metres per second down but only 1.2 metres per second sideways.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1c83yyq",
+  "file": "g1c83yyq.mp3",
+  "text": "Oh no. Let’s see what happened.",
+  "say": "Oh no. Let’s see what happened.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1m841kh",
+  "file": "g1m841kh.mp3",
+  "text": "Touchdown! The engine is off. You are on the Moon.",
+  "say": "Touchdown! The engine is off. You are on the Moon.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0oizpgs",
+  "file": "g0oizpgs.mp3",
+  "text": "One small step! Working outside is called an EVA. Walk to the glowing rings: use the arrow keys, W A S D, or the stick.",
+  "say": "One small step! Working outside is called an E V A. Walk to the glowing rings: use the arrow keys, W A S D, or the stick.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g036wpo8",
+  "file": "g036wpo8.mp3",
+  "text": "One small step! Working outside is called an EVA. Have a look around, then climb back in.",
+  "say": "One small step! Working outside is called an E V A. Have a look around, then climb back in.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1wpbfek",
+  "file": "g1wpbfek.mp3",
+  "text": "Every job is done. Walk back to the lander and climb in.",
+  "say": "Every job is done. Walk back to the lander and climb in.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1beol22",
+  "file": "g1beol22.mp3",
+  "text": "That is far enough. Mission rules: stay close to the lander, so your life support can always get you back.",
+  "say": "That is far enough. Mission rules: stay close to the lander, so your life support can always get you back.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1drwh7l",
+  "file": "g1drwh7l.mp3",
+  "text": "What a jump! On Earth the same push lifts you six times less. That is Moon gravity: a sixth of Earth’s.",
+  "say": "What a jump! On Earth the same push lifts you six times less. That is Moon gravity: a sixth of Earth’s.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1pelot9",
+  "file": "g1pelot9.mp3",
+  "text": "Look at the sky! That blue ball is Earth, our home. The helmet view lets you look up.",
+  "say": "Look at the sky! That blue ball is Earth, our home. The helmet view lets you look up.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0dgr6uq",
+  "file": "g0dgr6uq.mp3",
+  "text": "Oxygen is getting low. Head back to the lander now.",
+  "say": "Oxygen is getting low. Head back to the lander now.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0ortq8w",
+  "file": "g0ortq8w.mp3",
+  "text": "Too heavy! Leave something behind.",
+  "say": "Too heavy! Leave something behind.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1azcuab",
+  "file": "g1azcuab.mp3",
+  "text": "Lighter: more propellant for the landing.",
+  "say": "Lighter: more propellant for the landing.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0shyp3e",
+  "file": "g0shyp3e.mp3",
+  "text": "You are too far from the lander. Walk back to it first.",
+  "say": "You are too far from the lander. Walk back to it first.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g136l3cd",
+  "file": "g136l3cd.mp3",
+  "text": "Change the plan and try again.",
+  "say": "Change the plan and try again.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g06arkxx",
+  "file": "g06arkxx.mp3",
+  "text": "The guidance computer flies the whole landing, as Apollo’s program 64 could. You watch the instruments and learn what each one does. It earns six tenths of the landing points.",
+  "say": "The guidance computer flies the whole landing, as Apollo’s program 64 could. You watch the instruments and learn what each one does. It earns six tenths of the landing points.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1t7q1lp",
+  "file": "g1t7q1lp.mp3",
+  "text": "You pitch the lander; the computer works the throttle to hold the descent rate. This is how every Apollo commander flew the last minutes (program 66).",
+  "say": "You pitch the lander; the computer works the throttle to hold the descent rate. This is how every Apollo commander flew the last minutes, program 66.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1v1ubji",
+  "file": "g1v1ubji.mp3",
+  "text": "You pitch the lander and work the throttle. Nobody ever landed on the Moon this way: it is the hardest setting.",
+  "say": "You pitch the lander and work the throttle. Nobody ever landed on the Moon this way: it is the hardest setting.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1fbxv12",
+  "file": "g1fbxv12.mp3",
+  "text": "There are no seats: Apollo crews flew standing up, held by straps, with their eyes close to the window. See the yellow ring on the ground? That is the landing target. The lines on the window show where the computer is aiming.",
+  "say": "There are no seats: Apollo crews flew standing up, held by straps, with their eyes close to the window. See the yellow ring on the ground? That is the landing target. The lines on the window show where the computer is aiming.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1ridbkx",
+  "file": "g1ridbkx.mp3",
+  "text": "The autopilot flies this landing. Watch the instruments, and tap any of them: the flight waits while you read.",
+  "say": "The autopilot flies this landing. Watch the instruments, and tap any of them: the flight waits while you read.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g1cxwcdo",
+  "file": "g1cxwcdo.mp3",
+  "text": "You pitch the lander, and the computer works the throttle. Pitch back (lean back) to slow down, pitch forward to move on. Follow the arrows.",
+  "say": "You pitch the lander, and the computer works the throttle. Pitch back (lean back) to slow down, pitch forward to move on. Follow the arrows.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g0q70wem",
+  "file": "g0q70wem.mp3",
+  "text": "You have the pitch and the throttle. Pitch back (lean back) to slow down, and keep the descent rate small near the ground.",
+  "say": "You have the pitch and the throttle. Pitch back (lean back) to slow down, and keep the descent rate small near the ground.",
+  "from": "js/ui/levels/level6.js"
+ },
+ {
+  "id": "g09yppjp",
+  "file": "g09yppjp.mp3",
+  "text": "Two jobs, one rocket! Pilot on the left, flight engineer on the right. You each see only your own gauges, so talk. Both hold your go button to launch: that is a go / no-go poll.",
+  "say": "Two jobs, one rocket! Pilot on the left, flight engineer on the right. You each see only your own gauges, so talk. Both hold your go button to launch: that is a go / no-go poll.",
+  "from": "js/ui/levels/coop.js"
+ },
+ {
+  "id": "g0sxgsuo",
+  "file": "g0sxgsuo.mp3",
+  "text": "Lift-off! Pilot: keep the needle in the green. Engineer: watch the booster gauge and say what you see out loud. That is a call-out.",
+  "say": "Lift-off! Pilot: keep the needle in the green. Engineer: watch the booster gauge and say what you see out loud. That is a call-out.",
+  "from": "js/ui/levels/coop.js"
+ },
+ {
+  "id": "g02mrvzt",
+  "file": "g02mrvzt.mp3",
+  "text": "That was Max Q, the hardest push of the air. Engineer: the boosters are nearly empty. Warn the pilot before you let them go.",
+  "say": "That was Max Q, the hardest push of the air. Engineer: the boosters are nearly empty. Warn the pilot before you let them go.",
+  "from": "js/ui/levels/coop.js"
+ },
+ {
+  "id": "g0k4kz8t",
+  "file": "g0k4kz8t.mp3",
+  "text": "The computer let the boosters go, four seconds late. Engineer: call “boosters empty” the moment the gauge reads zero.",
+  "say": "The computer let the boosters go, four seconds late. Engineer: call boosters empty the moment the gauge reads zero.",
+  "from": "js/ui/levels/coop.js"
+ },
+ {
+  "id": "g0zjp3jc",
+  "file": "g0zjp3jc.mp3",
+  "text": "Booster separation! Letting go kicked the nose. Pilot: steer it back. Did the engineer warn you?",
+  "say": "Booster separation! Letting go kicked the nose. Pilot: steer it back. Did the engineer warn you?",
+  "from": "js/ui/levels/coop.js"
+ },
+ {
+  "id": "g00h67y4",
+  "file": "g00h67y4.mp3",
+  "text": "100 km: the Kármán line. Engineer: the fairing can go now, but only while the rocket is steady. Ask the pilot.",
+  "say": "100 kilometres: the Kármán line. Engineer: the fairing can go now, but only while the rocket is steady. Ask the pilot.",
+  "from": "js/ui/levels/coop.js"
+ },
+ {
+  "id": "g08pmfv7",
+  "file": "g08pmfv7.mp3",
+  "text": "Fairing away! The rocket is 2.5 tonnes lighter, and the payload sees space for the first time.",
+  "say": "Fairing away! The rocket is 2.5 tonnes lighter, and the payload sees space for the first time.",
+  "from": "js/ui/levels/coop.js"
+ },
+ {
+  "id": "g0259kvh",
+  "file": "g0259kvh.mp3",
+  "text": "Share the link so your crew can join. When everyone is here, each of you says go: that is a go / no-go poll.",
+  "say": "Share the link so your crew can join. When everyone is here, each of you says go: that is a go / no-go poll.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g01jua3j",
+  "file": "g01jua3j.mp3",
+  "text": "When everyone is here, each of you says go: that is a go / no-go poll.",
+  "say": "When everyone is here, each of you says go: that is a go / no-go poll.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g0py1dav",
+  "file": "g0py1dav.mp3",
+  "text": "Every seat is go. Counting down!",
+  "say": "Every seat is go. Counting down!",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1de1n6x",
+  "file": "g1de1n6x.mp3",
+  "text": "Hold! Someone took their go back. The count waits until every seat is go again.",
+  "say": "Hold! Someone took their go back. The count waits until every seat is go again.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1xqtwu6",
+  "file": "g1xqtwu6.mp3",
+  "text": "Lift-off! Pilot: keep the needle in the green. Everyone: say out loud what your own gauges show. That is a call-out.",
+  "say": "Lift-off! Pilot: keep the needle in the green. Everyone: say out loud what your own gauges show. That is a call-out.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1m07ez9",
+  "file": "g1m07ez9.mp3",
+  "text": "Booster separation! Letting go kicked the nose. Pilot: steer it back.",
+  "say": "Booster separation! Letting go kicked the nose. Pilot: steer it back.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1x7per3",
+  "file": "g1x7per3.mp3",
+  "text": "100 km: the Kármán line. Navigator: call the altitude. Payload officer: the fairing can go, once the pilot says the rocket is steady.",
+  "say": "100 kilometres: the Kármán line. Navigator: call the altitude. Payload officer: the fairing can go, once the pilot says the rocket is steady.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g0bv4zns",
+  "file": "g0bv4zns.mp3",
+  "text": "Main engine cut-off. The core stage is empty. Engineer: let it go, so the upper stage can burn.",
+  "say": "Main engine cut-off. The core stage is empty. Engineer: let it go, so the upper stage can burn.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1nawgyk",
+  "file": "g1nawgyk.mp3",
+  "text": "Core stage away: that is staging. Navigator: wait for the top of the arc, then hold the burn until the path turns green.",
+  "say": "Core stage away: that is staging. Navigator: wait for the top of the arc, then hold the burn until the path turns green.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g0uautm0",
+  "file": "g0uautm0.mp3",
+  "text": "The computer let the core stage go, five seconds late. Navigator: burn at the top of the arc.",
+  "say": "The computer let the core stage go, five seconds late. Navigator: burn at the top of the arc.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1vshdov",
+  "file": "g1vshdov.mp3",
+  "text": "The upper stage is burning prograde. The low point of the path is rising: this is circularizing.",
+  "say": "The upper stage is burning prograde. The low point of the path is rising: this is circularizing.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1c6b1mu",
+  "file": "g1c6b1mu.mp3",
+  "text": "The path is an orbit! Navigator: say so. Payload officer: release the satellite.",
+  "say": "The path is an orbit! Navigator: say so. Payload officer: release the satellite.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g0hmyacy",
+  "file": "g0hmyacy.mp3",
+  "text": "Satellite released. You are a launch crew!",
+  "say": "Satellite released. You are a launch crew!",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g0h092h6",
+  "file": "g0h092h6.mp3",
+  "text": "The computer released the satellite, after a long wait.",
+  "say": "The computer released the satellite, after a long wait.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1eqcsle",
+  "file": "g1eqcsle.mp3",
+  "text": "Still burning! A solid booster cannot be let go until it is empty. Engineer: watch the booster gauge.",
+  "say": "Still burning! A solid booster cannot be let go until it is empty. Engineer: watch the booster gauge.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1shoflt",
+  "file": "g1shoflt.mp3",
+  "text": "Too low. Under 100 km the rushing air would wreck the satellite, so the fairing stays on. Ask the navigator for the altitude.",
+  "say": "Too low. Under 100 kilometres the rushing air would wreck the satellite, so the fairing stays on. Ask the navigator for the altitude.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1y729xf",
+  "file": "g1y729xf.mp3",
+  "text": "Not steady enough to let the fairing go. Pilot: call “steady” when the needle is in the green.",
+  "say": "Not steady enough to let the fairing go. Pilot: call steady when the needle is in the green.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1qqzpbk",
+  "file": "g1qqzpbk.mp3",
+  "text": "The core stage is still burning. Engineer: let it go after main engine cut-off.",
+  "say": "The core stage is still burning. Engineer: let it go after main engine cut-off.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1ndb86e",
+  "file": "g1ndb86e.mp3",
+  "text": "Not in orbit yet. The satellite stays on until the navigator has closed the path.",
+  "say": "Not in orbit yet. The satellite stays on until the navigator has closed the path.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1yhg5q2",
+  "file": "g1yhg5q2.mp3",
+  "text": "The engine is still burning. Navigator: let go of the burn first.",
+  "say": "The engine is still burning. Navigator: let go of the burn first.",
+  "from": "js/ui/levels/crewnet.js"
+ },
+ {
+  "id": "g1lyeny7",
+  "file": "g1lyeny7.mp3",
+  "text": "The passenger. It rides inside the nose cone, and the whole rocket exists to carry it. Engineers call it the payload.",
+  "say": "The passenger. It rides inside the nose cone, and the whole rocket exists to carry it. Engineers call it the payload.",
+  "from": "level1.js parts"
+ },
+ {
+  "id": "g1x79kuw",
+  "file": "g1x79kuw.mp3",
+  "text": "Liquid oxygen at −183 °C. Fire needs oxygen and space has no air, so the rocket carries its own.",
+  "say": "Liquid oxygen at minus 183 degrees Celsius. Fire needs oxygen and space has no air, so the rocket carries its own.",
+  "from": "level1.js parts"
+ },
+ {
+  "id": "g1lxtse5",
+  "file": "g1lxtse5.mp3",
+  "text": "A gyroscope feels which way the rocket is tipping, so the flight computer can steer it back.",
+  "say": "A gyroscope feels which way the rocket is tipping, so the flight computer can steer it back.",
+  "from": "level1.js parts"
+ },
+ {
+  "id": "g0akn3ys",
+  "file": "g0akn3ys.mp3",
+  "text": "Liquid hydrogen at −253 °C. This is the fuel. It is so light that it needs the biggest tank.",
+  "say": "Liquid hydrogen at minus 253 degrees Celsius. This is the fuel. It is so light that it needs the biggest tank.",
+  "from": "level1.js parts"
+ },
+ {
+  "id": "g0mvjfm1",
+  "file": "g0mvjfm1.mp3",
+  "text": "The engines burn hydrogen with oxygen and throw the hot gas downward. The push that gives is called thrust.",
+  "say": "The engines burn hydrogen with oxygen and throw the hot gas downward. The push that gives is called thrust.",
+  "from": "level1.js parts"
+ },
+ {
+  "id": "g0m4g0oh",
+  "file": "g0m4g0oh.mp3",
+  "text": "Solid rocket boosters: a giant extra push for two minutes. Then they are dropped, which is called staging.",
+  "say": "Solid rocket boosters: a giant extra push for two minutes. Then they are dropped, which is called staging.",
+  "from": "level1.js parts"
+ },
+ {
+  "id": "g03ilf9d",
+  "file": "g03ilf9d.mp3",
+  "text": "Which tank is the biggest?",
+  "say": "Which tank is the biggest?",
+  "from": "level1.js quiz"
+ },
+ {
+  "id": "g0mzq4nw",
+  "file": "g0mzq4nw.mp3",
+  "text": "Liquid hydrogen is very light, so the same mass of it takes up far more room.",
+  "say": "Liquid hydrogen is very light, so the same mass of it takes up far more room.",
+  "from": "level1.js quiz"
+ },
+ {
+  "id": "g00g1aax",
+  "file": "g00g1aax.mp3",
+  "text": "Why does a rocket carry oxygen?",
+  "say": "Why does a rocket carry oxygen?",
+  "from": "level1.js quiz"
+ },
+ {
+  "id": "g14kpfj4",
+  "file": "g14kpfj4.mp3",
+  "text": "Fire needs an oxidizer, and above the atmosphere there is none.",
+  "say": "Fire needs an oxidizer, and above the atmosphere there is none.",
+  "from": "level1.js quiz"
+ },
+ {
+  "id": "g1ehinsv",
+  "file": "g1ehinsv.mp3",
+  "text": "What do boosters do?",
+  "say": "What do boosters do?",
+  "from": "level1.js quiz"
+ },
+ {
+  "id": "g1veotdm",
+  "file": "g1veotdm.mp3",
+  "text": "They add thrust for two minutes and are dropped when empty. That is staging.",
+  "say": "They add thrust for two minutes and are dropped when empty. That is staging.",
+  "from": "level1.js quiz"
+ },
+ {
+  "id": "g1htypgj",
+  "file": "g1htypgj.mp3",
+  "text": "What must thrust beat for lift-off?",
+  "say": "What must thrust beat for lift-off?",
+  "from": "level1.js quiz"
+ },
+ {
+  "id": "g01fmg0e",
+  "file": "g01fmg0e.mp3",
+  "text": "If thrust is smaller than weight, the rocket sits on the pad burning propellant.",
+  "say": "If thrust is smaller than weight, the rocket sits on the pad burning propellant.",
+  "from": "level1.js quiz"
+ },
+ {
+  "id": "g0x6zk4w",
+  "file": "g0x6zk4w.mp3",
+  "text": "Apollo 11, 1969. Neil Armstrong and Buzz Aldrin landed here on 20 July 1969 with about 25 seconds of fuel to spare.",
+  "say": "Apollo 11, 1969. Neil Armstrong and Buzz Aldrin landed here on 20 July 1969 with about 25 seconds of fuel to spare.",
+  "from": "lunar.js sites"
+ },
+ {
+  "id": "g0wqvbof",
+  "file": "g0wqvbof.mp3",
+  "text": "Apollo 12, 1969. Apollo 12 touched down 160 m from Surveyor 3, which had landed two and a half years earlier.",
+  "say": "Apollo 12, 1969. Apollo 12 touched down 160 metres from Surveyor 3, which had landed two and a half years earlier.",
+  "from": "lunar.js sites"
+ },
+ {
+  "id": "g01twzb4",
+  "file": "g01twzb4.mp3",
+  "text": "Apollo 14, 1971. Alan Shepard hit two golf balls here in 1971.",
+  "say": "Apollo 14, 1971. Alan Shepard hit two golf balls here in 1971.",
+  "from": "lunar.js sites"
+ },
+ {
+  "id": "g0b4z15h",
+  "file": "g0b4z15h.mp3",
+  "text": "Apollo 15, 1971. Apollo 15 was the first mission to drive a rover, and brought back the 4-billion-year-old “Genesis Rock”.",
+  "say": "Apollo 15, 1971. Apollo 15 was the first mission to drive a rover, and brought back the 4-billion-year-old Genesis Rock.",
+  "from": "lunar.js sites"
+ },
+ {
+  "id": "g19oa356",
+  "file": "g19oa356.mp3",
+  "text": "Apollo 16, 1972. The rocks here turned out to be smashed-up crust, not the volcanic rock scientists expected.",
+  "say": "Apollo 16, 1972. The rocks here turned out to be smashed-up crust, not the volcanic rock scientists expected.",
+  "from": "lunar.js sites"
+ },
+ {
+  "id": "g0wef5ky",
+  "file": "g0wef5ky.mp3",
+  "text": "Apollo 17, 1972. Geologist Harrison Schmitt found orange soil here: tiny beads of volcanic glass. Nobody has been back since.",
+  "say": "Apollo 17, 1972. Geologist Harrison Schmitt found orange soil here: tiny beads of volcanic glass. Nobody has been back since.",
+  "from": "lunar.js sites"
+ },
+ {
+  "id": "g0t6h6rn",
+  "file": "g0t6h6rn.mp3",
+  "text": "The flag of Nepal, and a camera so the whole world can watch.",
+  "say": "The flag of Nepal, and a camera so the whole world can watch.",
+  "from": "lunar.js kit"
+ },
+ {
+  "id": "g1qvixtj",
+  "file": "g1qvixtj.mp3",
+  "text": "The flag of Nepal stands on the Moon. With no wind, it stays perfectly still.",
+  "say": "The flag of Nepal stands on the Moon. With no wind, it stays perfectly still.",
+  "from": "lunar.js lessons"
+ },
+ {
+  "id": "g17tripg",
+  "file": "g17tripg.mp3",
+  "text": "Bring Moon rocks home. Scientists still study them today.",
+  "say": "Bring Moon rocks home. Scientists still study them today.",
+  "from": "lunar.js kit"
+ },
+ {
+  "id": "g06w5pak",
+  "file": "g06w5pak.mp3",
+  "text": "Apollo crews brought back 382 kg of rock and soil. It showed the Moon is about 4.5 billion years old.",
+  "say": "Apollo crews brought back 382 kilograms of rock and soil. It showed the Moon is about 4.5 billion years old.",
+  "from": "lunar.js lessons"
+ },
+ {
+  "id": "g1ofmwc5",
+  "file": "g1ofmwc5.mp3",
+  "text": "A seismometer that listens for moonquakes and meteorite hits.",
+  "say": "A seismometer that listens for moonquakes and meteorite hits.",
+  "from": "lunar.js kit"
+ },
+ {
+  "id": "g1uyubjh",
+  "file": "g1uyubjh.mp3",
+  "text": "Apollo seismometers felt thousands of moonquakes. They showed the Moon has a small core.",
+  "say": "Apollo seismometers felt thousands of moonquakes. They showed the Moon has a small core.",
+  "from": "lunar.js lessons"
+ },
+ {
+  "id": "g1wk771i",
+  "file": "g1wk771i.mp3",
+  "text": "A tray of mirrors that bounces laser beams back to Earth. It needs no power.",
+  "say": "A tray of mirrors that bounces laser beams back to Earth. It needs no power.",
+  "from": "lunar.js kit"
+ },
+ {
+  "id": "g1yhn9g6",
+  "file": "g1yhn9g6.mp3",
+  "text": "Scientists still fire lasers at the Apollo mirrors. The Moon drifts 3.8 cm farther from Earth every year.",
+  "say": "Scientists still fire lasers at the Apollo mirrors. The Moon drifts 3.8 centimetres farther from Earth every year.",
+  "from": "lunar.js lessons"
+ },
+ {
+  "id": "g179whtd",
+  "file": "g179whtd.mp3",
+  "text": "Drills two holes and measures heat leaking out of the Moon. Heavy and slow.",
+  "say": "Drills two holes and measures heat leaking out of the Moon. Heavy and slow.",
+  "from": "lunar.js kit"
+ },
+ {
+  "id": "g0xch4q2",
+  "file": "g0xch4q2.mp3",
+  "text": "Heat probes on Apollo 15 and 17 showed the Moon is still warm inside.",
+  "say": "Heat probes on Apollo 15 and 17 showed the Moon is still warm inside.",
+  "from": "lunar.js lessons"
+ },
+ {
+  "id": "g0b4ek7e",
+  "file": "g0b4ek7e.mp3",
+  "text": "No science by itself, but a longer walk: one more minute outside.",
+  "say": "No science by itself, but a longer walk: one more minute outside.",
+  "from": "lunar.js kit"
+ },
+ {
+  "id": "yes",
+  "file": "yes.mp3",
+  "text": "Yes!",
+  "say": "Yes!",
+  "from": "level1.js"
+ },
+ {
+  "id": "notquite",
+  "file": "notquite.mp3",
+  "text": "Not quite.",
+  "say": "Not quite.",
+  "from": "level1.js"
+ },
+ {
+  "id": "w_thrust",
+  "file": "words/thrust.mp3",
+  "text": "Thrust. The push a rocket engine makes. It is measured in newtons (N). A rocket only leaves the pad when its thrust is bigger than its weight. One RS-25 engine pushes with 1.86 million newtons at sea level and 2.28 million in space, where no air pushes back on the exhaust.",
+  "say": "Thrust. The push a rocket engine makes. It is measured in newtons. A rocket only leaves the pad when its thrust is bigger than its weight. One R S 25 engine pushes with 1.86 million newtons at sea level and 2.28 million in space, where no air pushes back on the exhaust.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_weight",
+  "file": "words/weight.mp3",
+  "text": "Weight. The pull of gravity on something: its mass times the strength of gravity. Weight is what thrust has to beat. The same rocket weighs six times less on the Moon. A 500-tonne rocket weighs about 4.9 million newtons on Earth.",
+  "say": "Weight. The pull of gravity on something: its mass times the strength of gravity. Weight is what thrust has to beat. The same rocket weighs six times less on the Moon. A 500-tonne rocket weighs about 4.9 million newtons on Earth.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_mass",
+  "file": "words/mass.mp3",
+  "text": "Mass. How much stuff something is made of. It is measured in kilograms (kg) or tonnes (t). Every extra kilogram needs more thrust to lift and more propellant to speed up. One tonne is 1,000 kg, about the mass of a small car.",
+  "say": "Mass. How much stuff something is made of. It is measured in kilograms or tonnes. Every extra kilogram needs more thrust to lift and more propellant to speed up. One tonne is 1,000 kilograms, about the mass of a small car.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_twr",
+  "file": "words/twr.mp3",
+  "text": "Thrust-to-weight ratio. Thrust divided by weight. Engineers shorten it to TWR. Above 1 the rocket rises. Below 1 it sits on the pad burning fuel. A little above 1 is enough. The Saturn V Moon rocket lifted off with a ratio of about 1.2.",
+  "say": "Thrust-to-weight ratio. Thrust divided by weight. Engineers shorten it to T W R. Above 1 the rocket rises. Below 1 it sits on the pad burning fuel. A little above 1 is enough. The Saturn V Moon rocket lifted off with a ratio of about 1.2.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_propellant",
+  "file": "words/propellant.mp3",
+  "text": "Propellant. Everything a rocket burns: the fuel and the oxidizer together. Propellant is where the speed comes from. More of it means more speed, and more mass to lift. Nearly nine tenths of a big rocket’s mass at lift-off is propellant.",
+  "say": "Propellant. Everything a rocket burns: the fuel and the oxidizer together. Propellant is where the speed comes from. More of it means more speed, and more mass to lift. Nearly nine tenths of a big rocket’s mass at lift-off is propellant.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_lox",
+  "file": "words/lox.mp3",
+  "text": "Liquid oxygen (LOX). Oxygen chilled to −183 °C so that it turns liquid and fits in a tank. Fire needs oxygen and space has no air, so a rocket carries its own. It is called the oxidizer. It is pale blue, and so cold that ice forms on the outside of the tank.",
+  "say": "Liquid oxygen, or lox. Oxygen chilled to minus 183 degrees Celsius so that it turns liquid and fits in a tank. Fire needs oxygen and space has no air, so a rocket carries its own. It is called the oxidizer. It is pale blue, and so cold that ice forms on the outside of the tank.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_lh2",
+  "file": "words/lh2.mp3",
+  "text": "Liquid hydrogen (LH2). Hydrogen chilled to −253 °C. It is the lightest fuel there is. A light fuel gives more speed for each kilogram burned, but it takes up a lot of room, so it needs the biggest tank. A litre of liquid hydrogen has a mass of only 71 grams. A litre of water has 1,000.",
+  "say": "Liquid hydrogen, or L H 2. Hydrogen chilled to minus 253 degrees Celsius. It is the lightest fuel there is. A light fuel gives more speed for each kilogram burned, but it takes up a lot of room, so it needs the biggest tank. A litre of liquid hydrogen has a mass of only 71 grams. A litre of water has 1,000.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_mixture",
+  "file": "words/mixture.mp3",
+  "text": "Mixture ratio. How much oxidizer is burned with each part of fuel. It sets how big each tank has to be. The RS-25 burns about 6 kg of oxygen with every 1 kg of hydrogen. The exhaust is steam.",
+  "say": "Mixture ratio. How much oxidizer is burned with each part of fuel. It sets how big each tank has to be. The R S 25 burns about 6 kilograms of oxygen with every 1 kilogram of hydrogen. The exhaust is steam.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_engine",
+  "file": "words/engine.mp3",
+  "text": "Rocket engine. A machine that burns propellant and throws the hot gas out of a nozzle, very fast. Throwing gas one way pushes the rocket the other way. That is Newton’s third law, and it works in empty space. The RS-25 first flew on the Space Shuttle in 1981 and now powers NASA’s SLS.",
+  "say": "Rocket engine. A machine that burns propellant and throws the hot gas out of a nozzle, very fast. Throwing gas one way pushes the rocket the other way. That is Newton’s third law, and it works in empty space. The R S 25 first flew on the Space Shuttle in 1981 and now powers NASA’s S L S.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_isp",
+  "file": "words/isp.mp3",
+  "text": "Specific impulse. How much push an engine gets from each kilogram of propellant. It is measured in seconds. A higher number means the same tank takes you further. RS-25: 452 seconds in space. The Moon lander’s descent engine: 311 seconds.",
+  "say": "Specific impulse. How much push an engine gets from each kilogram of propellant. It is measured in seconds. A higher number means the same tank takes you further. R S 25: 452 seconds in space. The Moon lander’s descent engine: 311 seconds.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_booster",
+  "file": "words/booster.mp3",
+  "text": "Solid rocket booster. A side rocket packed with solid propellant, for a huge push in the first two minutes. Once lit it cannot be turned down or switched off. When it is empty it is dead weight, so it is dropped. The two boosters of NASA’s SLS give more than three quarters of the thrust at lift-off.",
+  "say": "Solid rocket booster. A side rocket packed with solid propellant, for a huge push in the first two minutes. Once lit it cannot be turned down or switched off. When it is empty it is dead weight, so it is dropped. The two boosters of NASA’s S L S give more than three quarters of the thrust at lift-off.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_staging",
+  "file": "words/staging.mp3",
+  "text": "Staging. Dropping the empty parts of a rocket during the climb. The fuel that is left has less mass to push, so it adds more speed. The Saturn V dropped two whole stages on the way to orbit.",
+  "say": "Staging. Dropping the empty parts of a rocket during the climb. The fuel that is left has less mass to push, so it adds more speed. The Saturn V dropped two whole stages on the way to orbit.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_separation",
+  "file": "words/separation.mp3",
+  "text": "Booster separation. The moment the empty boosters are let go and pushed clear. Too early throws away thrust. Too late carries dead weight. The rocket also gets a small kick, so the pilot must be ready. SLS drops its boosters about two minutes after lift-off, roughly 45 km up.",
+  "say": "Booster separation. The moment the empty boosters are let go and pushed clear. Too early throws away thrust. Too late carries dead weight. The rocket also gets a small kick, so the pilot must be ready. S L S drops its boosters about two minutes after lift-off, roughly 45 kilometres up.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_fairing",
+  "file": "words/fairing.mp3",
+  "text": "Payload fairing. The shell around the satellite at the top of the rocket. People also call it the nose cone. It protects the satellite from rushing air and heat. Above the thick air it is dead weight, so it is dropped. Most rockets drop the fairing at about 100 to 130 km, once the air is too thin to do harm.",
+  "say": "Payload fairing. The shell around the satellite at the top of the rocket. People also call it the nose cone. It protects the satellite from rushing air and heat. Above the thick air it is dead weight, so it is dropped. Most rockets drop the fairing at about 100 to 130 kilometres, once the air is too thin to do harm.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_payload",
+  "file": "words/payload.mp3",
+  "text": "Payload. What the rocket is there to carry: the satellite, the crew, the science. Everything else exists to get the payload where it is going. A rocket’s payload is usually only a few percent of its lift-off mass.",
+  "say": "Payload. What the rocket is there to carry: the satellite, the crew, the science. Everything else exists to get the payload where it is going. A rocket’s payload is usually only a few percent of its lift-off mass.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_upperstage",
+  "file": "words/upperstage.mp3",
+  "text": "Upper stage. The small last stage, with its own engine, that finishes the trip to orbit. It is light, so a small engine can add the last, most important speed. This game’s upper stage is modelled on the RL10 engine, flying since 1963.",
+  "say": "Upper stage. The small last stage, with its own engine, that finishes the trip to orbit. It is light, so a small engine can add the last, most important speed. This game’s upper stage is modelled on the R L 10 engine, flying since 1963.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_gyro",
+  "file": "words/gyro.mp3",
+  "text": "Gyroscope. A sensor that feels turning. The first ones were spinning wheels. It tells the flight computer which way the rocket points, so it can steer back on course. Three of them, at right angles, cover pitch, yaw and roll.",
+  "say": "Gyroscope. A sensor that feels turning. The first ones were spinning wheels. It tells the flight computer which way the rocket points, so it can steer back on course. Three of them, at right angles, cover pitch, yaw and roll.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_altitude",
+  "file": "words/altitude.mp3",
+  "text": "Altitude. Height above the ground. It tells you how much air is left above you, and how far there is to fall. Airliners cruise at about 11 km. The Space Station flies at about 400 km.",
+  "say": "Altitude. Height above the ground. It tells you how much air is left above you, and how far there is to fall. Airliners cruise at about 11 kilometres. The Space Station flies at about 400 kilometres.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_speed",
+  "file": "words/speed.mp3",
+  "text": "Speed. How fast something moves, whatever the direction. Staying in orbit is a question of speed, not height. Low Earth orbit needs about 28,000 km/h, which is 7.8 km every second.",
+  "say": "Speed. How fast something moves, whatever the direction. Staying in orbit is a question of speed, not height. Low Earth orbit needs about 28,000 kilometres per hour, which is 7.8 kilometres every second.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_velocity",
+  "file": "words/velocity.mp3",
+  "text": "Velocity. Speed together with its direction. The direction matters as much as the number. 28,000 km/h straight up falls back down; the same speed sideways is an orbit. Engineers split it in two: vertical velocity (up or down) and horizontal velocity (along the ground).",
+  "say": "Velocity. Speed together with its direction. The direction matters as much as the number. 28,000 kilometres per hour straight up falls back down; the same speed sideways is an orbit. Engineers split it in two: vertical velocity (up or down) and horizontal velocity (along the ground).",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_vspeed",
+  "file": "words/vspeed.mp3",
+  "text": "Vertical velocity. How fast you are going up or down. When landing, this is the number that decides whether the legs survive. Pilots also call a downward one the descent rate, or sink rate.",
+  "say": "Vertical velocity. How fast you are going up or down. When landing, this is the number that decides whether the legs survive. Pilots also call a downward one the descent rate, or sink rate.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_hspeed",
+  "file": "words/hspeed.mp3",
+  "text": "Horizontal velocity. How fast you are moving along the ground. A rocket has to build it up to reach orbit. A lander has to get rid of all of it before touching down. A Moon lander starts its final descent moving sideways at about 6,000 km/h.",
+  "say": "Horizontal velocity. How fast you are moving along the ground. A rocket has to build it up to reach orbit. A lander has to get rid of all of it before touching down. A Moon lander starts its final descent moving sideways at about 6,000 kilometres per hour.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_accel",
+  "file": "words/accel.mp3",
+  "text": "Acceleration. How quickly velocity is changing. It is what you feel pressing you into the seat. Thrust divided by mass gives it. As the tanks empty the rocket gets lighter, so the same thrust accelerates it harder.",
+  "say": "Acceleration. How quickly velocity is changing. It is what you feel pressing you into the seat. Thrust divided by mass gives it. As the tanks empty the rocket gets lighter, so the same thrust accelerates it harder.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_gforce",
+  "file": "words/gforce.mp3",
+  "text": "g-force. Acceleration measured against Earth’s gravity. 1 g is what you feel standing still. Crews and instruments can only take so much, so engines throttle back near the end of a burn. The Space Shuttle held its crew to 3 g. This game’s rocket eases off at 3.5 g.",
+  "say": "g-force. Acceleration measured against Earth’s gravity. 1 g is what you feel standing still. Crews and instruments can only take so much, so engines throttle back near the end of a burn. The Space Shuttle held its crew to 3 g. This game’s rocket eases off at 3.5 g.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_pitch",
+  "file": "words/pitch.mp3",
+  "text": "Pitch. Tilting the nose up or down. Pitch decides where the thrust goes: straight up to climb, or over toward the horizon to gain sideways speed. On the gauge, 0° is straight up and 90° is flat along the horizon.",
+  "say": "Pitch. Tilting the nose up or down. Pitch decides where the thrust goes: straight up to climb, or over toward the horizon to gain sideways speed. On the gauge, 0 degrees is straight up and 90 degrees is flat along the horizon.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_yaw",
+  "file": "words/yaw.mp3",
+  "text": "Yaw. Turning the nose left or right. Yaw aims the rocket along the right compass direction for its orbit. Launching due east from Florida gives the most help from Earth’s spin.",
+  "say": "Yaw. Turning the nose left or right. Yaw aims the rocket along the right compass direction for its orbit. Launching due east from Florida gives the most help from Earth’s spin.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_roll",
+  "file": "words/roll.mp3",
+  "text": "Roll. Spinning around the long axis, like a pencil rolled between your fingers. Roll turns antennas toward the ground stations and windows toward the horizon. Many rockets roll in the first seconds after clearing the tower.",
+  "say": "Roll. Spinning around the long axis, like a pencil rolled between your fingers. Roll turns antennas toward the ground stations and windows toward the horizon. Many rockets roll in the first seconds after clearing the tower.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_attitude",
+  "file": "words/attitude.mp3",
+  "text": "Attitude. Which way a spacecraft is pointing. It has nothing to do with height. Engines push along the body, so pointing the right way comes before every burn. Attitude is described by three angles: pitch, yaw and roll.",
+  "say": "Attitude. Which way a spacecraft is pointing. It has nothing to do with height. Engines push along the body, so pointing the right way comes before every burn. Attitude is described by three angles: pitch, yaw and roll.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_gravityturn",
+  "file": "words/gravityturn.mp3",
+  "text": "Gravity turn. The slow tip-over a rocket makes as it climbs, from straight up to nearly flat. Orbit needs sideways speed. Tipping over a little at a time lets gravity bend the path, which costs less fuel than turning sharply. A rocket is already leaning within the first minute of flight.",
+  "say": "Gravity turn. The slow tip-over a rocket makes as it climbs, from straight up to nearly flat. Orbit needs sideways speed. Tipping over a little at a time lets gravity bend the path, which costs less fuel than turning sharply. A rocket is already leaning within the first minute of flight.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_maxq",
+  "file": "words/maxq.mp3",
+  "text": "Max Q. The moment in the climb when the rushing air pushes on the rocket hardest. The rocket is speeding up while the air is thinning out. In between, the push peaks. It is the roughest part of the ride, so steering has to be gentle. It comes about a minute after lift-off, 10 to 15 km up. Engines are often throttled back for it.",
+  "say": "Max Q. The moment in the climb when the rushing air pushes on the rocket hardest. The rocket is speeding up while the air is thinning out. In between, the push peaks. It is the roughest part of the ride, so steering has to be gentle. It comes about a minute after lift-off, 10 to 15 kilometres up. Engines are often throttled back for it.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_q",
+  "file": "words/q.mp3",
+  "text": "Dynamic pressure. How hard the air pushes on something moving through it. Engineers write it as Q. Q is half the air’s density times speed squared, so going twice as fast pushes four times as hard. The Space Shuttle’s peak was about 33 kilopascals, like a third of the air pressure at sea level pressing on its nose.",
+  "say": "Dynamic pressure. How hard the air pushes on something moving through it. Engineers write it as Q. Q is half the air’s density times speed squared, so going twice as fast pushes four times as hard. The Space Shuttle’s peak was about 33 kilopascals, like a third of the air pressure at sea level pressing on its nose.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_karman",
+  "file": "words/karman.mp3",
+  "text": "Kármán line. The usual line for where space begins: 100 km above sea level. Above it the air is too thin for wings to hold anything up. Only speed keeps you there. It is named after Theodore von Kármán, who worked out the idea in the 1950s.",
+  "say": "Kármán line. The usual line for where space begins: 100 kilometres above sea level. Above it the air is too thin for wings to hold anything up. Only speed keeps you there. It is named after Theodore von Kármán, who worked out the idea in the 1950 seconds.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_meco",
+  "file": "words/meco.mp3",
+  "text": "Main engine cut-off. The moment the main engines stop. Flight controllers say MECO. From here the rocket coasts upward like a thrown ball until the upper stage takes over. It happens about eight minutes into a flight to low Earth orbit.",
+  "say": "Main engine cut-off. The moment the main engines stop. Flight controllers say Mee-ko. From here the rocket coasts upward like a thrown ball until the upper stage takes over. It happens about eight minutes into a flight to low Earth orbit.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_wind",
+  "file": "words/wind.mp3",
+  "text": "Wind shear. Wind that changes strength or direction with height. It shoves the nose off course on the way up. Steering puts it back. The strongest winds a rocket meets are in the jet stream, about 10 km up.",
+  "say": "Wind shear. Wind that changes strength or direction with height. It shoves the nose off course on the way up. Steering puts it back. The strongest winds a rocket meets are in the jet stream, about 10 kilometres up.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_throttle",
+  "file": "words/throttle.mp3",
+  "text": "Throttle. How hard an engine is running, as a share of its full thrust. Turning it down saves the vehicle from too much g-force or air pressure. Turning it up fights gravity. The Moon lander’s descent engine could be turned down to about a tenth of full thrust, a first for a crewed rocket engine.",
+  "say": "Throttle. How hard an engine is running, as a share of its full thrust. Turning it down saves the vehicle from too much g-force or air pressure. Turning it up fights gravity. The Moon lander’s descent engine could be turned down to about a tenth of full thrust, a first for a crewed rocket engine.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_orbit",
+  "file": "words/orbit.mp3",
+  "text": "Orbit. The path of something going around a planet or moon. It is falling the whole time, but moving sideways so fast that the ground curves away beneath it. Isaac Newton pictured it as a cannonball fired so hard that it never comes down.",
+  "say": "Orbit. The path of something going around a planet or moon. It is falling the whole time, but moving sideways so fast that the ground curves away beneath it. Isaac Newton pictured it as a cannonball fired so hard that it never comes down.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_orbitalv",
+  "file": "words/orbitalv.mp3",
+  "text": "Orbital velocity. The sideways speed that keeps a spacecraft in orbit at its height. Any slower and the path dips into the air. That is why reaching orbit is mostly about speed. About 7.8 km/s at 200 km above Earth. Around the Moon, only about 1.6 km/s.",
+  "say": "Orbital velocity. The sideways speed that keeps a spacecraft in orbit at its height. Any slower and the path dips into the air. That is why reaching orbit is mostly about speed. About 7.8 kilometres per second at 200 kilometres above Earth. Around the Moon, only about 1.6 kilometres per second.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_apoapsis",
+  "file": "words/apoapsis.mp3",
+  "text": "Apoapsis. The highest point of an orbit. Around Earth it is called the apogee; around the Moon, the apolune. It is where the spacecraft moves slowest, and the cheapest place to raise the low point. The words come from Greek: apo means away from.",
+  "say": "Apoapsis. The highest point of an orbit. Around Earth it is called the apogee; around the Moon, the apolune. It is where the spacecraft moves slowest, and the cheapest place to raise the low point. The words come from Greek: apo means away from.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_periapsis",
+  "file": "words/periapsis.mp3",
+  "text": "Periapsis. The lowest point of an orbit. Around Earth it is the perigee; around the Moon, the perilune. If the low point is inside the air, or below the ground, the spacecraft comes down there. Apollo landers lowered their perilune to about 15 km before starting the final descent.",
+  "say": "Periapsis. The lowest point of an orbit. Around Earth it is the perigee; around the Moon, the perilune. If the low point is inside the air, or below the ground, the spacecraft comes down there. Apollo landers lowered their perilune to about 15 kilometres before starting the final descent.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_period",
+  "file": "words/period.mp3",
+  "text": "Orbital period. The time one lap takes. It sets how often a satellite passes over a place, and how long it spends out of radio contact. About 90 minutes in low Earth orbit. About two hours in low orbit around the Moon.",
+  "say": "Orbital period. The time one lap takes. It sets how often a satellite passes over a place, and how long it spends out of radio contact. About 90 minutes in low Earth orbit. About two hours in low orbit around the Moon.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_burn",
+  "file": "words/burn.mp3",
+  "text": "Burn. Running a rocket engine for a set time to change velocity. In space nothing slows you down, so a few seconds of engine changes the whole orbit. Burns are timed to the second, because a spacecraft covers kilometres in that time.",
+  "say": "Burn. Running a rocket engine for a set time to change velocity. In space nothing slows you down, so a few seconds of engine changes the whole orbit. Burns are timed to the second, because a spacecraft covers kilometres in that time.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_prograde",
+  "file": "words/prograde.mp3",
+  "text": "Prograde. Pointing the way you are already moving. A prograde burn speeds you up, which lifts the far side of the orbit. Burning prograde at the highest point is how a rocket turns an arc into a circle.",
+  "say": "Prograde. Pointing the way you are already moving. A prograde burn speeds you up, which lifts the far side of the orbit. Burning prograde at the highest point is how a rocket turns an arc into a circle.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_retrograde",
+  "file": "words/retrograde.mp3",
+  "text": "Retrograde. Pointing backwards, against the way you are moving. A retrograde burn slows you down, which lowers the far side of the orbit. It is how spacecraft come home. The Moon lander’s deorbit burn was retrograde.",
+  "say": "Retrograde. Pointing backwards, against the way you are moving. A retrograde burn slows you down, which lowers the far side of the orbit. It is how spacecraft come home. The Moon lander’s deorbit burn was retrograde.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_deltav",
+  "file": "words/deltav.mp3",
+  "text": "Delta-v. A change in velocity. It is written Δv and measured in metres per second. It is how space travel is priced. Every manoeuvre costs some, and the tanks hold only so much. Reaching low Earth orbit costs about 9,400 m/s. The Moon lander’s deorbit burn cost only about 22 m/s.",
+  "say": "Delta-v. A change in velocity. It is written delta v and measured in metres per second. It is how space travel is priced. Every manoeuvre costs some, and the tanks hold only so much. Reaching low Earth orbit costs about 9,400 metres per second. The Moon lander’s deorbit burn cost only about 22 metres per second.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_circularize",
+  "file": "words/circularize.mp3",
+  "text": "Circularizing. A burn at the top of the climb that raises the low side of the path until it is a circle. Without it the rocket falls back into the air on the way down. It is done at the apoapsis, pointing prograde.",
+  "say": "Circularizing. A burn at the top of the climb that raises the low side of the path until it is a circle. Without it the rocket falls back into the air on the way down. It is done at the apoapsis, pointing prograde.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_leo",
+  "file": "words/leo.mp3",
+  "text": "Low Earth orbit. Any orbit up to about 2,000 km above Earth. It is the easiest orbit to reach and gives the sharpest view of the ground, but only of a narrow strip at a time. The Space Station and the Hubble telescope are both in low Earth orbit.",
+  "say": "Low Earth orbit. Any orbit up to about 2,000 kilometres above Earth. It is the easiest orbit to reach and gives the sharpest view of the ground, but only of a narrow strip at a time. The Space Station and the Hubble telescope are both in low Earth orbit.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_polar",
+  "file": "words/polar.mp3",
+  "text": "Polar orbit. An orbit that passes over the north and south poles. The Earth turns underneath, so in time the satellite sees every place on the planet. A sun-synchronous polar orbit crosses each place at the same local time every day.",
+  "say": "Polar orbit. An orbit that passes over the north and south poles. The Earth turns underneath, so in time the satellite sees every place on the planet. A sun-synchronous polar orbit crosses each place at the same local time every day.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_geo",
+  "file": "words/geo.mp3",
+  "text": "Geostationary orbit. An orbit 35,786 km up, where one lap takes exactly one day. The satellite keeps pace with the turning Earth, so it hangs over one spot and watches it without a break. Weather satellites such as GOES sit there.",
+  "say": "Geostationary orbit. An orbit 35,786 kilometres up, where one lap takes exactly one day. The satellite keeps pace with the turning Earth, so it hangs over one spot and watches it without a break. Weather satellites such as GOES sit there.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_parking",
+  "file": "words/parking.mp3",
+  "text": "Parking orbit. A holding orbit, used to wait and check everything before the next step. It gives the crew and Mission Control time to make sure the spacecraft is healthy. Apollo landers started down from a parking orbit about 110 km above the Moon.",
+  "say": "Parking orbit. A holding orbit, used to wait and check everything before the next step. It gives the crew and Mission Control time to make sure the spacecraft is healthy. Apollo landers started down from a parking orbit about 110 kilometres above the Moon.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_pixel",
+  "file": "words/pixel.mp3",
+  "text": "Pixel. One tiny square of a picture. From space, each pixel covers a patch of ground. Smaller patches mean sharper pictures, and smaller fires found. The VIIRS fire sensor has pixels 375 m across from 824 km up.",
+  "say": "Pixel. One tiny square of a picture. From space, each pixel covers a patch of ground. Smaller patches mean sharper pictures, and smaller fires found. The veers fire sensor has pixels 375 metres across from 824 kilometres up.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_swath",
+  "file": "words/swath.mp3",
+  "text": "Swath. The strip of ground a satellite sees as it flies along, like the stripe a paint roller leaves. A wide swath covers the planet sooner. It usually costs sharpness. VIIRS paints a strip about 3,000 km wide.",
+  "say": "Swath. The strip of ground a satellite sees as it flies along, like the stripe a paint roller leaves. A wide swath covers the planet sooner. It usually costs sharpness. veers paints a strip about 3,000 kilometres wide.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_infrared",
+  "file": "words/infrared.mp3",
+  "text": "Infrared. Light our eyes cannot see, given off by anything warm. Fires glow brightly in infrared, even at night and through thin smoke. A wildfire is hundreds of degrees hotter than the ground around it.",
+  "say": "Infrared. Light our eyes cannot see, given off by anything warm. Fires glow brightly in infrared, even at night and through thin smoke. A wildfire is hundreds of degrees hotter than the ground around it.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_eclipse",
+  "file": "words/eclipse.mp3",
+  "text": "Eclipse. The part of each lap spent in Earth’s shadow. No sunlight reaches the solar wings, so the battery has to run everything. In low orbit a satellite spends about a third of every lap in the dark.",
+  "say": "Eclipse. The part of each lap spent in Earth’s shadow. No sunlight reaches the solar wings, so the battery has to run everything. In low orbit a satellite spends about a third of every lap in the dark.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_downlink",
+  "file": "words/downlink.mp3",
+  "text": "Downlink. Sending data from a spacecraft down to a dish on the ground. A picture nobody receives is worth nothing. The radio must empty the memory faster than the instruments fill it. It only works while a ground station can see the spacecraft.",
+  "say": "Downlink. Sending data from a spacecraft down to a dish on the ground. A picture nobody receives is worth nothing. The radio must empty the memory faster than the instruments fill it. It only works while a ground station can see the spacecraft.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_station",
+  "file": "words/station.mp3",
+  "text": "Ground station. A large dish antenna on Earth that talks to spacecraft. More stations in more places means shorter waits to send data home. NASA’s Near Space Network has stations from Alaska to Antarctica.",
+  "say": "Ground station. A large dish antenna on Earth that talks to spacecraft. More stations in more places means shorter waits to send data home. NASA’s Near Space Network has stations from Alaska to Antarctica.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_watt",
+  "file": "words/watt.mp3",
+  "text": "Watt. The unit of power: how fast energy is used. It is written W. Every instrument uses watts. The solar wings must make more than the satellite uses. A bright LED bulb uses about 10 watts.",
+  "say": "Watt. The unit of power: how fast energy is used. It is written W. Every instrument uses watts. The solar wings must make more than the satellite uses. A bright LED bulb uses about 10 watts.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_wh",
+  "file": "words/wh.mp3",
+  "text": "Watt-hour. A unit of stored energy: one watt, for one hour. It is written Wh. A battery’s watt-hours decide how long the satellite survives in the dark. A phone battery holds about 15 watt-hours.",
+  "say": "Watt-hour. A unit of stored energy: one watt, for one hour. It is written W h. A battery’s watt-hours decide how long the satellite survives in the dark. A phone battery holds about 15 watt-hours.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_bus",
+  "file": "words/bus.mp3",
+  "text": "Bus. The body of a satellite: the frame and the support systems that carry the payload. A bigger bus carries bigger instruments, and needs a bigger rocket. The name is borrowed from the vehicle: it carries the passengers.",
+  "say": "Bus. The body of a satellite: the frame and the support systems that carry the payload. A bigger bus carries bigger instruments, and needs a bigger rocket. The name is borrowed from the vehicle: it carries the passengers.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_radiation",
+  "file": "words/radiation.mp3",
+  "text": "Radiation. Fast, tiny particles from the Sun and from deep space. They can flip bits in computer chips and slowly wear out electronics. Parts made to resist it are called radiation-hardened, and cost far more.",
+  "say": "Radiation. Fast, tiny particles from the Sun and from deep space. They can flip bits in computer chips and slowly wear out electronics. Parts made to resist it are called radiation-hardened, and cost far more.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_gb",
+  "file": "words/gb.mp3",
+  "text": "Gigabyte. A unit of data, written GB. Instruments make data all day. It has to be stored on board until it can be sent. One gigabyte holds roughly 300 phone photos.",
+  "say": "Gigabyte. A unit of data, written G B. Instruments make data all day. It has to be stored on board until it can be sent. One gigabyte holds roughly 300 phone photos.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_mbps",
+  "file": "words/mbps.mp3",
+  "text": "Megabits per second. How fast data is sent, written Mbps. A faster radio sends more during the few minutes a ground station is in view. A good home internet line is around 100 Mbps.",
+  "say": "Megabits per second. How fast data is sent, written M b p s. A faster radio sends more during the few minutes a ground station is in view. A good home internet line is around 100 megabits per second.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_frp",
+  "file": "words/frp.mp3",
+  "text": "Fire radiative power. How much heat a fire gives off, measured in megawatts (MW). It tells firefighters how fierce a fire is before anyone has reached it. NASA satellites measure it from orbit. One megawatt is about the heat of 500 kitchen ovens.",
+  "say": "Fire radiative power. How much heat a fire gives off, measured in megawatts. It tells firefighters how fierce a fire is before anyone has reached it. NASA satellites measure it from orbit. One megawatt is about the heat of 500 kitchen ovens.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_wheel",
+  "file": "words/wheel.mp3",
+  "text": "Reaction wheel. A heavy wheel inside a satellite. Spinning it one way turns the satellite the other way. Wheels hold a camera rock-steady with no fuel. If one fails, pictures blur. NASA’s Kepler telescope lost two of its four wheels and had to change its mission.",
+  "say": "Reaction wheel. A heavy wheel inside a satellite. Spinning it one way turns the satellite the other way. Wheels hold a camera rock-steady with no fuel. If one fails, pictures blur. NASA’s Kepler telescope lost two of its four wheels and had to change its mission.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_firms",
+  "file": "words/firms.mp3",
+  "text": "FIRMS. NASA’s Fire Information for Resource Management System. It turns heat spotted by satellites into fire maps for firefighters, within about three hours. Every fire in this game comes from FIRMS.",
+  "say": "Firms. NASA’s Fire Information for Resource Management System. It turns heat spotted by satellites into fire maps for firefighters, within about three hours. Every fire in this game comes from Firms.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_modis",
+  "file": "words/modis.mp3",
+  "text": "MODIS. An instrument on NASA’s Terra and Aqua satellites that sees heat and colour over the whole Earth. It has mapped the world’s fires every day for more than twenty years. Terra was launched in 1999 and Aqua in 2002.",
+  "say": "Moe-diss. An instrument on NASA’s Terra and Aqua satellites that sees heat and colour over the whole Earth. It has mapped the world’s fires every day for more than twenty years. Terra was launched in 1999 and Aqua in 2002.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_comms",
+  "file": "words/comms.mp3",
+  "text": "Communications. The radio links between a spacecraft and Earth. Crews shorten it to comms. Four things ride on it: voices, telemetry, tracking and commands. Without it the crew is on its own. Apollo carried all four on one radio system, called Unified S-band.",
+  "say": "Communications. The radio links between a spacecraft and Earth. Crews shorten it to comms. Four things ride on it: voices, telemetry, tracking and commands. Without it the crew is on its own. Apollo carried all four on one radio system, called Unified S-band.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_telemetry",
+  "file": "words/telemetry.mp3",
+  "text": "Telemetry. Measurements a spacecraft sends home by itself: fuel, speed, temperatures, even heartbeats. Hundreds of engineers can watch for trouble while the crew is busy flying. On Apollo 11 the calls “60 seconds” and “30 seconds” of fuel came from Mission Control, reading telemetry.",
+  "say": "Telemetry. Measurements a spacecraft sends home by itself: fuel, speed, temperatures, even heartbeats. Hundreds of engineers can watch for trouble while the crew is busy flying. On Apollo 11 the calls 60 seconds and 30 seconds of fuel came from Mission Control, reading telemetry.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_tracking",
+  "file": "words/tracking.mp3",
+  "text": "Tracking. Working out where a spacecraft is, and how fast it moves, by timing its radio signal on Earth. The spacecraft’s own guess slowly drifts. Tracking from Earth corrects it, and burns are planned from it. Apollo used three 26-metre dishes, near Madrid, near Canberra and at Goldstone in California, so one always faced the Moon.",
+  "say": "Tracking. Working out where a spacecraft is, and how fast it moves, by timing its radio signal on Earth. The spacecraft’s own guess slowly drifts. Tracking from Earth corrects it, and burns are planned from it. Apollo used three 26-metre dishes, near Madrid, near Canberra and at Goldstone in California, so one always faced the Moon.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_uplink",
+  "file": "words/uplink.mp3",
+  "text": "Uplink. Sending commands and numbers from Earth up to a spacecraft. It is how Mission Control hands the crew the exact time and length of the next burn. The crew copied the numbers onto a form called a PAD, and read them back to be sure.",
+  "say": "Uplink. Sending commands and numbers from Earth up to a spacecraft. It is how Mission Control hands the crew the exact time and length of the next burn. The crew copied the numbers onto a form called a pad, and read them back to be sure.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_lineofsight",
+  "file": "words/lineofsight.mp3",
+  "text": "Line of sight. A straight, clear path between two antennas. Radio travels in straight lines. Put a planet or a moon in the way, and the signal stops. It is why your radio fades in a tunnel.",
+  "say": "Line of sight. A straight, clear path between two antennas. Radio travels in straight lines. Put a planet or a moon in the way, and the signal stops. It is why your radio fades in a tunnel.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_los",
+  "file": "words/los.mp3",
+  "text": "Loss of signal. The moment radio contact is lost. Controllers say LOS. From here nobody on Earth can see your telemetry, track you, send a command or say a word. Behind the Moon, 3,474 km of rock stands between the spacecraft and Earth.",
+  "say": "Loss of signal. The moment radio contact is lost. Controllers say L O S. From here nobody on Earth can see your telemetry, track you, send a command or say a word. Behind the Moon, 3,474 kilometres of rock stands between the spacecraft and Earth.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_aos",
+  "file": "words/aos.mp3",
+  "text": "Acquisition of signal. The moment radio contact comes back. Controllers say AOS. Mission Control sees fresh telemetry and tracking, and can check what happened while you were out of reach. On Apollo 8 the whole world waited through the first one, in December 1968.",
+  "say": "Acquisition of signal. The moment radio contact comes back. Controllers say A O S. Mission Control sees fresh telemetry and tracking, and can check what happened while you were out of reach. On Apollo 8 the whole world waited through the first one, in December 1968.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_farside",
+  "file": "words/farside.mp3",
+  "text": "Far side of the Moon. The half of the Moon that always faces away from Earth. No signal from Earth reaches it. Anything done there is done alone. Each two-hour Apollo orbit spent about 45 minutes out of contact.",
+  "say": "Far side of the Moon. The half of the Moon that always faces away from Earth. No signal from Earth reaches it. Anything done there is done alone. Each two-hour Apollo orbit spent about 45 minutes out of contact.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_delay",
+  "file": "words/delay.mp3",
+  "text": "Signal delay. The time a radio signal takes to cross space. Radio travels at the speed of light. An answer from Earth is always late: your question goes out, the reply comes back. The Moon is about 384,400 km away. At 299,792 km/s that is about 1.3 seconds each way.",
+  "say": "Signal delay. The time a radio signal takes to cross space. Radio travels at the speed of light. An answer from Earth is always late: your question goes out, the reply comes back. The Moon is about 384,400 kilometres away. At 299,792 kilometres per second that is about 1.3 seconds each way.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_missioncontrol",
+  "file": "words/missioncontrol.mp3",
+  "text": "Mission Control. The team on Earth that watches over a flight. They see more than the crew can, and they have the last word on go or no-go. Apollo was run from Houston, Texas.",
+  "say": "Mission Control. The team on Earth that watches over a flight. They see more than the crew can, and they have the last word on go or no-go. Apollo was run from Houston, Texas.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_capcom",
+  "file": "words/capcom.mp3",
+  "text": "CAPCOM. The one person in Mission Control who talks to the crew. One calm voice avoids confusion when seconds count. It is short for capsule communicator, and it is usually an astronaut.",
+  "say": "Cap-com. The one person in Mission Control who talks to the crew. One calm voice avoids confusion when seconds count. It is short for capsule communicator, and it is usually an astronaut.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_antenna",
+  "file": "words/antenna.mp3",
+  "text": "High-gain antenna. A dish that squeezes radio into a narrow beam. A narrow beam reaches far and carries a lot of data, but it has to stay pointed at Earth. On Apollo 11’s descent the dish kept losing Earth, and Mission Control asked for a small turn to help it.",
+  "say": "High-gain antenna. A dish that squeezes radio into a narrow beam. A narrow beam reaches far and carries a lot of data, but it has to stay pointed at Earth. On Apollo 11’s descent the dish kept losing Earth, and Mission Control asked for a small turn to help it.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_callout",
+  "file": "words/callout.mp3",
+  "text": "Call-out. Saying an important number or event out loud so the whole crew knows it. The pilot’s eyes are busy. Hearing “boosters empty” is quicker than looking for it. During the Apollo 11 landing Buzz Aldrin read out height and speed the whole way down.",
+  "say": "Call-out. Saying an important number or event out loud so the whole crew knows it. The pilot’s eyes are busy. Hearing boosters empty is quicker than looking for it. During the Apollo 11 landing Buzz Aldrin read out height and speed the whole way down.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_lm",
+  "file": "words/lm.mp3",
+  "text": "Lunar Module. The Apollo lander. Crews called it the LM. Its lower half had the landing engine and the legs. Its upper half was the cabin, and flew the crew back up. It was built only for space: so light that it could not hold its own weight on Earth.",
+  "say": "Lunar Module. The Apollo lander. Crews called it the LEM. Its lower half had the landing engine and the legs. Its upper half was the cabin, and flew the crew back up. It was built only for space: so light that it could not hold its own weight on Earth.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_deorbit",
+  "file": "words/deorbit.mp3",
+  "text": "Deorbit burn. A burn against the direction of travel, to slow down and lower one side of the orbit. It decides where the low point of the orbit will be. That is where the final descent begins. Apollo called it descent orbit insertion, or DOI. It was done behind the Moon, out of contact with Earth.",
+  "say": "Deorbit burn. A burn against the direction of travel, to slow down and lower one side of the orbit. It decides where the low point of the orbit will be. That is where the final descent begins. Apollo called it descent orbit insertion, or D O I. It was done behind the Moon, out of contact with Earth.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_doi",
+  "file": "words/doi.mp3",
+  "text": "Descent orbit insertion. Apollo’s name for the deorbit burn. Controllers said DOI. About 30 seconds of engine lowered one side of the orbit from about 110 km to about 15 km. Apollo 11’s burn slowed the lander by about 23 m/s.",
+  "say": "Descent orbit insertion. Apollo’s name for the deorbit burn. Controllers said D O I. About 30 seconds of engine lowered one side of the orbit from about 110 kilometres to about 15 kilometres. Apollo 11’s burn slowed the lander by about 23 metres per second.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_pdi",
+  "file": "words/pdi.mp3",
+  "text": "Powered descent. The final, engine-on flight from orbit down to the surface. It has to remove about 6,000 km/h of sideways speed and set down gently, on one tank of propellant. It began about 15 km up and 480 km short of the landing site, and took about 12 minutes.",
+  "say": "Powered descent. The final, engine-on flight from orbit down to the surface. It has to remove about 6,000 kilometres per hour of sideways speed and set down gently, on one tank of propellant. It began about 15 kilometres up and 480 kilometres short of the landing site, and took about 12 minutes.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_moongravity",
+  "file": "words/moongravity.mp3",
+  "text": "Moon gravity. The pull of the Moon: 1.62 m/s², about a sixth of Earth’s. Hovering takes a sixth of the thrust, and a fall takes much longer. With the engine off, a 100 m fall takes about 11 seconds.",
+  "say": "Moon gravity. The pull of the Moon: 1.62 metres per second squared, about a sixth of Earth’s. Hovering takes a sixth of the thrust, and a fall takes much longer. With the engine off, a 100 metres fall takes about 11 seconds.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_hover",
+  "file": "words/hover.mp3",
+  "text": "Hover. Holding still above the ground, with thrust exactly equal to weight. Hovering buys time to pick a spot, and spends propellant every second. This game measures the propellant left in seconds of hover.",
+  "say": "Hover. Holding still above the ground, with thrust exactly equal to weight. Hovering buys time to pick a spot, and spends propellant every second. This game measures the propellant left in seconds of hover.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_hovertime",
+  "file": "words/hovertime.mp3",
+  "text": "Hover time. How many seconds the lander could hover on the propellant it has left. It is the clearest way to see how much time is left to land. Apollo 11 touched down with about 25 seconds to spare before it would have had to abort.",
+  "say": "Hover time. How many seconds the lander could hover on the propellant it has left. It is the clearest way to see how much time is left to land. Apollo 11 touched down with about 25 seconds to spare before it would have had to abort.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_range",
+  "file": "words/range.mp3",
+  "text": "Range to target. The distance still to go, measured along the ground. Together with horizontal velocity it tells you when to brake. The final approach of this game starts 1,100 m out.",
+  "say": "Range to target. The distance still to go, measured along the ground. Together with horizontal velocity it tells you when to brake. The final approach of this game starts 1,100 metres out.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_glidepath",
+  "file": "words/glidepath.mp3",
+  "text": "Glide path. The slanted line a lander follows down toward its target. Too steep and you arrive fast. Too shallow and you fly into high ground. Apollo’s final approach came in at about 16° so the crew could see the site through the window.",
+  "say": "Glide path. The slanted line a lander follows down toward its target. Too steep and you arrive fast. Too shallow and you fly into high ground. Apollo’s final approach came in at about 16 degrees so the crew could see the site through the window.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_guidance",
+  "file": "words/guidance.mp3",
+  "text": "Guidance computer. The computer on board that works out where to point and how hard to push. It can fly the whole landing, hold the descent rate while you steer, or leave it all to you. Apollo’s weighed 32 kg and had about 4 kilobytes of working memory.",
+  "say": "Guidance computer. The computer on board that works out where to point and how hard to push. It can fly the whole landing, hold the descent rate while you steer, or leave it all to you. Apollo’s weighed 32 kilograms and had about 4 kilobytes of working memory.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_alarm",
+  "file": "words/alarm.mp3",
+  "text": "Program alarm 1202. The guidance computer saying it has more work than it can finish. It dropped its least important jobs and kept flying. The crew could not know that. Mission Control did. On Apollo 11 a radar setting flooded the computer. Controller Steve Bales made the call in seconds: go.",
+  "say": "Program alarm twelve oh two. The guidance computer saying it has more work than it can finish. It dropped its least important jobs and kept flying. The crew could not know that. Mission Control did. On Apollo 11 a radar setting flooded the computer. Controller Steve Bales made the call in seconds: go.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_redesignate",
+  "file": "words/redesignate.mp3",
+  "text": "Redesignation. Moving the landing target while already on the way down. From orbit a site looks smooth. Close up there may be boulders, and only the crew can see them. Neil Armstrong flew past a crater full of boulders, which is why Apollo 11 nearly ran out of propellant.",
+  "say": "Redesignation. Moving the landing target while already on the way down. From orbit a site looks smooth. Close up there may be boulders, and only the crew can see them. Neil Armstrong flew past a crater full of boulders, which is why Apollo 11 nearly ran out of propellant.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_gear",
+  "file": "words/gear.mp3",
+  "text": "Landing gear. The four legs of the lander. They crush a little on contact to soften the landing, and they have limits. The legs were designed for about 3 m/s straight down, 1.2 m/s sideways, and a slope of 12°.",
+  "say": "Landing gear. The four legs of the lander. They crush a little on contact to soften the landing, and they have limits. The legs were designed for about 3 metres per second straight down, 1.2 metres per second sideways, and a slope of 12 degrees.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_contact",
+  "file": "words/contact.mp3",
+  "text": "Contact light. A blue light that came on when a probe under a footpad touched the ground. It told the crew to shut the engine down, so that it would not blast the surface from too close. The probes hung 1.7 m below the footpads.",
+  "say": "Contact light. A blue light that came on when a probe under a footpad touched the ground. It told the crew to shut the engine down, so that it would not blast the surface from too close. The probes hung 1.7 metres below the footpads.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_autopilot",
+  "file": "words/autopilot.mp3",
+  "text": "Autopilot. A computer flying the vehicle with nobody touching the controls. It is the safest way to learn what each instrument does. Skilled pilots take over for the last part. Every Apollo commander took over by hand for the final seconds.",
+  "say": "Autopilot. A computer flying the vehicle with nobody touching the controls. It is the safest way to learn what each instrument does. Skilled pilots take over for the last part. Every Apollo commander took over by hand for the final seconds.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_eva",
+  "file": "words/eva.mp3",
+  "text": "EVA. Extravehicular activity: any time an astronaut works outside the spacecraft. Time outside is limited by what the backpack carries, so every minute is planned. A moonwalk is an EVA. The longest Apollo one lasted over seven hours.",
+  "say": "E V A. Extravehicular activity: any time an astronaut works outside the spacecraft. Time outside is limited by what the backpack carries, so every minute is planned. A moonwalk is an E V A. The longest Apollo one lasted over seven hours.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_lifesupport",
+  "file": "words/lifesupport.mp3",
+  "text": "Life support. The backpack that keeps an astronaut alive outside: oxygen, cooling and a radio. When it runs low you go back in, whether the work is finished or not. Apollo’s backpack was called the PLSS, for portable life support system.",
+  "say": "Life support. The backpack that keeps an astronaut alive outside: oxygen, cooling and a radio. When it runs low you go back in, whether the work is finished or not. Apollo’s backpack was called the P L S S, for portable life support system.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_regolith",
+  "file": "words/regolith.mp3",
+  "text": "Regolith. The grey, powdery soil of the Moon. It is fine and sharp. It flies up under the engine and clings to everything. It was made by billions of years of meteorites smashing rock into dust.",
+  "say": "Regolith. The grey, powdery soil of the Moon. It is fine and sharp. It flies up under the engine and clings to everything. It was made by billions of years of meteorites smashing rock into dust.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_mare",
+  "file": "words/mare.mp3",
+  "text": "Mare. A dark, flat plain of old lava on the Moon. The word is Latin for sea. Flat ground is the safest place to land, with the least varied rocks. Apollo 11 landed in Mare Tranquillitatis, the Sea of Tranquility.",
+  "say": "Mare. A dark, flat plain of old lava on the Moon. The word is Latin for sea. Flat ground is the safest place to land, with the least varied rocks. Apollo 11 landed in Mare Tranquillitatis, the Sea of Tranquility.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_highlands",
+  "file": "words/highlands.mp3",
+  "text": "Highlands. The bright, rough, heavily cratered parts of the Moon. They are the Moon’s oldest crust: harder to land on, and richer for science. Apollo 16 was the only crew to land there.",
+  "say": "Highlands. The bright, rough, heavily cratered parts of the Moon. They are the Moon’s oldest crust: harder to land on, and richer for science. Apollo 16 was the only crew to land there.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_seismometer",
+  "file": "words/seismometer.mp3",
+  "text": "Seismometer. An instrument that feels the ground shake. Shaking that passes through the Moon shows what it is made of deep inside. Apollo’s seismometers recorded moonquakes until they were switched off in 1977.",
+  "say": "Seismometer. An instrument that feels the ground shake. Shaking that passes through the Moon shows what it is made of deep inside. Apollo’s seismometers recorded moonquakes until they were switched off in 1977.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_retroreflector",
+  "file": "words/retroreflector.mp3",
+  "text": "Laser retroreflector. A tray of corner mirrors that sends a laser beam straight back to where it came from. Timing the round trip measures the distance to the Moon to within centimetres. It needs no power. The Moon is drifting away from Earth by about 3.8 cm a year. The mirrors are still in use.",
+  "say": "Laser retroreflector. A tray of corner mirrors that sends a laser beam straight back to where it came from. Timing the round trip measures the distance to the Moon to within centimetres. It needs no power. The Moon is drifting away from Earth by about 3.8 centimetres a year. The mirrors are still in use.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_heatflow",
+  "file": "words/heatflow.mp3",
+  "text": "Heat flow. How much heat leaks out from the inside of a planet or moon. It shows whether the inside is still warm, which tells how the Moon formed and cooled. Apollo 15 and 17 drilled holes and put thermometers down them.",
+  "say": "Heat flow. How much heat leaks out from the inside of a planet or moon. It shows whether the inside is still warm, which tells how the Moon formed and cooled. Apollo 15 and 17 drilled holes and put thermometers down them.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_sample",
+  "file": "words/sample.mp3",
+  "text": "Sample. A piece of rock or soil brought home to study. Laboratories on Earth can do far more than any instrument carried to the Moon. The six Apollo landings brought back 382 kg. It showed the Moon is about 4.5 billion years old.",
+  "say": "Sample. A piece of rock or soil brought home to study. Laboratories on Earth can do far more than any instrument carried to the Moon. The six Apollo landings brought back 382 kilograms. It showed the Moon is about 4.5 billion years old.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_vacuum",
+  "file": "words/vacuum.mp3",
+  "text": "Vacuum. Space with no air in it at all. With no air the sky is black in daylight, a flag hangs still, and dust flies in flat sheets instead of clouds. It is also why sound does not travel there.",
+  "say": "Vacuum. Space with no air in it at all. With no air the sky is black in daylight, a flag hangs still, and dust flies in flat sheets instead of clouds. It is also why sound does not travel there.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_gonogo",
+  "file": "words/gonogo.mp3",
+  "text": "Go / no-go. The check before a big step. Each team answers go if it is ready, no-go if it is not. One no-go stops everything. It makes sure a problem in one place is heard everywhere. Mission Control polls every console by name before a launch and before a landing.",
+  "say": "Go / no-go. The check before a big step. Each team answers go if it is ready, no-go if it is not. One no-go stops everything. It makes sure a problem in one place is heard everywhere. Mission Control polls every console by name before a launch and before a landing.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_margin",
+  "file": "words/margin.mp3",
+  "text": "Margin. Spare capacity kept on purpose. Things turn out heavier, hungrier or slower than planned. Margin is what absorbs it. Engineers plan to finish with propellant, power and money left over.",
+  "say": "Margin. Spare capacity kept on purpose. Things turn out heavier, hungrier or slower than planned. Margin is what absorbs it. Engineers plan to finish with propellant, power and money left over.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_tradeoff",
+  "file": "words/tradeoff.mp3",
+  "text": "Trade-off. Getting more of one thing by giving up some of another. Mass, power, money, time and science all pull against each other. There is no single best design. On the Moon lander, every kilogram of science kit is a kilogram less propellant.",
+  "say": "Trade-off. Getting more of one thing by giving up some of another. Mass, power, money, time and science all pull against each other. There is no single best design. On the Moon lander, every kilogram of science kit is a kilogram less propellant.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_budget",
+  "file": "words/budget.mp3",
+  "text": "Budget. The limit on what a mission may spend: money, mass, power or data. Staying inside every budget at once is most of what mission design is. Engineers keep a mass budget as carefully as a money one.",
+  "say": "Budget. The limit on what a mission may spend: money, mass, power or data. Staying inside every budget at once is most of what mission design is. Engineers keep a mass budget as carefully as a money one.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_requirement",
+  "file": "words/requirement.mp3",
+  "text": "Requirement. Something the mission must be able to do, written down before anything is built. Every design choice is judged against the requirements. For this game’s satellite: see small fires, anywhere, and warn within 12 hours.",
+  "say": "Requirement. Something the mission must be able to do, written down before anything is built. Every design choice is judged against the requirements. For this game’s satellite: see small fires, anywhere, and warn within 12 hours.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_pilot",
+  "file": "words/pilot.mp3",
+  "text": "Pilot. The crew member who steers. The pilot’s eyes stay on attitude and the path ahead, and trust the rest of the crew for everything else. On Apollo the commander flew the landing, standing at the left window.",
+  "say": "Pilot. The crew member who steers. The pilot’s eyes stay on attitude and the path ahead, and trust the rest of the crew for everything else. On Apollo the commander flew the landing, standing at the left window.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_engineer",
+  "file": "words/engineer.mp3",
+  "text": "Flight engineer. The crew member who watches the systems: engines, propellant and staging. The engineer calls out what the pilot cannot look at, and works the switches on time. On Apollo the Lunar Module pilot did this job, and never actually flew the lander.",
+  "say": "Flight engineer. The crew member who watches the systems: engines, propellant and staging. The engineer calls out what the pilot cannot look at, and works the switches on time. On Apollo the Lunar Module pilot did this job, and never actually flew the lander.",
+  "from": "terms.js"
+ },
+ {
+  "id": "w_checklist",
+  "file": "words/checklist.mp3",
+  "text": "Checklist. A written list of steps, done in order, every time. Under pressure people forget. A list does not. Apollo crews wore checklists on the cuffs of their gloves.",
+  "say": "Checklist. A written list of steps, done in order, every time. Under pressure people forget. A list does not. Apollo crews wore checklists on the cuffs of their gloves.",
+  "from": "terms.js"
+ }
+]

@@ -1,0 +1,109 @@
+/* Orbit Ranger — learning: words and instruments that explain themselves, the read-outs of the flying levels,
+ * and the "Space words" list. Loaded after the level styles and before responsive.css. */
+[data-term] { cursor: help; }
+.term.is-explained, [data-term].is-explained { outline: 3px solid var(--yellow); outline-offset: 2px; border-radius: 8px; }
+.info h3 .term, .tiles legend .term, .mn-h .term { font: inherit; color: inherit; }
+
+/* ---------- the explanation card ---------- */
+.ex { position: fixed; left: 0; top: 0; z-index: 80; width: min(340px, calc(100vw - 20px)); padding: 12px 14px; border-radius: 18px; background: var(--card); color: var(--ink);
+  border: 2px solid var(--blue); border-bottom-width: 5px; box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45); font: 400 15px/1.4 var(--body); text-align: left;
+  opacity: 0; visibility: hidden; transform: translateY(4px); transition: opacity 0.12s, transform 0.12s; pointer-events: none; }
+.ex.is-on { opacity: 1; visibility: visible; transform: none; }
+.ex.is-pinned { pointer-events: auto; }
+.ex-head { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.ex-head b { flex: 1; font: 600 19px/1.2 var(--display); }
+.ex-say, .ex-x, .lv-hear { display: grid; place-items: center; width: 34px; height: 34px; flex: none; padding: 0; border: 0; border-radius: 50%; background: var(--blue-soft); color: var(--blue-ink); cursor: pointer; }
+.ex-say svg, .lv-hear svg { width: 20px; height: 20px; }
+.ex-x { background: var(--paper); color: var(--ink-soft); font: 700 20px/1 var(--display); }
+.ex:not(.is-pinned) .ex-say, .ex:not(.is-pinned) .ex-x { display: none; }
+.ex p { margin-top: 6px; }
+.ex-s { font-weight: 700; font-size: 16px; }
+.ex p i, .why-line i, .gl-item p i { display: block; font: normal 800 11.5px var(--body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue-d); }
+.ex-now { padding: 6px 9px; border-radius: 10px; background: var(--yellow-soft); color: var(--yellow-ink); }
+.ex .ex-now i { color: #8a6100; } .ex .ex-f i { color: var(--green-d); }
+.ex-pause { padding: 5px 9px; border-radius: 10px; background: var(--paper); font-size: 13px; color: var(--ink-soft); }
+.ex-pause[hidden] { display: none; }
+body.is-paused .lv-tag::after { content: ' · paused'; }
+
+/* ---------- the guide's speech bubble ---------- */
+.lv-hear { align-self: center; background: var(--card); border-bottom: 3px solid var(--line); }
+.lv-hear[hidden] { display: none; }
+.lv-hear:hover { background: var(--blue-soft); }
+
+/* ---------- instrument read-outs ---------- */
+.lv-hud button, .lv-hud [data-term], #hud [data-term] { pointer-events: auto; }
+.meter[data-term]:hover, .tele[data-term]:hover { border-color: #84d8ff; }
+.rds { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 6px; }
+.rd { display: grid; align-content: start; min-width: 0; padding: 5px 8px 6px; border: 0; border-radius: 10px; background: var(--paper); color: var(--ink); text-align: left; font: inherit; }
+.rd.is-wide { grid-column: 1 / -1; }
+.rd.is-plain { cursor: default; }
+.rd:hover:not(.is-plain) { background: var(--blue-soft); }
+.rd-l { font-size: 12px; font-weight: 800; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rd-n { display: flex; align-items: baseline; gap: 4px; }
+.rd-n b { font: 600 18px/1.15 var(--display); font-variant-numeric: tabular-nums; }
+.rd-n i { font: normal 800 11.5px var(--body); color: var(--ink-soft); }
+.rd em { font: normal 700 11.5px/1.25 var(--body); color: #8a6100; }
+.rd-bar { height: 6px; margin-top: 3px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.rd-bar i { display: block; width: 0; height: 100%; border-radius: 4px; background: var(--purple); }
+.rd[data-level='tight'] .rd-n b { color: #b97700; } .rd[data-level='over'] .rd-n b { color: var(--red-d); } .rd[data-level='ok'] .rd-n b { color: var(--green-d); }
+.rd[data-level='tight'] .rd-bar i { background: var(--yellow-d); }
+.rds[data-orbit='true'] { border-color: var(--green); background: var(--green-soft); }
+.rds[data-orbit='true'] .rd { background: #fff; }
+/* gauges that became buttons keep their look */
+button.alt { text-align: left; font: inherit; color: var(--ink); cursor: help; }
+button.tank { padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: help; }
+.gyro-dial { display: block; padding: 0; border: 0; background: none; cursor: help; }
+.gyro dl div[data-term] { padding: 0 3px; border-radius: 6px; }
+.gyro dl div[data-term]:hover { background: var(--blue-soft); }
+button.bm { text-align: left; background: var(--card); font: inherit; color: inherit; cursor: help; }
+button.bm:hover { background: var(--paper); }
+.bm small { display: block; }
+
+/* ---------- reasons, written out ---------- */
+.pick-note { margin: 6px 0 0; padding: 8px 10px; border-radius: 12px; background: var(--paper); font-size: 14.5px; font-weight: 400; }
+.pick-note.is-ask { padding: 2px 0 0; background: none; color: var(--ink-soft); }
+.why-line { margin-top: 8px; padding: 8px 10px; border-radius: 12px; background: var(--blue-soft); color: var(--blue-ink); font-size: 15px; font-weight: 400; }
+.info .foot-note, .lv-side > .foot-note { margin-top: 10px; font-size: 14px; color: var(--ink-soft); }
+.key-tip { padding: 6px 12px; border-radius: 99px; background: rgba(8, 16, 30, 0.55); color: #fff; font-size: 13.5px; white-space: nowrap; }
+.round.is-want { background: var(--yellow); color: var(--yellow-ink); box-shadow: 0 6px 0 var(--yellow-d); animation: pulse 0.5s ease-in-out infinite alternate; }
+.learned { margin-top: 12px; padding: 10px 12px; border-radius: 14px; background: var(--blue-soft); text-align: left; }
+.learned b { display: block; margin-bottom: 6px; font: 600 14px var(--display); color: var(--blue-ink); }
+.learned span { display: flex; flex-wrap: wrap; gap: 6px; }
+.learned .term { padding: 3px 10px; border: 2px solid #bfe8fb; border-radius: 99px; background: #fff; font-size: 13.5px; }
+details.why[open] summary { margin-bottom: 2px; }
+
+/* ---------- Space words ---------- */
+#dialog.is-words { width: min(680px, calc(100vw - 20px)); }
+.gl-q { width: 100%; }
+.gl-list { max-height: min(50vh, 500px); margin-top: 8px; padding-right: 4px; overflow-y: auto; }
+.gl-group[hidden], .gl-item[hidden], .gl-none[hidden] { display: none; }
+.gl-group h3 { position: sticky; top: 0; z-index: 1; padding: 8px 0 4px; background: var(--card); font: 600 17px var(--display); }
+.gl-group small { color: var(--ink-soft); font-weight: 400; }
+.gl-item { padding: 7px 2px; border-top: 2px solid var(--line); }
+.gl-item summary { display: grid; gap: 1px; cursor: pointer; list-style: none; }
+.gl-item summary::-webkit-details-marker { display: none; }
+.gl-item summary b { font: 600 16px var(--display); color: var(--blue-d); }
+.gl-item summary span { font-size: 14.5px; font-weight: 400; }
+#dialog-body .gl-item p { margin-top: 6px; font-size: 14.5px; }
+.gl-say { margin-top: 6px; font-size: 14px; }
+
+@media (max-width: 860px) {
+  /* one line per read-out on a phone: name on the left, number on the right */
+  .rds { grid-template-columns: 1fr; gap: 2px; padding: 4px; }
+  .rd { grid-template-columns: 1fr auto; align-items: baseline; column-gap: 4px; padding: 2px 6px; }
+  .rd-l { font-size: 10.5px; } .rd-n b { font-size: 14px; } .rd-n i { font-size: 10px; }
+  .rd em { display: none; } .rd-bar { grid-column: 1 / -1; margin-top: 1px; }
+  .key-tip { display: none; }
+  .ex { font-size: 14.5px; }
+}
+@media (max-width: 520px) { .tool[data-act='sources'] { display: none; } }
+
+/* level 5: the real-life note under a picked part is shown, not folded away */
+.card-real { margin-top: 6px; font-size: 14px; font-weight: 400; font-style: italic; color: var(--ink-soft); }
+.card-real i { display: block; font: normal 800 11.5px var(--body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-d); }
+
+@media (max-width: 860px) and (orientation: portrait) {
+  /* On an upright phone a tap picks a part, so the drop slots are not needed in the levels, and they covered the guide's words. */
+  body[data-screen='level'] .dock { display: none; }
+  .lv .hud-r { width: 152px; }
+}

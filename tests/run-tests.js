@@ -2,7 +2,7 @@
  * No test framework needed:  node tests/run-tests.js
  */
 const assert = require('node:assert/strict');
-require('../assets/nasa-fires.js'); require('../js/data.js'); require('../js/physics.js'); require('../js/model.js'); require('../js/sim.js'); require('../js/flight.js');
+require('../assets/nasa-fires.js'); require('../js/core/data.js'); require('../js/core/physics.js'); require('../js/core/model.js'); require('../js/core/sim.js'); require('../js/core/flight.js');
 const { DATA: D, Physics: P, Model: M, Sim, Score, Flight: F } = RG;
 
 let passed = 0;

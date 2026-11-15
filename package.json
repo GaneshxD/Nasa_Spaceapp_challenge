@@ -1,13 +1,18 @@
 {
   "name": "orbit-ranger",
-  "version": "1.0.0",
-  "description": "A step-by-step 3D game about designing a wildfire-watching satellite mission. Built for the 2026 NASA Space Apps Challenge.",
+  "version": "2.5.0",
+  "description": "A step-by-step 3D game about designing and flying space missions: a wildfire-watching satellite, a Moon landing with its radio link to Earth, and a two-player launch, with 310 NASA 3D models. Built for the 2026 NASA Space Apps Challenge.",
   "private": true,
   "license": "MIT",
   "scripts": {
     "start": "python3 -m http.server 8080",
-    "test": "node tests/run-tests.js",
+    "test": "node tests/run-tests.js && node tests/lunar-tests.js && node tests/learn-tests.js",
+    "pwa": "node tools/build-pwa.js",
+    "server": "cd server && npm start",
+    "test:server": "cd server && npm test",
     "balance": "node tools/balance.js engineer",
-    "textures": "node tools/embed-textures.js"
+    "textures": "node tools/embed-textures.js",
+    "server": "npm --prefix server install --no-audit --no-fund && node server/src/index.js",
+    "test:browser": "python3 tools/browser/check-levels.py && python3 tools/browser/check-moon.py && python3 tools/browser/check-coop.py && python3 tools/browser/check-phone.py"
   }
 }

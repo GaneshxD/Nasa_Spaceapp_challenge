@@ -1,0 +1,27 @@
+/* Orbit Ranger — the home screen: one centred column over a nebula, the planet rising from the bottom edge.
+ * Loaded last, so these rules replace the left-aligned hero from designer.css and the phone tweaks. */
+body[data-screen='title'] .hero { left: 0; right: 0; top: calc(var(--top) + clamp(10px, 4.6vh, 56px)); bottom: auto; margin-inline: auto; transform: none; width: min(1180px, calc(100vw - 28px)); text-align: center; }
+body[data-screen='title'] .hero h1 { font-size: clamp(44px, min(9.4vw, 17.5vh), 150px); line-height: 0.98; letter-spacing: -0.01em; text-shadow: 0 0 36px rgba(196, 210, 255, 0.6), 0 0 6px rgba(255, 255, 255, 0.35); }
+body[data-screen='title'] .hero h1 > span { display: inline; }
+body[data-screen='title'] .hero .lede { margin: clamp(6px, 1.6vh, 18px) auto clamp(12px, 2.8vh, 28px); max-width: 46ch; text-wrap: balance; font-size: clamp(17px, min(2.4vw, 4.6vh), 38px); font-weight: 400; line-height: 1.28; text-shadow: 0 1px 10px rgba(6, 10, 40, 0.8); }
+body[data-screen='title'] .hero-actions { justify-content: center; gap: clamp(8px, 1.2vw, 16px); }
+body[data-screen='title'] .hero-actions .btn { min-height: clamp(48px, 6.6vh, 68px); padding: 8px clamp(16px, 2vw, 30px); border-radius: clamp(16px, 1.6vw, 22px); font-size: clamp(16px, min(1.5vw, 2.8vh), 23px); letter-spacing: 0; }
+body[data-screen='title'] .hero-actions .btn.ghost { background: rgba(108, 126, 214, 0.26); border-color: rgba(255, 255, 255, 0.4); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22); }
+body[data-screen='title'] .hero-actions .btn.ghost:hover { background: rgba(140, 158, 240, 0.4); border-color: #fff; }
+body[data-screen='title'] .hero-actions .btn.primary { padding-inline: clamp(26px, 3.4vw, 54px); background: #54f000; border-color: #3fc400; box-shadow: 0 0 30px rgba(96, 255, 40, 0.55), inset 0 2px 0 rgba(255, 255, 255, 0.4); }
+body[data-screen='title'] .hero-actions .btn.primary:hover { background: #6bff1f; }
+body[data-screen='title'] .hero .fine { position: fixed; left: 0; right: 0; bottom: clamp(10px, 2.4vh, 26px); margin: 0 auto; max-width: min(90ch, calc(100vw - 28px)); color: #fff; font-size: clamp(12.5px, min(1.25vw, 2.4vh), 19px); font-weight: 400; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95), 0 0 2px rgba(0, 0, 0, 0.8); }
+body[data-screen='title'] #caption { max-width: 48ch; color: rgba(226, 232, 255, 0.74); font-weight: 400; font-size: clamp(13px, 1.15vw, 16px); text-shadow: 0 1px 6px rgba(6, 10, 40, 0.9); }
+body[data-screen='title'] #topbar { background: none; }
+body[data-screen='title'] .tool { border-color: rgba(255, 255, 255, 0.36); border-bottom-width: 2px; border-radius: 16px; background: rgba(108, 122, 196, 0.3); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+body[data-screen='title'] .tool:hover { background: rgba(140, 156, 232, 0.45); }
+@media (max-width: 860px) {
+  body[data-screen='title'] .hero { top: calc(var(--top) + 10px); }
+  body[data-screen='title'] .hero h1 { font-size: clamp(42px, 13.2vw, 76px); }
+  body[data-screen='title'] .hero .lede { font-size: 18px; max-width: 30ch; }
+  body[data-screen='title'] .hero-actions .btn { min-height: 48px; font-size: 16px; }
+}
+@media (max-height: 520px) {
+  body[data-screen='title'] .hero { top: calc(var(--top) - 6px); }
+  body[data-screen='title'] .hero .fine { display: none; }
+}

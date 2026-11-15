@@ -1,0 +1,16 @@
+{
+  "name": "orbit-ranger-server",
+  "version": "1.1.0",
+  "description": "Game server for Orbit Ranger: serves the game, runs crew missions for up to four players on their own devices, and shares mission designs.",
+  "private": true,
+  "license": "MIT",
+  "main": "src/index.js",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

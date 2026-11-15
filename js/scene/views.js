@@ -36,6 +36,7 @@
   };
 
   function family(name) {
+    if (name === 'moon' || name === 'hangar') return name; // scenes of their own (scene/moon.js, scene/showroom.js)
     return EARTH_VIEWS.indexOf(name) >= 0 ? 'earth' : name === 'bay' ? 'bay' : 'pad';
   }
 
@@ -48,9 +49,13 @@
     V.name = name; V.opts = opts;
     var rig = Stage.rig, cam = Stage.camera, scene = Stage.scene;
     var fam = family(name);
+    if (RG.TitleScene) RG.TitleScene.show(false); // the home screen's nebula; put back below if this is the home screen
 
     E.show(fam === 'earth'); S.show(fam === 'bay'); R.show(fam === 'pad');
-    scene.environment = fam === 'pad' ? null : Stage.env; // studio reflections indoors and in space, plain daylight on the pad
+    if (RG.MoonScene) RG.MoonScene.show(fam === 'moon');
+    if (RG.Showroom) RG.Showroom.show(fam === 'hangar');
+    Stage.cameraFn = null;
+    scene.environment = fam === 'pad' ? null : fam === 'moon' ? RG.MoonScene.env() : Stage.env; // studio reflections indoors and in space, plain daylight on the pad
     E.setZones(false); E.setStations(null); // also removes their text labels
     Stage.stars.visible = fam !== 'bay';
     Stage.stars.material.opacity = fam === 'pad' ? 0 : 1;
@@ -67,6 +72,11 @@
       E.setRings([]); E.setShadow(false); E.setRecent(false);
       E.hideSat(); E.setFires([]); E.paintClear(); E.setSatModel(null); E.clearRibbons();
       E.paintMat.opacity = 0.42;
+    } else if (fam === 'moon' || fam === 'hangar') {
+      scene.background.set(fam === 'moon' ? 0x000000 : 0x070c18); scene.fog = null;
+      cam.near = fam === 'moon' ? 0.3 : 0.02; cam.far = fam === 'moon' ? 90000 : 200;
+      rig.minEl = fam === 'moon' ? 0.03 : -1.2; rig.maxEl = 1.35;
+      Stage.stars.visible = fam === 'hangar';
     } else if (fam === 'bay') {
       scene.background.set(BG_BAY); scene.fog = new THREE.Fog(BG_BAY, 9, 42);
       cam.near = 0.05; cam.far = 300;
@@ -82,7 +92,13 @@
     if (name === 'title' || name === 'report') {
       if (prev !== 'title' && prev !== 'report') theta = 0; // start with Africa and Europe facing us
       E.setRecent(true);
-      Stage.look({ target: zero(), az: 0.45, el: 0.28, radius: name === 'title' ? 3.7 : 4.4, minR: 2, maxR: 12, autoSpin: 0, speed: 3 }, cut);
+      var home = name === 'title' && opts.home && RG.TitleScene;
+      if (home) RG.TitleScene.show(true);
+      // home: the planet seen from farther back, the Atlantic facing us, so it can sit low in the frame under the title
+      // (on an upright phone the camera rig already steps back to fit the width, so start closer there)
+      Stage.look(home ? { target: zero(), az: -0.3, el: 0.1, radius: cam.aspect < 0.8 ? 2.9 : 4.6, minR: 2.2, maxR: 12, autoSpin: 0, speed: 3 }
+        : { target: zero(), az: 0.45, el: 0.28, radius: name === 'title' ? 3.7 : 4.4, minR: 2, maxR: 12, autoSpin: 0, speed: 3 }, cut || !!home !== !!V.wasHome);
+      V.wasHome = !!home;
     } else if (name === 'brief') {
       E.setRecent(true);
       E.setZones(true, true);

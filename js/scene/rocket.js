@@ -7,7 +7,7 @@
   var RG = window.RG, THREE = window.THREE, Stage = RG.Stage;
 
   var R = { group: null, style: null, flying: false, t: 0, height: 40, alt: 0 };
-  var SKY_DAY = new THREE.Color(0x79b4e6), SKY_HIGH = new THREE.Color(0x12305e), SKY_SPACE = new THREE.Color(0x02040a);
+  var SKY_HIGH = new THREE.Color(0x12305e), SKY_SPACE = new THREE.Color(0x02040a);
   var PAD_TOP = 1.2;
 
   // Shapes for the three rocket sizes (metres).
@@ -312,7 +312,7 @@
   /** Set the sky: 0 is a sunny day on the ground, 1 is the black of space. */
   R.setSky = function (space) {
     if (R.dome) R.dome.material.uniforms.space.value = space;
-    var col = Stage.scene.background;
+    var col = Stage.bg; // not scene.background: on the home screen that is a picture, which has no colour to blend
     if (space < 0.5) col.copy(HAZE).lerp(SKY_HIGH, space * 2); else col.copy(SKY_HIGH).lerp(SKY_SPACE, (space - 0.5) * 2);
     var fog = Stage.scene.fog;
     if (fog) { fog.color.copy(col); fog.near = 400 - 360 * space; fog.far = 9000 * Math.pow(1 - space, 2) + 700; }
@@ -437,7 +437,7 @@
 
   /** Put everything back on the pad. */
   R.reset = function () {
-    R.flying = false; R.t = 0; R.alt = 0; R.dropT = -1;
+    R.flying = false; R.t = 0; R.alt = 0; R.dropT = -1; R.fairT = -1;
     R.vehicle.position.y = PAD_TOP; R.vehicle.rotation.z = 0;
     R.flame.visible = false; R.glow.intensity = 0;
     R.puffs.forEach(function (p) { p.life = 0; p.s.visible = false; });
@@ -572,7 +572,7 @@
     var m = customMats(), parts = (R.parts = {}), stack = new THREE.Group();
     var tank = cfg.tank && FL.TANKS[cfg.tank], eng = cfg.engines && FL.ENGINES[cfg.engines];
     var H = tank ? tank.len : 0, ES = 4, y = BASE, topY = BASE;
-    R.boostGroups = []; R.boostFlames = []; R.fairing = null; R.cargo = null;
+    R.boostGroups = []; R.boostFlames = []; R.fairing = null; R.cargo = null; R.fairT = -1;
     function part(name, anchor) { var p = new THREE.Group(); p.userData.part = name; stack.add(p); parts[name] = { group: p, anchor: anchor }; return p; }
     function add(p, geo, mat, x, yy, z) { var k = new THREE.Mesh(geo, mat); k.position.set(x || 0, yy || 0, z || 0); p.add(k); return k; }
     function cylg(rt, rb, h, open) { return new THREE.CylinderGeometry(rt, rb, h, 48, 1, !!open); }
@@ -662,6 +662,13 @@
     if (R.cargo) R.cargo.visible = on;
   };
 
+  /** Let the nose cone go (the two-player launch): its shells fall away and the satellite inside is uncovered. */
+  R.dropFairing = function () {
+    if (!R.fairing || R.fairT >= 0) return;
+    R.fairT = 0;
+    if (R.cargo) R.cargo.visible = true;
+  };
+
   /**
    * Draw one moment of a flight.
    * o: { alt (metres), pitch (radians from straight up), burn (0…1), boost: 'on'|'empty'|'gone'|'none', sky (0 day … 1 space) }
@@ -682,6 +689,14 @@
         bg.position.y -= (10 + 40 * R.dropT) * dt;
         bg.rotation.z -= bg.userData.side * 0.35 * dt;
         if (R.dropT > 4) bg.visible = false;
+      });
+    }
+    if (R.fairT >= 0 && R.fairing) { // the shells of the nose cone peel off to either side
+      R.fairT += dt;
+      R.fairing.forEach(function (k, i) {
+        var side = i ? 1 : -1;
+        k.position.x += side * 8 * dt; k.position.y -= (6 + 34 * R.fairT) * dt; k.rotation.z -= side * 0.6 * dt;
+        if (R.fairT > 3.5) k.visible = false;
       });
     }
     if (o.burn > 0.02 && o.alt < 600) { // clouds of exhaust around the pad

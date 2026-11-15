@@ -1,0 +1,23 @@
+{
+  "id": "orbit-ranger",
+  "name": "Orbit Ranger: space mission design game",
+  "short_name": "Orbit Ranger",
+  "description": "Build a rocket, fly it to orbit, design a wildfire-watching satellite with real NASA fire data, land on the Moon, and explore 310 NASA 3D models.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#02040a",
+  "theme_color": "#0b1530",
+  "lang": "en",
+  "categories": ["education", "games", "kids"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "NASA 3D hangar", "short_name": "Hangar", "url": "./index.html#hangar", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Moon landing", "short_name": "Moon", "url": "./index.html#moon", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

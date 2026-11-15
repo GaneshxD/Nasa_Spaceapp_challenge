@@ -30,8 +30,9 @@
     labels: [],
     reducedMotion: window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     // Quality steps down by itself on slow computers: 2 = everything, 1 = fewer
-    // pixels, 0 = no shadows either. Add ?quality=high to the address to pin it.
-    quality: 2,
+    // pixels, 0 = no shadows either. Add ?quality=high to the address to pin it,
+    // or ?quality=low to start at the lightest setting (old phones, software 3D).
+    quality: /[?&]quality=low/.test(window.location.search) ? 0 : 2,
     adaptive: !/[?&]quality=high/.test(window.location.search),
     shadowLights: []
   };
@@ -63,17 +64,18 @@
     } catch (err) {
       return false;
     }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Stage.quality === 0 ? 1 : Math.min(window.devicePixelRatio || 1, 2));
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.05;
-    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.enabled = Stage.quality > 0;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     Stage.renderer = renderer;
     Stage.canvas = canvas;
 
     Stage.scene = new THREE.Scene();
     Stage.scene.background = new THREE.Color(0x02040a);
+    Stage.bg = Stage.scene.background; // the scene's own colour; the home screen swaps a picture in over it (scene/titlebg.js)
     Stage.camera = new THREE.PerspectiveCamera(38, 1, 0.01, 4000);
 
     Stage.stars = makeStars();
@@ -90,6 +92,7 @@
     return true;
   };
 
+  Stage.size = size;
   Stage.resize = function () {
     var w = window.innerWidth, h = window.innerHeight;
     size.w = w; size.h = h;
@@ -127,7 +130,12 @@
     if (Stage.hidden) return; // a full-screen page is covering the 3D view
     var time = clock.elapsedTime;
     watchSpeed(raw);
-    for (var i = 0; i < Stage.frameFns.length; i++) Stage.frameFns[i](dt, time);
+    // One broken callback must never stop the picture: three.js only asks for the next frame after this
+    // function returns, so an error thrown here would freeze the game for good. Report it once and carry on.
+    for (var i = 0; i < Stage.frameFns.length; i++) {
+      try { Stage.frameFns[i](dt, time); }
+      catch (err) { if (!Stage.frameErr) { Stage.frameErr = err; if (window.console) console.error('Orbit Ranger: a frame callback failed', err); } }
+    }
 
     /* glide the camera toward its goal */
     var g = rig.goal;
@@ -152,6 +160,9 @@
       cam.position.y += (Math.random() - 0.5) * Stage.shake;
     }
     cam.lookAt(rig.target);
+    // a level may place the camera itself (the lander's window, an astronaut's eyes);
+    // the rig still glides, so dragging keeps turning rig.az and rig.el for it to read
+    if (Stage.cameraFn) Stage.cameraFn(cam, dt, rig);
 
     offset.x += (offset.gx - offset.x) * k;
     offset.y += (offset.gy - offset.y) * k;
@@ -168,10 +179,11 @@
 
   /** If frames are slow for a while, trade some polish for smoothness. */
   function watchSpeed(raw) {
-    if (!Stage.adaptive || Stage.quality === 0 || raw > 0.5) return; // long gaps are a hidden tab, not a slow one
-    if (perf.warm < 40) { perf.warm++; return; }                      // ignore start-up
+    if (!Stage.adaptive || Stage.quality === 0 || raw > 3) return;   // a very long gap is a hidden tab, not a slow one
+    perf.warmTime = (perf.warmTime || 0) + raw;
+    if (perf.warm < 40 && perf.warmTime < 2.5) { perf.warm++; return; } // ignore start-up
     perf.time += raw; perf.frames++;
-    if (perf.frames < 50) return;
+    if (perf.frames < 50 && !(perf.time > 3 && perf.frames >= 3)) return; // judge after 50 frames, or 3 seconds if frames are that slow
     var average = perf.time / perf.frames;
     perf.time = 0; perf.frames = 0;
     if (average < 0.045) return;
