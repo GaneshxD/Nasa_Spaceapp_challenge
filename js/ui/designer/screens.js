@@ -3,25 +3,19 @@
 (function () {
   'use strict';
   var RG = window.RG, X = RG.Designer, D = RG.DATA, W = RG.Widgets;
-  var Stage = RG.Stage;
   var state = X.state, esc = W.esc, $ = X.$, owner = X.owner, team = X.team;
 
   /* ----- title ----- */
   function renderTitle() {
-    var orbit = Stage.reducedMotion ? '' :
-      '<animateMotion dur="7s" repeatCount="indefinite" path="M10,60 a90,34 0 1,0 180,0 a90,34 0 1,0 -180,0"/>';
     $('panel').innerHTML =
       '<div class="hero">' +
-      '<h1><span><span class="o">O<svg class="title-orbit" viewBox="0 0 200 120" aria-hidden="true"><g transform="rotate(-20 100 60)">' +
-      '<ellipse cx="100" cy="60" rx="90" ry="34" fill="none" stroke="#F2542D" stroke-width="4"/>' +
-      '<circle r="8" cx="0" cy="0" fill="#fff">' + orbit + '</circle></g></svg></span>rbit</span> <span>Ranger</span></h1>' +
+      '<h1><span><span class="o">O</span>rbit</span> <span>Ranger</span></h1>' +
       '<p class="lede">Build a rocket. Fly it to orbit. Spot wildfires from space. Then land on the Moon.</p>' +
       '<div class="hero-actions">' +
       '<button type="button" class="btn primary big" data-act="play">Play</button>' +
       '<button type="button" class="btn ghost" data-lv="go" data-id="coop1">2 players</button>' +
       '<button type="button" class="btn ghost" data-lv="go" data-id="crew4">Crew online</button>' +
-      '<button type="button" class="btn ghost" data-lv="hangar">NASA 3D hangar</button>' +
-      '<button type="button" class="btn ghost" data-act="code">Use a mission code</button></div>' +
+      '<button type="button" class="btn ghost" data-lv="hangar">NASA 3D hangar</button></div>' +
       '<p class="fine">The Earth, every fire and ' + RG.Models.all().length + ' spacecraft in the game are real NASA data and models.</p>' +
       '</div>';
   }
